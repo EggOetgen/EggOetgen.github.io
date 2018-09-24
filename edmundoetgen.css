@@ -5,6 +5,8 @@ body{
 	margin-top:0;
     padding-top:0;
     margin-bottom:0;
+		margin-left: 0;
+		margin-right: 0;
     padding-bottom:0;
     background-color:#D7D9D9;
     /*overflow:auto;*/
@@ -24,9 +26,8 @@ p{
 	font-size: 2em;
 	margin-top:0;
     padding-top:0;
-	margin-bottom:0;
+margin-bottom:0;
 }
-
 img {
    max-width:100%;
    height:auto;
@@ -35,24 +36,22 @@ img {
 
 a:link {
     text-decoration: none;
-   color: #3C594E;
+    color: #262626;
 }
 
 a:visited {
     text-decoration: none;
-    color: #3C594E;
+    color: #262626;
 }
 
 a:hover {
     text-decoration: none;
     /*color: #737373;*/
-   
-    color: #A6A6A6;
+   color: #3C594E;
 }
 
 a:active {
     text-decoration: none;
-    color: #3C594E;
 }
 .left{
 	/*display: table;*/
@@ -63,16 +62,16 @@ a:active {
 	height: 100%;
 	position: fixed;
 	/*border-right: 2px solid;*/
-	
-	
+
+
 }
 
 .right{
  	float: right;
 	width: 50%;
-	
-	background-color:#262626;
 
+	background-color:#262626;
+/* position: fixed; */
 	/*border-left: 2px solid black;*/
 }
 
@@ -86,7 +85,7 @@ a:active {
 
 .projText{
 	color: #D7D9D9;
-	
+
 	float: right;
 	width:auto;
    max-width:50%;
@@ -95,8 +94,8 @@ a:active {
 }
 .project{
 	width:100%;
-	height:auto;
-	max-height: 33%;
+	height:33%;
+	/* max-height: 33%; */
 	overflow:auto
 }
 
@@ -112,15 +111,11 @@ a:active {
 
 .break{
 
-	height: 60%;
-	/*height:auto;*/
+	/*height: 50%;*/
 }
 .links{
 	text-align: right;
 	font-weight: bold;
-	max-height: 20%;
-	height:auto;
-	color: #3C594E;
 	/*padding-top: 0%;*/
 }
 
