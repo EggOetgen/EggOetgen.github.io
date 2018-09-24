@@ -94,7 +94,7 @@ a:active {
 }
 .project{
 	width:100%;
-	max-height:50%;
+	height:5%;
 
 	/* height: auto; */
 	overflow:auto
@@ -120,6 +120,13 @@ a:active {
 	/*padding-top: 0%;*/
 }
 
+#menButton {
+	visibility: hidden;
+}
+
+.button {
+	style.display: none;
+}
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 480px) {
@@ -129,6 +136,9 @@ a:active {
 	.left {  width: 100%;max-height: 40px; overflow: hidden;}
 	.links{		font-size: 1vw;
 		/*padding-top: 0%;*/
+	}
+	#menButton {
+		visibility: visible;
 	}
 	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
 }
