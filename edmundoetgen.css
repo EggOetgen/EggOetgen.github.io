@@ -24,8 +24,9 @@ p{
 	font-size: 2em;
 	margin-top:0;
     padding-top:0;
-margin-bottom:0;
+	margin-bottom:0;
 }
+
 img {
    max-width:100%;
    height:auto;
@@ -34,22 +35,24 @@ img {
 
 a:link {
     text-decoration: none;
-    color: #262626;
+   color: #3C594E;
 }
 
 a:visited {
     text-decoration: none;
-    color: #262626;
+    color: #3C594E;
 }
 
 a:hover {
     text-decoration: none;
     /*color: #737373;*/
-   color: #3C594E;
+   
+    color: #A6A6A6;
 }
 
 a:active {
     text-decoration: none;
+    color: #3C594E;
 }
 .left{
 	/*display: table;*/
@@ -109,11 +112,15 @@ a:active {
 
 .break{
 
-	/*height: 50%;*/
+	height: 60%;
+	/*height:auto;*/
 }
 .links{
 	text-align: right;
 	font-weight: bold;
+	max-height: 20%;
+	height:auto;
+	color: #3C594E;
 	/*padding-top: 0%;*/
 }
 
