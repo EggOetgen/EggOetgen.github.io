@@ -101,6 +101,7 @@ a:active {
 }
 .shortLinks{
 visibility: collapse;
+height: 0px;
 }
 
 .bio{
