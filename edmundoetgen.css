@@ -44,6 +44,7 @@ a.projLink:hover {
 
 a.projLink:active {
     text-decoration: none;
+		   color: #3C594E;
 }
 p{
 	font-family: 'Raleway', sans-serif;
