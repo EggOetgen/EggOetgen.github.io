@@ -1,460 +1,105 @@
 <!DOCTYPE html>
-<html>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="js/src/stats.min.js"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
-	<link href="edmundoetgen.css" rel="stylesheet" type="text/css" />
-<title>Edmund Oetgen</title>
-</head>
-<body>
+    </head>
+    <body>
 
-  <div id="container"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
-      <script id="vertexShader" type="x-shader/x-vertex">
-          void main() {
-              gl_Position = vec4( position, 1.0 );
-          }
-      </script>
-      <script id="fragmentShader" type="x-shader/x-fragment">
-      // Author:
-      // Title:
+        <script src="js/src/three.js"></script>
+        <script src="./js/app.js" async defer></script>
 
+        <!-- <canvas id = 'bannerCanvasStatic' ></canvas> -->
 
-      //#version 150
-      #ifdef GL_ES
-      precision mediump float;
-      #endif
+        <canvas id = 'bannerCanvas' ></canvas>
+        <button onclick="doThing()">press me</button>
+        <script id="vertexShader" type="notjs">
+        const float TWO_PI = 6.2831855;
+        varying vec2 vUv;
+        varying vec2 vUvStraight;
 
-      //uniform sampler2DRect texture0;
-      uniform vec2 u_resolution;
-      uniform vec2 u_mouse;
-      uniform float u_time;
+        uniform float u_test;
+      // uniform float u_time;
+        uniform float mx;
+        uniform float my;
 
-      // params:
-      // p: arbitrary point in 3D space
-      // c: the center of our sphere
-      // r: the radius of our sphere
-      float distance_from_sphere(in vec3 p, in vec3 c, float r)
-      {
-          return length(p - c) - r;
-      //    return length(mod(p, 1.0) - c) - r;
-      }
+        uniform vec2 u_resolution;
 
 
+        void main() {
+            float u_time = 0.;
+            vUv = uv;
+            vUvStraight = uv;
 
-      // polynomial smooth min (k = 0.1);
-      float smin( float a, float b, float k )
-      {
-          float h = clamp( 0.5+0.5*(b-a)/k, 0.0, 1.0 );
-          return mix( b, a, h ) - k*h*(1.0-h);
-      }
+            vec2 texcoord = uv * u_resolution;
+   float mixX =  mx*2.0;
+   float mixY =my*5.0;
+    
 
-      float map_the_world(in vec3 p)
-      {
-      //     float sphere_0 = distance_from_sphere(p, vec3(0.0), 1.0);
+            float spoint =((((sin(u_time ))* 0.17*uv.x)  + (sin(uv.y *1.2 * TWO_PI +u_time ) * 0.2))+ 0.4 );
+          //  <!-- vUv = vec2(spoint+(sin(uv.x * u_time * 3.  ) * 5. )); -->
+            vUv = vec2(mix(spoint+(sin(uv.x * u_time * 3.  ) * 5.  ),uv.x, mixX) , uv.y);//mix(texcoord.y+(cos(uv.y * u_time * 2.  ) * 5. ),uv.y, mixY) );
+            vec3 pos = position;
+          //  <!-- pos.y = position.y * 1.0 -(u_test * (sin(uv.x * TWO_PI))); -->
+            gl_Position = projectionMatrix *
+                           modelViewMatrix *
+                           vec4(pos,1.0);
+           }
+           
+           </script>
+           
+           <script id="fragmentShader" type="notjs">
+            const float TWO_PI = 6.2831855;
 
-      //     // Later we might have sphere_1, sphere_2, cube_3, etc...
+            uniform sampler2D texture1;
+            uniform float u_test;
+            uniform float u_time;
+            varying vec2 vUv;
+            varying vec2 vUvStraight;
+           
+            uniform vec2 u_resolution;
 
-      //     return sphere_0;
-      float u_timeS = u_time*0.1;
-          float displacement = sin(5.0* p.x) * sin(5.0 * p.y) * sin(5.0 * p.z) * 0.25;
-          float sphere_0 = distance_from_sphere(p, vec3(sin(u_timeS),cos(u_timeS),min(sin(u_timeS),cos(u_timeS))), 0.5);
-       	float sphere_2 = distance_from_sphere(p, vec3(cos(u_timeS),sin(u_timeS*02.3),max(sin(u_timeS),cos(u_timeS))) + vec3(-0.4), 1.0);
+            uniform float mx;
+        uniform float my;
 
-      //    return (min(sphere_0, sphere_2) + displacement* (sin(u_time)  )  );
-          return smin(sphere_0, sphere_2, 1.0) + displacement* (sin(u_timeS)  ) ;
-      //return smin(sphere_0, sphere_2, 1.0)
-      //     return (sphere_0 - sphere_2) + displacement   ;
-
-      //    float sphere_0 = distance_from_sphere(p, vec3(0), 0.5);
-      //    return sphere_0;
-
-      }
-
-      vec3 calculate_normal(in vec3 p)
-      {
-          const vec3 small_step = vec3(0.001, 0.0, 0.0);
-
-          float gradient_x = map_the_world(p + small_step.xyy) - map_the_world(p - small_step.xyy);
-          float gradient_y = map_the_world(p + small_step.yxy) - map_the_world(p - small_step.yxy);
-          float gradient_z = map_the_world(p + small_step.yyx) - map_the_world(p - small_step.yyx);
-
-          vec3 normal = vec3(gradient_x, gradient_y, gradient_z);
-
-          return normalize(normal);
-      }
-
-
-      vec3 ray_march(in vec3 ro, in vec3 rd)
-      {
-          float total_distance_traveled = 0.0;
-          const int NUMBER_OF_STEPS = 32;
-          const float MINIMUM_HIT_DISTANCE = 0.001;
-          const float MAXIMUM_TRACE_DISTANCE = 1000.0;
-
-          for (int i = 0; i < NUMBER_OF_STEPS; ++i)
-          {
-              // Calculate our current position along the ray
-              vec3 current_position = ro + total_distance_traveled * rd;
-
-              // We wrote this function earlier in the tutorial -
-              // assume that the sphere is centered at the origin
-              // and has unit radius
-              float distance_to_closest = map_the_world(current_position);
-
-              if (distance_to_closest < MINIMUM_HIT_DISTANCE) // hit
-              {
-                 vec3 normal = calculate_normal(current_position);
-
-                  // For now, hard-code the light's position in our scene
-                  vec3 light_position = vec3(2.0, -0.5, 10.0 );
-
-                  // Calculate the unit direction vector that points from
-         			// the point of intersection to the light source
-      			vec3 direction_to_light = normalize(current_position - light_position);
-
-
-          		float diffuse_intensity = max(0.0, dot(normal, direction_to_light));
-                  return vec3(0.842,0.951,1.000) * diffuse_intensity;
-              }
-
-              if (total_distance_traveled > MAXIMUM_TRACE_DISTANCE) // miss
-              {
-                  break;
-              }
-
-              // accumulate the distance traveled thus far
-              total_distance_traveled += distance_to_closest;
-          }
-
-          // If we get here, we didn't hit anything so just
-          // return a background color (black)
-          return vec3(0.850,0.637,0.653);
-      }
-
-
-      void main() {
-          vec2 st = gl_FragCoord.xy/u_resolution.xy;
-         //  vec2 st =  gl_TexCoord[0].xy;
-          st *=2.0;
-          st -=1.0;
-       //   st.x *= u_resolution.x/u_resolution.y;
-
-          vec3 camera_position = vec3(0.0, 0.0, -3.0);
-      	vec3 ro = camera_position;
-      	vec3 rd = vec3(st, 1.0);
-
-          vec3 color = vec3(0.);
-          color = ray_march(ro,rd);
-        //  vec4 color2 = texture(tex0,st
-                               //   );
-
-          gl_FragColor = vec4(color,1.0);
-        //  gl_FragColor = color2;
-
-      }
-      </script>
-      <script>
-        var container;
-        var camera, scene, renderer;
-        var uniforms;
-	var currMouseX = 0, currMouseY = 0, prevMouseX = 0, prevMouseY = 0;
-
-        init();
-
-
-        animate();
-
-        function init() {
-            container = document.getElementById( 'container' );
-
-
-            camera = new THREE.Camera();
-            camera.position.z = 1;
-
-            scene = new THREE.Scene();
-
-            var geometry = new THREE.PlaneBufferGeometry( 2, 2 );
-	    var accumTime = 0;
-
-            uniforms = {
-
-
-                  u_time: { type: "f", value: 1.0 },
-                  u_resolution: { type: "v2", value: new THREE.Vector2() },
-                  u_mouse: { type: "v2", value: new THREE.Vector2() }
-              };
-
-            var material = new THREE.ShaderMaterial( {
-                  uniforms: uniforms,
-                  vertexShader: document.getElementById( 'vertexShader' ).textContent,
-                  fragmentShader: document.getElementById( 'fragmentShader' ).textContent
-              } );
-
-
-            var mesh = new THREE.Mesh( geometry, material );
-            scene.add( mesh );
-
-            renderer = new THREE.WebGLRenderer();
-            renderer.setPixelRatio( Math.min(1., window.devicePixelRatio) );
-            container.appendChild( renderer.domElement );
-
-            onWindowResize();
-            window.addEventListener( 'resize', onWindowResize, false );
-
-            document.onmousemove = function(e){
-		currMouseX = e.pageX / window.innerWidth;
-		currMouseY = e.pageY / window.innerHeight;
-
-                uniforms.u_mouse.value.x = currMouseX;
-                uniforms.u_mouse.value.y = currMouseX;
+            float notRand(vec2 co)
+            {
+             return (dot(sin(co.x * TWO_PI + u_time ), cos(TWO_PI * co.y + u_time)));
             }
-        }
 
-        function onWindowResize( event ) {
-            renderer.setSize( window.innerWidth, window.innerHeight );
-            uniforms.u_resolution.value.x = renderer.domElement.width;
-            uniforms.u_resolution.value.y = renderer.domElement.height;
-        }
-
-        function animate() {
-            requestAnimationFrame( animate );
-            render();
-        }
-
-
-
-        function render() {
-	    let mouseDelta = 1.9*(Math.abs(currMouseX - prevMouseX) + Math.abs(currMouseY - prevMouseY));
-	    let timeIncr = 0.05;
-            uniforms.u_time.value += timeIncr + mouseDelta;
-            renderer.render( scene, camera );
-
-	    prevMouseX = currMouseX;
-	    prevMouseY = currMouseY;
-        }
-
-      </script>
-
-
-
-<div class="section group">
-	<!-- <div class="col span_half_of_3"> -->
-
-	<!-- </div> -->
-
-	<!-- <div class="col span_2_of_3"> -->
-		<div class ="left">
-
-			<!-- <h1>Edmund Oetgen</h1> -->
-      <div class = "shortLinks">
-       <p>
-          Edmund Oetgen/
-         <a href ="https://www.instagram.com/odmundeetgen/"> IG/</a>
-
-         <!-- <a href = "https://soundcloud.com/oetgen">SC/</a> -->
-
-       <a href = "https://github.com/EggOetgen">Git/</a>
-
-
-        <a href = "mailto:e.s.oetgen@gmail.com">E-Mail/</a>
-
-
-       </p>
-     </div>
-	      <div class = "bio">
-	      	<p>
-             <!-- <button type="button" id = "menButton">Click Me!</button> -->
-	      	Edmund Oetgen/
-	     	<br>
-	     	  Creative Technologist/
-	     	<br>
-	     	  London/
-
-
-        <br>
-	     	/
-
-
-	      	</p>
-
-	      <!-- <divclass = "break"> </div> -->
-	       <div class = "links">
-	      	<p>
-						<a href ="https://www.instagram.com/odmundeetgen/"> Instagram/</a>
-            <br>
-              <a href = "https://soundcloud.com/oetgen">SoundCloud/</a>
-
-	     	<br>
-	     	  <a href = "https://github.com/EggOetgen">Github/</a>
-	      	<br>
-
-	     	   <a href = "mailto:e.s.oetgen@gmail.com">Email/</a>
-	     	<br>
-
-	      	</p>
-	      </div>
-			</div>
-	<ul>
-
-	</div>
-
-
-
-	<div class = "right">
-
-    <div class="project">
-
-
-          <div class="slideshow-container">
-
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides1 fade">
-        <div class="numbertext">1 / 2</div>
-        <img src="images/shellGif.gif" alt="HTML5 Icon" class= "projImage">
-
-      </div>
-
-      <div class="mySlides1 fade">
-        <div class="numbertext">2 / 2</div>
-        <img src="images/printedShells.jpg" alt="HTML5 Icon" class= "projImage">
-
-      </div>
-
-      <div class="mySlides1 fade">
-        <div class="numbertext">3 / 5</div>
-        <img src="images/shell1.jpg" alt="HTML5 Icon" class= "projImage">
-
-      </div>
-
-      <div class="mySlides1 fade">
-        <div class="numbertext">4 / 5</div>
-        <img src="images/shell2.jpg" alt="HTML5 Icon" class= "projImage">
-
-      </div>
-      <div class="mySlides1 fade">
-        <div class="numbertext">5 / 5</div>
-        <img src="images/shell4.jpg" alt="HTML5 Icon" class= "projImage">
-
-      </div>
-
-
-      <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-      </div>
-    <!-- <img src="images/shellGif.gif" alt="HTML5 Icon" class= "projImage"> -->
-    <p class = "projText">
-      poo
-      A generative shell that can be manipulated by a users facial expressions, using computer vision and machine learning.
-      <br>
-       <!-- <a href = "mailto:e.s.oetgen@gmail.com" class ="projLink">Github page/</a> -->
-    </p>
-    </div>
-
-    <div class="project">
-    <img src="images/dwain.jpg" alt="HTML5 Icon" class= "projImage">
-    <p class = "projText">
-      D.W.A.I.N., a novel digital drum machine using machine learning. Neural networks are used to create arbitrary mappings between knobs and various synthesis parameters.
-      <a class = "projLink" href = "https://soundcloud.com/oetgen/sets/dwain-demos">Audio Samples/</a>
-       <!-- <a class = "projLink" href = "mailto:e.s.oetgen@gmail.com">Github page/</a> -->
-    </p>
-    </div>
-
-
-
-		<div class="project">
-	  <img src="images/FLIPA.JPG" alt="HTML5 Icon" class= "projImage" >
-	  <p class = "projText">
-	  Software for generating beer recipes using swarm intelligence.
-	  </p>
-	  </div>
-    <div class="project">
-	  <img src="images/tactile.jpeg" alt="HTML5 Icon" class= "projImage">
-
-	  <p class = "projText">
-	  	Tactile, an instrument that explores the relationship between what we see and hear.
-      <br>
-         <a class = "projLink" href = "https://youtu.be/tgzE8__W5Rc">Video/</a>
-        <!-- <a class = "projLink" href = "https://www.youtube.com/watch?time_continue=61&v=tgzE8__W5Rc">Video/</a> -->
-	  </p>
-
-  <div class="project">
-    <div class="slideshow-container">
-
-<!-- Full-width images with number and caption text -->
-<div class="mySlides2 fade">
-  <div class="numbertext">1 / 6</div>
- <img src="images/reactionDiffusion.jpeg" alt="HTML5 Icon" class= "projImage">
-</div>
-
-<div class="mySlides2 fade">
-  <div class="numbertext">2 / 6</div>
- <img src="images/reacDif.png" alt="HTML5 Icon" class= "projImage">
-</div>
-
-<div class="mySlides2 fade">
-  <div class="numbertext">3 / 6</div>
- <img src="images/dust.jpg" alt="HTML5 Icon" class= "projImage">
-</div>
-<div class="mySlides2 fade">
-  <div class="numbertext">4 / 6</div>
-  <img src="images/gl.png.png" alt="HTML5 Icon" class= "projImage">
-
-</div>
-
-<div class="mySlides2 fade">
-  <div class="numbertext">5 / 6</div>
-  <img src="images/friedrich.gif" alt="HTML5 Icon" class= "projImage">
-
-</div>
-
-
-<div class="mySlides2 fade">
-  <div class="numbertext">6 / 6</div>
-  <img src="images/mangle.jpeg" alt="HTML5 Icon" class= "projImage">
-
-</div>
-
-
-<!-- Next and previous buttons -->
-<a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
-</div>
-
-
-    <!-- <div class="project"> -->
-   <!-- <img src="images/reactionDiffusion.jpeg" alt="HTML5 Icon" class= "projImage"> -->
-   <p class = "projText">
-  A selection of generative images, including particle systems, 3D limited diffusion aggregation, OpenGL experiments and A.I. dreams.
-   </p>
-  </div>
-    <!-- <div class="project">
-	  <img src="images/mangelbrot1.jpeg" alt="HTML5 Icon" class= "projImage">
-	  <p class = "projText">
-	  	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis dapibus ligula, non egestas nunc. Suspendisse porta id
-	  </p>
-	  </div> -->
-
-
-	  <!-- <img src="images/dust.jpg" alt="HTML5 Icon" class= "projImage">
-	  <p class = "projText">
-	  Particle system with force simulation, thousands of particles are drawn towards an invisible moving object.
-	  </p>
-	</div> -->
-
-	  </ul>
-	</div>
-
-	<!-- </div> -->
-
-
-	<!-- <div class="col span_half_of_3">
-
-	 --></div>
-
-</div>
- <script src="javascript.js"></script>
-</body>
+            void main() {
+                float MX = mx - 0.5;
+                float MY = my - 0.5;
+                float borderWidth = u_resolution.x * 0.1;
+                vec2 st = vUv;
+                vec4 col;
+                if(( (  vUvStraight.x > 0.2 && vUvStraight.x < 0.21 ) || (vUvStraight.x > 0.79 && vUvStraight.x < 0.8)) && (vUvStraight.y > 0.2 && vUvStraight.y <0.8)
+                || ( (  vUvStraight.y > 0.2 && vUvStraight.y < 0.21 ) || (vUvStraight.y > 0.79 && vUvStraight.y < 0.8)) && (vUvStraight.x > 0.2 && vUvStraight.x <0.8) ){
+                    col = vec4(1.0);
+                }else{
+                st.x += notRand(vUv) * MX;
+                st.y+= notRand(vUv) *MY;
+                
+
+                col = texture2D(texture1, st);
+                //col.x*=vUvStraight.x;
+                }
+
+                gl_FragColor = col;
+                //gl_FragColor = vec4(st.x,  st.x, st.x,1.0); // A
+              }
+           </script>
+    </body>
+</html>
+
+    </body>
 </html>
