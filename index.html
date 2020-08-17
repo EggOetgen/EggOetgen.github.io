@@ -14,7 +14,11 @@
 
     </head>
     <body>
-
+<div id ='but'>
+        <div id = "circle"></div>
+        <div id = "innercircle"></div>
+        <p> hello</p>
+   </div>
         <script src="js/src/three.js"></script>
         <script src="./js/app.js" async defer></script>
 
@@ -76,6 +80,10 @@
              return (dot(sin(co.x * TWO_PI + u_time ), cos(TWO_PI * co.y + u_time)));
             }
 
+            float dist (vec2 a, vec2 b){
+
+              return sqrt( ((a.x -b.x) * (a.x - b.x)) + ((a.y -b.y) * (a.x - b.y)) );
+            }
             void main() {
                 float MX = mx - 0.5;
                 float MY = my - 0.5;
@@ -91,7 +99,7 @@
                 
 
                 col = texture2D(texture1, st);
-                //col.x*=vUvStraight.x;
+               // col.x +=  (dist(st, vUvStraight) )  > 0. ? (dist(st, vUvStraight) * 1.2) : 0.  ;
                 }
 
                 gl_FragColor = col;

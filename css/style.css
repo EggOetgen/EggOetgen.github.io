@@ -3,3 +3,13 @@ canvas { display: block; }
 #bannerCanvas { display: none; }
 button{margin-left: 100px;
 display: none;}
+#circle{ background: rgba(255, 165, 0, 0.0);; width: 100%; height: 100%; border-radius: 64px; border: 4px solid white;   position: absolute; }
+#innercircle{ background: rgba(255, 165, 0, 1);; width: 100%; height: 100%; border-radius: 64px; border: 0px solid;   position: absolute; }
+#but{position: absolute; width: 125px; height: 125px;}
+p{position: absolute; left: 50%;}
+
+#innercirlce:hover{
+
+    background: rgba(7, 88, 31, 20);
+
+}

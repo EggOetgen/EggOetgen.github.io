@@ -7,7 +7,24 @@ var moving = false;
 var mousePos = {x:0, y: 0};
 var prevPos = {x:0, y: 0};
 
+var butt = document.getElementById('but');
+
 // bo.addEventListener("mousemove", myScript);
+let mouseDown = false;
+document.onmousedown = function(){ mouseDown = true }
+document.onmouseup = function(){ mouseDown = false }
+
+document.onmousemove= function(e){
+if(mouseDown){
+    let posX = (e.clientX / window.innerWidth) * 100;
+    let posY = (e.clientY / window.innerHeight) * 100;
+    // posX -=10;
+ 
+
+    butt.style.left = posX + "%"
+    butt.style.top = posY + "%"
+}
+};
 
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
@@ -16,16 +33,16 @@ var ctx = bannerCanvas.getContext("2d");
 // const ctx = document.createElement('canvas').getContext('2d');
 ctx.canvas.width = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
-// ctx.fillStyle = '#FFF';
-// ctx.fillRect(ctx.canvas.width * 0.19, ctx.canvas.height* 0.19, ctx.canvas.width* 0.6, ctx.canvas.height* 0.6);
-
+// ctx.fillStyle = '#222';
+// ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+console.log(ctx.canvas.height + " " + ctx.canvas.width);
 ctx.fillStyle = '#F0F';
 ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height* 0.2, ctx.canvas.width* 0.6, ctx.canvas.height* 0.6);
 
 // ctx.fillRect(0,0, ctx.canvas.width, ctx.canvas.height);
 
-ctx.font = "14vw Arial";
-ctx.fillStyle = '#FFF';
+ctx.font = "10vw Arial";
+ctx.fillStyle = '#000';
 
 ctx.fillText("Odmund", ctx.canvas.width * 0.22, ctx.canvas.height*0.45);
 ctx.fillText("Eetgen", ctx.canvas.width * 0.22, ctx.canvas.height*0.7);
@@ -38,12 +55,12 @@ var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHe
 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setClearColor( 0xffffff, 0);
 document.body.appendChild( renderer.domElement );
 
-var bannerSize = 30;
+var bannerSize = ctx.canvas.width /20;
 
 var bannerTexture = new THREE.Texture(ctx.cavas);
-// console.log(bannerTexture);
 
 // var MX = 0.5;
 // var MY = 0.5;
@@ -99,7 +116,7 @@ var curve = new THREE.EllipseCurve(
 // });
 // scene.add(ellipse);
 
-camera.position.z = 10;
+camera.position.z = 20;
 var delta = 0.;
 
 stats = createStats();
@@ -118,7 +135,7 @@ function animate() {
     force.y*=(-1 * 0.03 * length);
     acc = add(acc, force);
     vel = add(vel,acc);
-    vel = mult(vel,0.955);
+    vel = mult(vel,0.88);
     pos = add(pos,vel);
     // }
 
@@ -144,7 +161,6 @@ function doThing(){
     dest.x = randRange(0.4,0.6);
     dest.y = randRange(0.4,0.6);
    
-   console.log(dest)
 
 
 }
@@ -190,7 +206,6 @@ function createStats() {
    window.addEventListener('mousemove', e => {
       dest.x = 0.5 + (  ( (e.x/window.innerWidth)  * 0.2) - 0.1);
       dest.y = 0.5 + (  ( (e.y/window.innerHeight) * 0.2) - 0.1);
-      console.log(dest.x);
 
   });
 
