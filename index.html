@@ -90,17 +90,17 @@
                 float borderWidth = u_resolution.x * 0.1;
                 vec2 st = vUv;
                 vec4 col;
-                if(( (  vUvStraight.x > 0.2 && vUvStraight.x < 0.21 ) || (vUvStraight.x > 0.79 && vUvStraight.x < 0.8)) && (vUvStraight.y > 0.2 && vUvStraight.y <0.8)
-                || ( (  vUvStraight.y > 0.2 && vUvStraight.y < 0.21 ) || (vUvStraight.y > 0.79 && vUvStraight.y < 0.8)) && (vUvStraight.x > 0.2 && vUvStraight.x <0.8) ){
-                    col = vec4(1.0);
-                }else{
+               // if(( (  vUvStraight.x > 0.2 && vUvStraight.x < 0.21 ) || (vUvStraight.x > 0.79 && vUvStraight.x < 0.8)) && (vUvStraight.y > 0.2 && vUvStraight.y <0.8)
+               // || ( (  vUvStraight.y > 0.2 && vUvStraight.y < 0.21 ) || (vUvStraight.y > 0.79 && vUvStraight.y < 0.8)) && (vUvStraight.x > 0.2 && vUvStraight.x <0.8) ){
+              //      col = vec4(1.0);
+              //  }else{
                 st.x += notRand(vUv) * MX;
                 st.y+= notRand(vUv) *MY;
                 
 
                 col = texture2D(texture1, st);
                // col.x +=  (dist(st, vUvStraight) )  > 0. ? (dist(st, vUvStraight) * 1.2) : 0.  ;
-                }
+                //}
 
                 gl_FragColor = col;
                 //gl_FragColor = vec4(st.x,  st.x, st.x,1.0); // A

@@ -179,6 +179,8 @@ function randRange(min, max) {
 window.addEventListener('mousemove', e => {
   dest.x = 0.5 + (((e.x / window.innerWidth) * 0.2) - 0.1);
   dest.y = 0.5 + (((e.y / window.innerHeight) * 0.2) - 0.1);
+  // dest.x = 0.5 + (((e.x / window.innerWidth) * 1.0) - 0.5);
+  // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
 
 });
 
@@ -244,12 +246,26 @@ function updateCanvas(ctx, textA, textB){
   ctx.canvas.height = window.innerHeight;
   
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.fillStyle = '#F0F';
+  ctx.fillStyle = '#000';
+
+  ctx.fillRect(0, 0, ctx.canvas.width , ctx.canvas.height);
+  // ctx.fillStyle = '#CCF';
+
+  // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
+  ctx.fillStyle = '#DDF';
+
+  ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
+  ctx.fillStyle = '#EEF';
+
+  ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
+  
+  ctx.fillStyle = '#FFF';
   ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
+ 
   
   
   ctx.font = window.innerWidth * 0.009+"em Arial";
-  ctx.fillStyle = '#FFF';
+  ctx.fillStyle = '#000';
   
   ctx.fillText(textA, ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
   ctx.fillText(textB, ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);

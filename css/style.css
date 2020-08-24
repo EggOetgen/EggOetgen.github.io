@@ -4,7 +4,7 @@ canvas { display: block; }
 button{margin-left: 100px;
 display: none;}
 #circle{  width: 100%; height: 100%; border-radius: 64px; border: 4px solid white;   position: absolute; }
-#innercircle{ background: rgba(255, 165, 0, 1);; width: 100%; height: 100%; border-radius: 64px; border: 0px solid;   position: absolute; }
+#innercircle{ background: rgba(255, 255, 0, 1);; width: 100%; height: 100%; border-radius: 64px; border: 0px solid;   position: absolute; }
 #but{position: absolute; width: 125px; height: 125px;left: 0%; top: 25%;}
 p{position: absolute; left: 50%;}
 
