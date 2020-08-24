@@ -58,7 +58,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0xffffff, 0);
 document.body.appendChild( renderer.domElement );
 
-var bannerSize = ctx.canvas.width /20;
+var bannerSize = ctx.canvas.width /40;
 
 var bannerTexture = new THREE.Texture(ctx.cavas);
 
@@ -86,35 +86,6 @@ var geometry = new THREE.PlaneGeometry( bannerSize, bannerSize * (window.innerHe
 var plane = new THREE.Mesh( geometry, shaderMaterial );
 scene.add( plane );
 
-var wireframe = new THREE.WireframeGeometry( geometry );
-// 
-var line = new THREE.LineSegments( wireframe );
-line.material.depthTest = false;
-line.material.opacity = 0.25;
-line.material.transparent = true;
-
-
-var curve = new THREE.EllipseCurve(
-	0,  0,            // ax, aY
-	10, 10,           // xRadius, yRadius
-	0,  2 * Math.PI,  // aStartAngle, aEndAngle
-	false,            // aClockwise
-	0                 // aRotation
-);
-
-// var pointsC = curve.getPoints( 50 );
-// var geometryC = new THREE.BufferGeometry().setFromPoints( pointsC );
-
-// var materialC = new THREE.LineBasicMaterial( { color : 0xff0000 } );
-
-// // Create the final object to add to the scene
-// var ellipse = new THREE.Line( geometryC, materialC );
-// var borderMat = new THREE.LineBasicMaterial({color: 0x0000ff,
-//   linewidth: 10,
-// 	linecap: 'round', //ignored by WebGLRenderer
-//   linejoin:  'round' //ignored by WebGLRenderer});
-// });
-// scene.add(ellipse);
 
 camera.position.z = 20;
 var delta = 0.;
@@ -135,7 +106,7 @@ function animate() {
     force.y*=(-1 * 0.03 * length);
     acc = add(acc, force);
     vel = add(vel,acc);
-    vel = mult(vel,0.88);
+    vel = mult(vel,0.9);
     pos = add(pos,vel);
     // }
 
@@ -147,11 +118,11 @@ function animate() {
 // shaderMaterial.uniforms.u_time.value =delta;
 stats.update();
 
-if (resizeRendererToDisplaySize(renderer)) {
-  const canvas = renderer.domElement;
-  camera.aspect = canvas.clientWidth / canvas.clientHeight;
-  camera.updateProjectionMatrix();
-}
+// if (resizeRendererToDisplaySize(renderer)) {
+//   const canvas = renderer.domElement;
+//   camera.aspect = canvas.clientWidth / canvas.clientHeight;
+//   camera.updateProjectionMatrix();
+// }
         renderer.render(scene, camera);
     }
     animate();
@@ -214,13 +185,14 @@ function createStats() {
 
   }
 
-  function resizeRendererToDisplaySize(renderer) {
-    const canvas = renderer.domElement;
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    const needResize = canvas.width !== width || canvas.height !== height;
-    if (needResize) {
-      renderer.setSize(width, height, false);
-    }
-    return needResize;
+  function resizeRendererToDisplaySize() {
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
   }
+
+  window.addEventListener('resize', resizeRendererToDisplaySize);
+  but.addEventListener('mouseDown', function (){
+
+    console.log('click');
+  });
