@@ -37,7 +37,9 @@ ctx.fillStyle = '#F0F';
 ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
 
 
-ctx.font = "10em Arial";
+// ctx.font = "10em Arial";
+ctx.font = window.innerWidth * 0.009+"em Arial";
+
 ctx.fillStyle = '#FFF';
 
 ctx.fillText("Odmund", ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
@@ -88,8 +90,23 @@ plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
 
 scene.add(plane);
 
+var wireframe = new THREE.WireframeGeometry( geometry );
+// 
+var line = new THREE.LineSegments( wireframe );
+line.material.depthTest = false;
+line.material.opacity = 0.25;
+line.material.transparent = true;
 
-camera.position.z = 20;
+
+line.scale.x = bannerSize;
+line.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
+
+scene.add( line );
+var boundingBox = new THREE.Box3().setFromObject(plane)
+var size = boundingBox.getSize() 
+console.log(size)
+camera.position.z = size.y/2;
+
 var delta = 0.;
 
 stats = createStats();
@@ -191,18 +208,23 @@ function resizeRendererToDisplaySize() {
     // console.log('hi')
     // if()
     if(window.innerWidth >window.innerHeight){
-    bannerSize =window.innerWidth / 20;
+    bannerSize = window.innerWidth / 20;
   shaderMaterial.uniforms.u_resolution.value =[bannerSize, bannerSize * (window.innerHeight / window.innerWidth)];
 
   plane.scale.x = bannerSize;
   plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
+  line.scale.x = bannerSize;
+  line.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
 }else{
   bannerSize =window.innerHeight / 20;
   shaderMaterial.uniforms.u_resolution.value =[bannerSize * (window.innerWidth / window.innerHeight),bannerSize];
 
   plane.scale.y = bannerSize;
   plane.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
+  line.scale.y = bannerSize;
+  line.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
 }
+
 ctx.canvas.width = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
 
@@ -217,7 +239,10 @@ ctx.fillStyle = '#FFF';
 ctx.fillText("Odmund", ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
 ctx.fillText("Eetgen", ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);
   texture.needsUpdate = true;
-
+  boundingBox = new THREE.Box3().setFromObject(plane)
+  var size = boundingBox.getSize() 
+  console.log(size)
+  camera.position.z = size.y/2;
 
 }
 
