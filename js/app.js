@@ -273,3 +273,11 @@ function updateCanvas(ctx, textA, textB){
 
 }
 // document.onmousedown = function(){updateCanvas(ctx, 'Odmund', 'Eetgen')}
+document.ontouchmove =  e => {
+  dest.x = 0.5 + (((e.changedTouches[0].screenX / window.innerWidth) * 0.2) - 0.1);
+  dest.y = 0.5 + (((e.changedTouches[0].screenY / window.innerHeight) * 0.2) - 0.1);
+  console.log(e.changedTouches[0].screenX)
+  // dest.x = 0.5 + (((e.x / window.innerWidth) * 1.0) - 0.5);
+  // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
+
+};
