@@ -2,31 +2,44 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./css/style.css">
-        <script src="js/src/stats.min.js"></script>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-    </head>
-    <body>
-<div id ='but'>
-        <div id = "circle"></div>
-        <div id = "innercircle"></div>
-        <p> hello</p>
-   </div>
-        <script src="js/src/three.js"></script>
-        <script src="./js/app.js" async defer></script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/src/stats.min.js"></script>
 
-        <!-- <canvas id = 'bannerCanvasStatic' ></canvas> -->
+</head>
 
-        <canvas id = 'bannerCanvas' ></canvas>
-        <button onclick="doThing()">press me</button>
-        <script id="vertexShader" type="notjs">
+<body>
+  <div id='navL'>
+    <div id='but'>
+      <div id="circle"></div>
+      <div id="innercircle"></div>
+      <p> hello</p>
+    </div>
+  </div>
+  <div id = 'navR'>
+    <div id ='but'>
+            <div id = "circle"></div>
+            <div id = "innercircle"></div>
+            <p> goodbye</p>
+       </div>
+       </div>
+  <script src="js/src/three.js"></script>
+  <script src="./js/app.js" async defer></script>
+
+  <!-- <canvas id = 'bannerCanvasStatic' ></canvas> -->
+
+  <canvas id='bannerCanvas'></canvas>
+  <button onclick="doThing()">press me</button>
+  <script id="vertexShader" type="notjs">
         const float TWO_PI = 6.2831855;
         varying vec2 vUv;
         varying vec2 vUvStraight;
@@ -60,8 +73,8 @@
            }
            
            </script>
-           
-           <script id="fragmentShader" type="notjs">
+
+  <script id="fragmentShader" type="notjs">
             const float TWO_PI = 6.2831855;
 
             uniform sampler2D texture1;
@@ -106,8 +119,10 @@
                 //gl_FragColor = vec4(st.x,  st.x, st.x,1.0); // A
               }
            </script>
-    </body>
+</body>
+
 </html>
 
-    </body>
+</body>
+
 </html>

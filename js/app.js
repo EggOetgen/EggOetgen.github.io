@@ -7,12 +7,18 @@ var moving = false;
 var mousePos = { x: 0, y: 0 };
 var prevPos = { x: 0, y: 0 };
 
-var butt = document.getElementById('but');
+var butt = document.getElementById('nav');
 
-var buttonSize = window.innerWidth * 0.1;
-console.log(buttonSize)
-butt.style.width  = buttonSize + 'px';
-butt.style.height = buttonSize + 'px';
+var buttonSize = window.innerWidth * 0.06;
+var buttonSizeX = window.innerWidth * 0.045;
+var viewPortX = window.innerWidth * 0.9;
+var viewPortY = window.innerHeight;
+
+// console.log(buttonSize);
+// butt.style.left  = buttonSizeX + 'px';
+
+// butt.style.width  = buttonSize + 'px';
+// butt.style.height = buttonSize + 'px';
 
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
@@ -69,14 +75,14 @@ var shaderMaterial =
 
 // var geometry = new THREE.PlaneGeometry(bannerSize, bannerSize * (window.innerHeight / window.innerWidth), 50, 50);
 
-var geometry = new THREE.PlaneGeometry(1, 1, 50, 50);
+var geometry = new THREE.PlaneGeometry(0.85, 1, 50, 50);
 
 
 var plane = new THREE.Mesh(geometry, shaderMaterial);
 
 plane.scale.x = bannerSize;
 plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
-
+// plane.translateX(1.1);
 scene.add(plane);
 
 // var wireframe = new THREE.WireframeGeometry( geometry );
@@ -96,7 +102,7 @@ camera.position.z = size.y/2;
 var delta = 0.;
 
 stats = createStats();
-document.body.appendChild(stats.domElement);
+// document.body.appendChild(stats.domElement);
 
 
 function animate() {
@@ -222,8 +228,8 @@ camera.position.z = size.y/2;
 
 var buttonSize = window.innerWidth * 0.1;
 console.log(buttonSize)
-butt.style.width  = buttonSize + 'px';
-butt.style.height = buttonSize + 'px';
+// butt.style.width  = buttonSize + 'px';
+// butt.style.height = buttonSize + 'px';
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
@@ -242,29 +248,31 @@ but.addEventListener('mousedown', function () {
 
 function updateCanvas(ctx, textA, textB){
   
-  ctx.canvas.width = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
+  ctx.canvas.width = viewPortX;
+  ctx.canvas.height = viewPortY;
   
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.fillStyle = '#000';
+  ctx.fillStyle = '#CEC';
 
   ctx.fillRect(0, 0, ctx.canvas.width , ctx.canvas.height);
   // ctx.fillStyle = '#CCF';
 
   // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
-  ctx.fillStyle = '#DDF';
+  // ctx.fillStyle = '#DDF';
+  ctx.fillStyle = '#FFF';
 
   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
-  ctx.fillStyle = '#EEF';
+  // ctx.fillStyle = '#EEF';
+  ctx.fillStyle = '#000';
 
   ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
   
   ctx.fillStyle = '#FFF';
   ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
- 
+ viewPortX
   
   
-  ctx.font = window.innerWidth * 0.009+"em Arial";
+  ctx.font = viewPortX * 0.009+"em Arial";
   ctx.fillStyle = '#000';
   
   ctx.fillText(textA, ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
