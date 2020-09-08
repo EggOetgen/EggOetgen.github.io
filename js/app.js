@@ -7,7 +7,6 @@ var moving = false;
 var mousePos = { x: 0, y: 0 };
 var prevPos = { x: 0, y: 0 };
 
-var butt = document.getElementById('nav');
 
 var buttonSize = window.innerWidth * 0.06;
 var buttonSizeX = window.innerWidth * 0.045;
@@ -233,19 +232,26 @@ console.log(buttonSize)
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
-but.addEventListener('mousedown', function () {
+var topics = ['info', 'contact'];
+
+for (i = 0; i < topics.length; i++){
+// var but = document.getElementById('info');
+let butt = document.getElementById(topics[i]);
+
+butt.addEventListener('mousedown', () =>{centreCanvas(butt)});
+}
+function centreCanvas(but){
   dest.x = 0.5;
   dest.y = 0.5;
-
-  but.style.color = "red";
+  // but.style.color = "red";
   var content = but.getElementsByTagName('p')[0];
-  console.log(content)
-  updateCanvas(ctx, 'Hovering:', content.textContent);
+  console.log(but)
+  updateCanvas(ctx, but.id, content.textContent);
   texture.needsUpdate = true;
 
-  // console.log(dest)
-});
+  console.log(dest)
 
+}
 function updateCanvas(ctx, textA, textB){
   
   ctx.canvas.width = viewPortX;
@@ -284,7 +290,7 @@ function updateCanvas(ctx, textA, textB){
 document.ontouchmove =  e => {
   dest.x = 0.5 + (((e.changedTouches[0].screenX / window.innerWidth) * 0.2) - 0.1);
   dest.y = 0.5 + (((e.changedTouches[0].screenY / window.innerHeight) * 0.2) - 0.1);
-  console.log(e.changedTouches[0].screenX)
+  // console.log(e.changedTouches[0].screenX)
   // dest.x = 0.5 + (((e.x / window.innerWidth) * 1.0) - 0.5);
   // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
 

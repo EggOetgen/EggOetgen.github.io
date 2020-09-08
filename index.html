@@ -7,39 +7,39 @@
 <!--<![endif]-->
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="js/src/stats.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/src/stats.min.js"></script>
 
 </head>
 
 <body>
-  <div id='navL'>
-    <div id='but'>
-      <div id="circle"></div>
-      <div id="innercircle"></div>
-      <p> hello</p>
+    <div id='navL'>
+        <div class='but' id='info'>
+            <div id="circle"></div>
+            <div id="innercircle"></div>
+            <p> hello</p>
+        </div>
     </div>
-  </div>
-  <div id = 'navR'>
-    <div id ='but'>
-            <div id = "circle"></div>
-            <div id = "innercircle"></div>
-            <p> goodbye</p>
-       </div>
-       </div>
-  <script src="js/src/three.js"></script>
-  <script src="./js/app.js" async defer></script>
+    <div id='navR'>
+        <div class='but' id = 'contact'>
+            <div id="circle"></div>
+            <div id="innercircle"></div>
+            <p> hello</p>
+        </div>
+    </div>
+    <script src="js/src/three.js"></script>
+    <script src="./js/app.js" async defer></script>
 
-  <!-- <canvas id = 'bannerCanvasStatic' ></canvas> -->
+    <!-- <canvas id = 'bannerCanvasStatic' ></canvas> -->
 
-  <canvas id='bannerCanvas'></canvas>
-  <button onclick="doThing()">press me</button>
-  <script id="vertexShader" type="notjs">
+    <canvas id='bannerCanvas'></canvas>
+    <button onclick="doThing()">press me</button>
+    <script id="vertexShader" type="notjs">
         const float TWO_PI = 6.2831855;
         varying vec2 vUv;
         varying vec2 vUvStraight;
