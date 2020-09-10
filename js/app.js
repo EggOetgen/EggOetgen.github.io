@@ -1,6 +1,6 @@
 
 var pos = { x: 0.45, y: 0.55 };
-var dest = { x: 0.5, y: 0.5 };
+var dest = { x:  0.5 + ((Math.random() * 0.2) - 0.1), y:  0.5 + ((Math.random() * 0.2) - 0.1) };
 var vel = { x: 0.0, y: 0.0 };
 
 var moving = false;
@@ -95,7 +95,7 @@ scene.add(plane);
 
 var boundingBox = new THREE.Box3().setFromObject(plane)
 var size = boundingBox.getSize() 
-console.log(size)
+// console.log(size)
 camera.position.z = size.y/2;
 
 var delta = 0.;
@@ -116,7 +116,7 @@ function animate() {
   force.y *= (-1 * 0.03 * length);
   acc = add(acc, force);
   vel = add(vel, acc);
-  vel = mult(vel, 0.9);
+  vel = mult(vel, 0.92);
   pos = add(pos, vel);
   // texture.needsUpdate = true;
 
@@ -181,13 +181,7 @@ function randRange(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-window.addEventListener('mousemove', e => {
-  dest.x = 0.5 + (((e.x / window.innerWidth) * 0.2) - 0.1);
-  dest.y = 0.5 + (((e.y / window.innerHeight) * 0.2) - 0.1);
-  // dest.x = 0.5 + (((e.x / window.innerWidth) * 1.0) - 0.5);
-  // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
 
-});
 
 function addButton() {
 
@@ -238,7 +232,8 @@ for (i = 0; i < topics.length; i++){
 // var but = document.getElementById('info');
 let butt = document.getElementById(topics[i]);
 
-butt.addEventListener('mousedown', () =>{centreCanvas(butt)});
+butt.addEventListener('mousedown', () =>{centreCanvas(butt);window.history.pushState("object or string", "Title", "/new-url");
+});
 }
 function centreCanvas(but){
   dest.x = 0.5;
@@ -265,21 +260,22 @@ function updateCanvas(ctx, textA, textB){
 
   // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
   // ctx.fillStyle = '#DDF';
-  ctx.fillStyle = '#FFF';
+  ctx.fillStyle = '#fB9';
 
   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
   // ctx.fillStyle = '#EEF';
-  ctx.fillStyle = '#000';
+  ctx.fillStyle = '#FFF';
 
   ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
   
-  ctx.fillStyle = '#FFF';
+  ctx.fillStyle = '#fB9';
   ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
  viewPortX
   
-  
+  console.log( "fs :" + viewPortX * 0.022)
   ctx.font = viewPortX * 0.009+"em Arial";
-  ctx.fillStyle = '#000';
+  // ctx.font = viewPortX * 0.022+"vw Arial";
+  ctx.fillStyle = '#FFF';
   
   ctx.fillText(textA, ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
   ctx.fillText(textB, ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);
@@ -295,3 +291,10 @@ document.ontouchmove =  e => {
   // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
 
 };
+window.addEventListener('mousemove', e => {
+  dest.x = 0.5 + (((e.x / window.innerWidth) * 0.2) - 0.1);
+  dest.y = 0.5 + (((e.y / window.innerHeight) * 0.2) - 0.1);
+  // dest.x = 0.5 + (((e.x / window.innerWidth) * 1.0) - 0.5);
+  // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
+
+});

@@ -18,20 +18,27 @@
 </head>
 
 <body>
-    <div id='navL'>
+
+    <div id='navL' class="nav">
         <div class='but' id='info'>
             <div id="circle"></div>
             <div id="innercircle"></div>
-            <p> hello</p>
+            <p class = "navText"> hello</p>
         </div>
     </div>
-    <div id='navR'>
+
+    <div id='navR' class="nav">
         <div class='but' id = 'contact'>
+            <a href="https://instagram.com/odmundeetgen" target="_blank"><span></span></a>
             <div id="circle"></div>
-            <div id="innercircle"></div>
-            <p> hello</p>
+            <div id="innercircle">         
+                   <img src="assets/glyph-logo_May2016.png" class = "icon"> </p>
+            </div>
+            <!-- <img src="assets/glyph-logo_May2016.png">  -->
         </div>
     </div>
+
+    <div id ="mainContent"><p id ="mainContentText">Odmund Eetgen</p></div>
     <script src="js/src/three.js"></script>
     <script src="./js/app.js" async defer></script>
 
@@ -90,7 +97,7 @@
 
             float notRand(vec2 co)
             {
-             return (dot(sin(co.x * TWO_PI + u_time ), cos(TWO_PI * co.y + u_time)));
+             return (dot(sin(co.x * TWO_PI + u_time  ), cos(TWO_PI * co.y + u_time)));
             }
 
             float dist (vec2 a, vec2 b){
