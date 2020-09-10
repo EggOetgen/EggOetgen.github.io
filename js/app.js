@@ -1,6 +1,8 @@
 
 var pos = { x: 0.45, y: 0.55 };
 var dest = { x:  0.5 + ((Math.random() * 0.2) - 0.1), y:  0.5 + ((Math.random() * 0.2) - 0.1) };
+var dest = { x:  0.5, y:  0.5 };
+
 var vel = { x: 0.0, y: 0.0 };
 
 var moving = false;
@@ -8,9 +10,9 @@ var mousePos = { x: 0, y: 0 };
 var prevPos = { x: 0, y: 0 };
 
 
-var buttonSize = window.innerWidth * 0.06;
-var buttonSizeX = window.innerWidth * 0.045;
-var viewPortX = window.innerWidth * 0.9;
+// var buttonSize = window.innerWidth * 0.06;
+// var buttonSizeX = window.innerWidth * 0.045;
+var viewPortX = window.innerWidth ;
 var viewPortY = window.innerHeight;
 
 // console.log(buttonSize);
@@ -22,7 +24,7 @@ var viewPortY = window.innerHeight;
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
   
-updateCanvas(ctx,'Odmund', 'Eetgen');
+updateCanvas(ctx,'odmund', 'eetgen');
 // ctx.canvas.width = window.innerWidth;
 // ctx.canvas.height = window.innerHeight;
 
@@ -73,16 +75,25 @@ var shaderMaterial =
   });
 
 // var geometry = new THREE.PlaneGeometry(bannerSize, bannerSize * (window.innerHeight / window.innerWidth), 50, 50);
+camera.position.z =100 ;
 
-var geometry = new THREE.PlaneGeometry(0.85, 1, 50, 50);
+
+
+// plane.width = planeWidthAtDistance
+// plane.height = planeHeightAtDistance
+
+var geometry = new THREE.PlaneGeometry(1, 1, 50, 50);
+
 
 
 var plane = new THREE.Mesh(geometry, shaderMaterial);
 
-plane.scale.x = bannerSize;
-plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
+updatePlane();
+// plane.scale.x = bannerSize;
+// plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
 // plane.translateX(1.1);
 scene.add(plane);
+
 
 // var wireframe = new THREE.WireframeGeometry( geometry );
 // var line = new THREE.LineSegments( wireframe );
@@ -96,7 +107,7 @@ scene.add(plane);
 var boundingBox = new THREE.Box3().setFromObject(plane)
 var size = boundingBox.getSize() 
 // console.log(size)
-camera.position.z = size.y/2;
+// camera.position.z = size.y/1.9;
 
 var delta = 0.;
 
@@ -189,35 +200,35 @@ function addButton() {
 }
 
 function resizeRendererToDisplaySize() {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-    // console.log('hi')
-    // if()
-    if(window.innerWidth >window.innerHeight){
-    bannerSize = window.innerWidth / 20;
-  shaderMaterial.uniforms.u_resolution.value =[bannerSize, bannerSize * (window.innerHeight / window.innerWidth)];
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      // console.log('hi')
+      // if()
+      //   if(window.innerWidth >window.innerHeight){
+      //   bannerSize = window.innerWidth / 20;
+      // shaderMaterial.uniforms.u_resolution.value =[bannerSize, bannerSize * (window.innerHeight / window.innerWidth)];
 
-  plane.scale.x = bannerSize;
-  plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
-  // line.scale.x = bannerSize;
-  // line.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
-}else{
-  bannerSize =window.innerHeight / 20;
-  shaderMaterial.uniforms.u_resolution.value =[bannerSize * (window.innerWidth / window.innerHeight),bannerSize];
+      // plane.scale.x = bannerSize;
+      // plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
+    // line.scale.x = bannerSize;
+    // line.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
+//   }else{
+//     bannerSize =window.innerHeight / 20;
+//     shaderMaterial.uniforms.u_resolution.value =[bannerSize * (window.innerWidth / window.innerHeight),bannerSize];
 
-  plane.scale.y = bannerSize;
-  plane.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
-  // line.scale.y = bannerSize;
-  // line.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
-}
-
-updateCanvas(ctx, 'Odmund', 'Eetgen');
+//     plane.scale.y = bannerSize;
+//     plane.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
+//     // line.scale.y = bannerSize;
+//     // line.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
+// }
+updatePlane();
+updateCanvas(ctx, 'odmund', 'eetgen');
 texture.needsUpdate = true;
 boundingBox = new THREE.Box3().setFromObject(plane)
 var size = boundingBox.getSize() 
 console.log(size)
-camera.position.z = size.y/2;
+// camera.position.z = size.y/2;
 
 var buttonSize = window.innerWidth * 0.1;
 console.log(buttonSize)
@@ -232,8 +243,7 @@ for (i = 0; i < topics.length; i++){
 // var but = document.getElementById('info');
 let butt = document.getElementById(topics[i]);
 
-butt.addEventListener('mousedown', () =>{centreCanvas(butt);window.history.pushState("object or string", "Title", "/new-url");
-});
+butt.addEventListener('mousedown', () =>{centreCanvas(butt);});
 }
 function centreCanvas(but){
   dest.x = 0.5;
@@ -247,41 +257,41 @@ function centreCanvas(but){
   console.log(dest)
 
 }
-function updateCanvas(ctx, textA, textB){
+// function updateCanvas(ctx, textA, textB){
   
-  ctx.canvas.width = viewPortX;
-  ctx.canvas.height = viewPortY;
+//   ctx.canvas.width = viewPortX;
+//   ctx.canvas.height = viewPortY;
   
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.fillStyle = '#CEC';
+//   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+//   ctx.fillStyle = '#CEC';
 
-  ctx.fillRect(0, 0, ctx.canvas.width , ctx.canvas.height);
-  // ctx.fillStyle = '#CCF';
+//   ctx.fillRect(0, 0, ctx.canvas.width , ctx.canvas.height);
+//   // ctx.fillStyle = '#CCF';
 
-  // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
-  // ctx.fillStyle = '#DDF';
-  ctx.fillStyle = '#fB9';
+//   // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
+//   // ctx.fillStyle = '#DDF';
+//   ctx.fillStyle = '#fB9';
 
-  ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
-  // ctx.fillStyle = '#EEF';
-  ctx.fillStyle = '#FFF';
+//   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
+//   // ctx.fillStyle = '#EEF';
+//   ctx.fillStyle = '#FFF';
 
-  ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
+//   ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
   
-  ctx.fillStyle = '#fB9';
-  ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
- viewPortX
+//   ctx.fillStyle = '#fB9';
+//   ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
+//  viewPortX
   
-  console.log( "fs :" + viewPortX * 0.022)
-  ctx.font = viewPortX * 0.009+"em Arial";
-  // ctx.font = viewPortX * 0.022+"vw Arial";
-  ctx.fillStyle = '#FFF';
+//   console.log( "fs :" + viewPortX * 0.022)
+//   ctx.font = viewPortX * 0.009+"em Arial";
+//   // ctx.font = viewPortX * 0.022+"vw Arial";
+//   ctx.fillStyle = '#FFF';
   
-  ctx.fillText(textA, ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
-  ctx.fillText(textB, ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);
+//   ctx.fillText(textA, ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
+//   ctx.fillText(textB, ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);
    
 
-}
+// }
 // document.onmousedown = function(){updateCanvas(ctx, 'Odmund', 'Eetgen')}
 document.ontouchmove =  e => {
   dest.x = 0.5 + (((e.changedTouches[0].screenX / window.innerWidth) * 0.2) - 0.1);
@@ -294,7 +304,67 @@ document.ontouchmove =  e => {
 window.addEventListener('mousemove', e => {
   dest.x = 0.5 + (((e.x / window.innerWidth) * 0.2) - 0.1);
   dest.y = 0.5 + (((e.y / window.innerHeight) * 0.2) - 0.1);
+  let butt = document.getElementById('info');
+  // butt.style.top =  e.y + "px";
+  // butt.style["borderRadius"] =  e.x/10+ "px";
+
   // dest.x = 0.5 + (((e.x / window.innerWidth) * 1.0) - 0.5);
   // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
 
 });
+
+
+function updateCanvas(ctx, textA, textB){
+  
+  ctx.canvas.width = viewPortX;
+  ctx.canvas.height = viewPortY;
+  
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  ctx.fillStyle = '#FFF';
+
+  ctx.fillRect(0, 0, ctx.canvas.width , ctx.canvas.height);
+  // ctx.fillStyle = '#CCF';
+
+  // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
+  // ctx.fillStyle = '#DDF';
+//   ctx.fillStyle = '#fB9';
+
+//   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
+//   // ctx.fillStyle = '#EEF';
+//   ctx.fillStyle = '#FFF';
+
+//   ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
+  
+  ctx.fillStyle = '#fB9';
+  ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
+  // ctx.fillStyle = '#468';
+  // ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.1, ctx.canvas.width * 0.6, ctx.canvas.height * 0.8);
+//  viewPortX
+  
+  console.log( "fs :" + viewPortX * 0.02)
+  ctx.font = viewPortX * 0.01+"em Arial";
+  document.body.style["fontSize"] = viewPortX * 0.01+"em Arial";
+
+  // ctx.font = viewPortX * 0.022+"vw Arial";
+  ctx.fillStyle = '#FFF';
+  ctx.fillStyle = '#fca';
+
+  ctx.fillText(textA, ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);
+  ctx.fillText(textB, ctx.canvas.width * 0.2, ctx.canvas.height * 0.7);
+   
+
+}
+
+function updatePlane(){
+  var cameraZ = camera.position.z;
+  var planeZ = 0;
+  var dist = cameraZ - planeZ;
+  var aspect = window.innerWidth / window.innerHeight;
+  var vFov = camera.fov * Math.PI / 180;
+  var planeHeightAtDistance = 2 * Math.tan(vFov / 2) * dist;
+  var planeWidthAtDistance = planeHeightAtDistance * aspect;
+  plane.scale.y = planeHeightAtDistance;
+  
+  plane.scale.x = planeWidthAtDistance  ;
+
+}

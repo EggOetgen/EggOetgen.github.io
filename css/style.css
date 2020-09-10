@@ -1,7 +1,7 @@
 body {
     margin: 0;
     color: white;
-    background-color: #CEC;
+    /* background-color: rgb(177, 103, 103); */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -42,21 +42,25 @@ img {
 /* #circle{  width: 100%; height: 100%;  border: 4px solid white;   position: absolute; } */
 
 #innercircle {
-    background: rgba(80, 80, 80, 0.9);
-    ;
+    /* background: rgba(80, 80, 80, 1); */
+    border: rgba(80, 80, 80, 1) solid; 
+
     width: 100%;
     height: 100%;
-    border-top: 5px solid;
-    border-bottom: 5px solid;
+    /* border-top: 5px solid;
+    border-bottom: 5px solid; */
     position: absolute;
 }
 
 .but {
+    background: rgba(80, 80, 80, 1.0);
+border: rgba(80, 80, 80, 0.4) solid;
     position: absolute;
-    width: 100%;
+    width: 200%;
     height: 125px;
-    left: 0%;
+    /* left: 50%; */
     top: 25%;
+    border-radius: 64px
 }
 
 .icon{
@@ -75,22 +79,45 @@ img {
     height: 100%;
     border-top: 0px solid;
     border-bottom: 0px dotted #f00;
+    /* background-color: rgba(53, 228, 175, 0.6); */
 
 }
+.vertBar{
+    /* background-color: rgba(53, 228, 175, 0.6); */
+
+    position: absolute;
+    height: 5vw;
+    width: 100%;
+    border-top: 0px solid;
+    border-bottom: 0px dotted #f00;
+
+}
+
 
 #navL {
    
-    border-right: 1vw solid;
+    border-right: rgba(80, 80, 80, 0.9) solid;
     border-left: 0px solid #09f;
 }
 
+#navT {
+    height: 5vh;
+
+    border-bottom: rgba(80, 80, 80, 0.9) solid;
+    border-top: 0px solid #09f;
+}
 #navR {
-    left: 94vw;
+    left: 95vw;
   
-    border-left: 1vw solid;
+    border-left: rgba(80, 80, 80, 0.9) solid;
     border-right: 0px solid #09f;
 }
-
+#navB {
+    height: 5vh;
+top: 95vh;
+    border-top: rgba(80, 80, 80, 0.9) solid;
+    border-bottom: 0px solid #09f;
+}
 #mainContent{
     /* opacity: 0.0; */
 
@@ -99,14 +126,15 @@ img {
 	bottom: 0;
 	left: 0;
 	right: 0;
-  	
+  	border: rgba(80, 80, 80, 0.9) solid;
 	margin: auto;
     width: 60vw;
     height: 80vh;
     /* background-color: rgba(80, 80, 80, 0.9); */
 }
-#mainContentText{
-color: rgba(0, 0, 0, 0.0);
+p.home  {
+    /* display: none; */
+    color: rgba(0, 0, 0, 1.0);
     /* /* background-color: red; */
     font-size: 15vw; 
     margin: 0;
@@ -116,6 +144,16 @@ color: rgba(0, 0, 0, 0.0);
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+.mainContentText{
+/* color: rgba(0, 0, 0, 1.0);
+    font-size: 15vw; 
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) */
 }
 /* ::selection {
     background: #ffb7b7; /* WebKit/Blink Browsers */
