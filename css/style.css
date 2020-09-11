@@ -59,10 +59,13 @@ border: rgba(80, 80, 80, 0.4) solid;
     width: 200%;
     height: 125px;
     /* left: 50%; */
-    top: 25%;
+  
     border-radius: 64px
 }
+#info{
 
+    top: 25%;
+}
 .icon{
     width: 80%;
     position: absolute;
@@ -96,26 +99,26 @@ border: rgba(80, 80, 80, 0.4) solid;
 
 #navL {
    
-    border-right: rgba(80, 80, 80, 0.9) solid;
+    /* border-right: rgba(80, 80, 80, 0.9) solid; */
     border-left: 0px solid #09f;
 }
 
 #navT {
     height: 5vh;
 
-    border-bottom: rgba(80, 80, 80, 0.9) solid;
+    /* border-bottom: rgba(80, 80, 80, 0.9) solid; */
     border-top: 0px solid #09f;
 }
 #navR {
     left: 95vw;
   
-    border-left: rgba(80, 80, 80, 0.9) solid;
+    /* border-left: rgba(80, 80, 80, 0.9) solid; */
     border-right: 0px solid #09f;
 }
 #navB {
     height: 5vh;
-top: 95vh;
-    border-top: rgba(80, 80, 80, 0.9) solid;
+   top: 95vh;
+    /* border-top: rgba(80, 80, 80, 0.9) solid; */
     border-bottom: 0px solid #09f;
 }
 #mainContent{
@@ -130,30 +133,23 @@ top: 95vh;
 	margin: auto;
     width: 60vw;
     height: 80vh;
-    /* background-color: rgba(80, 80, 80, 0.9); */
+    /* background-color: #fB9; */
+    /* //rgba(80, 80, 80, 0.9); */
 }
-p.home  {
-    /* display: none; */
+#home  {
+    /* display:    none; */
     color: rgba(0, 0, 0, 1.0);
-    /* /* background-color: red; */
+}
+  
+
+.mainContentText{
     font-size: 15vw; 
     margin: 0;
-    /* background: yellow; */
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
-}
-.mainContentText{
-/* color: rgba(0, 0, 0, 1.0);
-    font-size: 15vw; 
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) */
 }
 /* ::selection {
     background: #ffb7b7; /* WebKit/Blink Browsers */

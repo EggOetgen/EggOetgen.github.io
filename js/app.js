@@ -1,18 +1,18 @@
 
 var pos = { x: 0.45, y: 0.55 };
-var dest = { x:  0.5 + ((Math.random() * 0.2) - 0.1), y:  0.5 + ((Math.random() * 0.2) - 0.1) };
-var dest = { x:  0.5, y:  0.5 };
+var dest = { x: 0.5 + ((Math.random() * 0.2) - 0.1), y: 0.5 + ((Math.random() * 0.2) - 0.1) };
+var dest = { x: 0.5, y: 0.5 };
 
 var vel = { x: 0.0, y: 0.0 };
 
 var moving = false;
 var mousePos = { x: 0, y: 0 };
 var prevPos = { x: 0, y: 0 };
-
+var sensible = true;
 
 // var buttonSize = window.innerWidth * 0.06;
 // var buttonSizeX = window.innerWidth * 0.045;
-var viewPortX = window.innerWidth ;
+var viewPortX = window.innerWidth;
 var viewPortY = window.innerHeight;
 
 // console.log(buttonSize);
@@ -23,8 +23,8 @@ var viewPortY = window.innerHeight;
 
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
-  
-updateCanvas(ctx,'odmund', 'eetgen');
+
+updateCanvas(ctx, 'odmund', 'eetgen');
 // ctx.canvas.width = window.innerWidth;
 // ctx.canvas.height = window.innerHeight;
 
@@ -52,10 +52,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 0);
 document.body.appendChild(renderer.domElement);
 
-var bannerSize =  window.innerWidth/ 20;
+var bannerSize = window.innerWidth / 20;
 
 var bannerTexture = new THREE.Texture(ctx.cavas);
-
+var currPage = 0;
 // var MX = 0.5;
 // var MY = 0.5;
 var uniforms = {
@@ -75,7 +75,7 @@ var shaderMaterial =
   });
 
 // var geometry = new THREE.PlaneGeometry(bannerSize, bannerSize * (window.innerHeight / window.innerWidth), 50, 50);
-camera.position.z =100 ;
+camera.position.z = 100;
 
 
 
@@ -105,7 +105,7 @@ scene.add(plane);
 // scene.add( line );
 
 var boundingBox = new THREE.Box3().setFromObject(plane)
-var size = boundingBox.getSize() 
+var size = boundingBox.getSize()
 // console.log(size)
 // camera.position.z = size.y/1.9;
 
@@ -200,68 +200,94 @@ function addButton() {
 }
 
 function resizeRendererToDisplaySize() {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      // console.log('hi')
-      // if()
-      //   if(window.innerWidth >window.innerHeight){
-      //   bannerSize = window.innerWidth / 20;
-      // shaderMaterial.uniforms.u_resolution.value =[bannerSize, bannerSize * (window.innerHeight / window.innerWidth)];
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  // console.log('hi')
+  // if()
+  //   if(window.innerWidth >window.innerHeight){
+  //   bannerSize = window.innerWidth / 20;
+  // shaderMaterial.uniforms.u_resolution.value =[bannerSize, bannerSize * (window.innerHeight / window.innerWidth)];
 
-      // plane.scale.x = bannerSize;
-      // plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
-    // line.scale.x = bannerSize;
-    // line.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
-//   }else{
-//     bannerSize =window.innerHeight / 20;
-//     shaderMaterial.uniforms.u_resolution.value =[bannerSize * (window.innerWidth / window.innerHeight),bannerSize];
+  // plane.scale.x = bannerSize;
+  // plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
+  // line.scale.x = bannerSize;
+  // line.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
+  //   }else{
+  //     bannerSize =window.innerHeight / 20;
+  //     shaderMaterial.uniforms.u_resolution.value =[bannerSize * (window.innerWidth / window.innerHeight),bannerSize];
 
-//     plane.scale.y = bannerSize;
-//     plane.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
-//     // line.scale.y = bannerSize;
-//     // line.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
-// }
-updatePlane();
-updateCanvas(ctx, 'odmund', 'eetgen');
-texture.needsUpdate = true;
-boundingBox = new THREE.Box3().setFromObject(plane)
-var size = boundingBox.getSize() 
-console.log(size)
-// camera.position.z = size.y/2;
+  //     plane.scale.y = bannerSize;
+  //     plane.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
+  //     // line.scale.y = bannerSize;
+  //     // line.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
+  // }
+  updatePlane();
+  updateCanvas(ctx, 'odmund', 'eetgen');
+  texture.needsUpdate = true;
+  boundingBox = new THREE.Box3().setFromObject(plane)
+  var size = boundingBox.getSize()
+  console.log(size)
+  // camera.position.z = size.y/2;
 
-var buttonSize = window.innerWidth * 0.1;
-console.log(buttonSize)
-// butt.style.width  = buttonSize + 'px';
-// butt.style.height = buttonSize + 'px';
+  var buttonSize = window.innerWidth * 0.1;
+  console.log(buttonSize)
+  // butt.style.width  = buttonSize + 'px';
+  // butt.style.height = buttonSize + 'px';
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
-var topics = ['info', 'contact'];
+var topics = ['info', 'contact', 'sillyToggle'];
+var pages = ['home', 'nothome']
 
-for (i = 0; i < topics.length; i++){
-// var but = document.getElementById('info');
-let butt = document.getElementById(topics[i]);
+for (i = 0; i < topics.length; i++) {
+  // var but = document.getElementById('info');
+  let butt = document.getElementById(topics[i]);
 
-butt.addEventListener('mousedown', () =>{centreCanvas(butt);});
+  butt.addEventListener('mousedown', () => { centreCanvas(butt); });
 }
-function centreCanvas(but){
+function centreCanvas(but) {
   dest.x = 0.5;
   dest.y = 0.5;
+  const findPage = (element) => element == but.id;
+  // currPage = but.id
+  let pageID = topics.findIndex(findPage);
+    // currPage = pageID
+
   // but.style.color = "red";
+  if (but.id == 'sillyToggle') {
+    sensible = !sensible;
+    // el.style.color = 'rgba(80, 0, 80, 0.9)'
+    console.log(sensible)
+    var el = document.getElementById(pages[currPage]);
+    console.log(pages[currPage])
+
+    if (sensible) {
+      console.log(pages[currPage])
+      el.style.color = 'rgba(0, 0, 0, 1.0 )'
+    } else
+      el.style.color = 'rgba(0, 0, 0, 0.0 )'
+
+  }
   var content = but.getElementsByTagName('p')[0];
-  console.log(but)
+  let contentArray = document.getElementsByClassName('mainContentText')
+  for (i = 0; i < contentArray.length; i++) {
+      contentArray[i].style.display = 'none';
+  }
+
+  document.getElementById(pages[currPage]).style.display = 'block'
+  // console.log(but)
   updateCanvas(ctx, but.id, content.textContent);
   texture.needsUpdate = true;
 
-  console.log(dest)
+  // console.log(dest)
 
 }
 // function updateCanvas(ctx, textA, textB){
-  
+
 //   ctx.canvas.width = viewPortX;
 //   ctx.canvas.height = viewPortY;
-  
+
 //   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 //   ctx.fillStyle = '#CEC';
 
@@ -277,23 +303,23 @@ function centreCanvas(but){
 //   ctx.fillStyle = '#FFF';
 
 //   ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
-  
+
 //   ctx.fillStyle = '#fB9';
 //   ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
 //  viewPortX
-  
+
 //   console.log( "fs :" + viewPortX * 0.022)
 //   ctx.font = viewPortX * 0.009+"em Arial";
 //   // ctx.font = viewPortX * 0.022+"vw Arial";
 //   ctx.fillStyle = '#FFF';
-  
+
 //   ctx.fillText(textA, ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
 //   ctx.fillText(textB, ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);
-   
+
 
 // }
 // document.onmousedown = function(){updateCanvas(ctx, 'Odmund', 'Eetgen')}
-document.ontouchmove =  e => {
+document.ontouchmove = e => {
   dest.x = 0.5 + (((e.changedTouches[0].screenX / window.innerWidth) * 0.2) - 0.1);
   dest.y = 0.5 + (((e.changedTouches[0].screenY / window.innerHeight) * 0.2) - 0.1);
   // console.log(e.changedTouches[0].screenX)
@@ -304,7 +330,7 @@ document.ontouchmove =  e => {
 window.addEventListener('mousemove', e => {
   dest.x = 0.5 + (((e.x / window.innerWidth) * 0.2) - 0.1);
   dest.y = 0.5 + (((e.y / window.innerHeight) * 0.2) - 0.1);
-  let butt = document.getElementById('info');
+  // let butt = document.getElementById('info');
   // butt.style.top =  e.y + "px";
   // butt.style["borderRadius"] =  e.x/10+ "px";
 
@@ -314,48 +340,54 @@ window.addEventListener('mousemove', e => {
 });
 
 
-function updateCanvas(ctx, textA, textB){
-  
+function updateCanvas(ctx, textA, textB) {
+
   ctx.canvas.width = viewPortX;
   ctx.canvas.height = viewPortY;
-  
+
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.fillStyle = '#FFF';
 
-  ctx.fillRect(0, 0, ctx.canvas.width , ctx.canvas.height);
+  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   // ctx.fillStyle = '#CCF';
 
   // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
   // ctx.fillStyle = '#DDF';
-//   ctx.fillStyle = '#fB9';
+  //   ctx.fillStyle = '#fB9';
 
-//   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
-//   // ctx.fillStyle = '#EEF';
-//   ctx.fillStyle = '#FFF';
+  //   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
+  //   // ctx.fillStyle = '#EEF';
+  ctx.fillStyle = '#FFF';
 
-//   ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
-  
+  // ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
+
   ctx.fillStyle = '#fB9';
+  // ctx.fillStyle = '#468';
+
   ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
   // ctx.fillStyle = '#468';
+  // ctx.fillStyle = '#fB9';
+
   // ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.1, ctx.canvas.width * 0.6, ctx.canvas.height * 0.8);
-//  viewPortX
-  
-  console.log( "fs :" + viewPortX * 0.02)
-  ctx.font = viewPortX * 0.01+"em Arial";
-  document.body.style["fontSize"] = viewPortX * 0.01+"em Arial";
+  //  viewPortX
+
+  console.log("fs :" + viewPortX * 0.02)
+  ctx.font = viewPortX * 0.01 + "em Arial";
+  document.body.style["fontSize"] = viewPortX * 0.01 + "em Arial";
 
   // ctx.font = viewPortX * 0.022+"vw Arial";
-  ctx.fillStyle = '#FFF';
-  ctx.fillStyle = '#fca';
+  if (!sensible) {
 
-  ctx.fillText(textA, ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);
-  ctx.fillText(textB, ctx.canvas.width * 0.2, ctx.canvas.height * 0.7);
-   
+    ctx.fillStyle = '#000';
+    // ctx.fillStyle = '#fca';
+
+    ctx.fillText(textA, ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);
+    ctx.fillText(textB, ctx.canvas.width * 0.2, ctx.canvas.height * 0.7);
+  }
 
 }
 
-function updatePlane(){
+function updatePlane() {
   var cameraZ = camera.position.z;
   var planeZ = 0;
   var dist = cameraZ - planeZ;
@@ -364,7 +396,7 @@ function updatePlane(){
   var planeHeightAtDistance = 2 * Math.tan(vFov / 2) * dist;
   var planeWidthAtDistance = planeHeightAtDistance * aspect;
   plane.scale.y = planeHeightAtDistance;
-  
-  plane.scale.x = planeWidthAtDistance  ;
+
+  plane.scale.x = planeWidthAtDistance;
 
 }

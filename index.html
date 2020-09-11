@@ -26,6 +26,12 @@
             <!-- <div id="innercircle"></div> -->
             <p class = "navText"> ?</p>
         </div>
+        <div class='but' id='sillyToggle'>
+          <div id="circle"></div>
+
+          <!-- <div id="innercircle"></div> -->
+          <p class = "navText"> Silly</p>
+      </div>
     </div>
     <div id='navT' class="vertBar">
         <!-- <div class='but' id='info'>
@@ -46,6 +52,7 @@
             </div>
             <!-- <img src="assets/glyph-logo_May2016.png">  -->
         </div>
+        
     </div>
     <div id='navB' class="vertBar">
       <!-- <div class='but' id='info'>
@@ -60,7 +67,7 @@
       <p class ="mainContentText home" id = 'home'>odmund eetgen</p>
      
       
-      <p class ="mainContentText home" id = 'home'>odmund eetgen</p>
+      <p class ="mainContentText home" id = 'nothome'>hello everyone</p>
 
     </div>
     <script src="js/src/three.js"></script>
@@ -145,8 +152,10 @@
                 col = texture2D(texture1, st);
                // col.x +=  (dist(st, vUvStraight) )  > 0. ? (dist(st, vUvStraight) * 1.2) : 0.  ;
                 //}
-              //col.z*=st.x;
-                //col.z+=MX;
+                if(col != vec4(1.0)){
+              col*=((st.x * 0.25)+0.9) ;
+                pow(col,vec4(MX));
+              }
               if(col == vec4(1.0)) col.w = 0.;
                 gl_FragColor = col;
                 //gl_FragColor = vec4(st.x,  st.x, st.x,1.0); // A
