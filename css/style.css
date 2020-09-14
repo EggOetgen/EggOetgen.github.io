@@ -17,6 +17,16 @@ button {
     margin-left: 100px;
     display: none;
 }
+.tog {
+    background: rgba(80, 0, 80, 1.0);
+border: rgba(80, 80, 80, 0.4) solid;
+    position: absolute;
+    width: 200%;
+    height: 125px;
+    /* left: 50%; */
+  
+    border-radius: 64px
+}
 p {
    
 }
@@ -62,9 +72,17 @@ border: rgba(80, 80, 80, 0.4) solid;
   
     border-radius: 64px
 }
-#info{
+#infoButton{
 
     top: 25%;
+}
+#sillyToggle{
+
+    top: 12.5%;
+}
+#homeButton{
+
+    top: 50%;
 }
 .icon{
     width: 80%;
@@ -123,7 +141,7 @@ border: rgba(80, 80, 80, 0.4) solid;
 }
 #mainContent{
     /* opacity: 0.0; */
-
+    color: rgba(80, 80, 80, 0.0);
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -137,10 +155,13 @@ border: rgba(80, 80, 80, 0.4) solid;
     /* //rgba(80, 80, 80, 0.9); */
 }
 #home  {
-    /* display:    none; */
-    color: rgba(0, 0, 0, 1.0);
+    display:    inline;
+    /* color: rgba(0, 0, 0, 1.0); */
 }
-  
+#info  {
+    display:    none;
+    /* color: rgba(0, 0, 0, 1.0); */
+} 
 
 .mainContentText{
     font-size: 15vw; 
@@ -168,3 +189,8 @@ span{
        make sure you have an empty gif */
     /* background-image: url('empty.gif'); */
   }  
+
+  ::selection{
+    background-color:indigo !important;
+    color:#fff !important;
+}

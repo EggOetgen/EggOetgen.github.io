@@ -8,39 +8,16 @@ var vel = { x: 0.0, y: 0.0 };
 var moving = false;
 var mousePos = { x: 0, y: 0 };
 var prevPos = { x: 0, y: 0 };
-var sensible = true;
+var sensible = false;
 
-// var buttonSize = window.innerWidth * 0.06;
-// var buttonSizeX = window.innerWidth * 0.045;
 var viewPortX = window.innerWidth;
 var viewPortY = window.innerHeight;
 
-// console.log(buttonSize);
-// butt.style.left  = buttonSizeX + 'px';
-
-// butt.style.width  = buttonSize + 'px';
-// butt.style.height = buttonSize + 'px';
 
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
 
 updateCanvas(ctx, 'odmund', 'eetgen');
-// ctx.canvas.width = window.innerWidth;
-// ctx.canvas.height = window.innerHeight;
-
-// console.log(ctx.canvas.height + " " + ctx.canvas.width);
-// ctx.fillStyle = '#F0F';
-// ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
-
-
-// // ctx.font = "10em Arial";
-// ctx.font = window.innerWidth * 0.009+"em Arial";
-
-// ctx.fillStyle = '#FFF';
-
-// ctx.fillText("Odmund", ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
-// ctx.fillText("Eetgen", ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);
-
 
 const texture = new THREE.CanvasTexture(ctx.canvas);
 
@@ -56,8 +33,7 @@ var bannerSize = window.innerWidth / 20;
 
 var bannerTexture = new THREE.Texture(ctx.cavas);
 var currPage = 0;
-// var MX = 0.5;
-// var MY = 0.5;
+
 var uniforms = {
   texture1: { type: "t", value: texture },
   u_test: { value: 0 },
@@ -237,8 +213,8 @@ function resizeRendererToDisplaySize() {
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
-var topics = ['info', 'contact', 'sillyToggle'];
-var pages = ['home', 'nothome']
+var topics = ['infoButton', 'homeButton'];
+var pages = ['home',  'info']
 
 for (i = 0; i < topics.length; i++) {
   // var but = document.getElementById('info');
@@ -246,79 +222,56 @@ for (i = 0; i < topics.length; i++) {
 
   butt.addEventListener('mousedown', () => { centreCanvas(butt); });
 }
+let tog = document.getElementById('sillyToggle');
+
+tog.addEventListener('mousedown', toggleSilliness );
+
+function toggleSilliness(){
+  sensible = !sensible;
+ 
+  var el = document.getElementById('mainContent');
+
+  
+  if (sensible) {
+    el.style.color = 'rgba(0, 0, 0, 1.0 )'
+  } else{
+    console.log('dis')
+
+    el.style.color  = 'rgba(0, 0, 0, 0.0 )'
+}
+  console.log(el.getElementsByTagName('p')[currPage].innerText)
+
+updateCanvas(ctx,    el.getElementsByTagName('p')[currPage].innerText, el.textContent);
+
+    texture.needsUpdate = true;
+
+}
 function centreCanvas(but) {
   dest.x = 0.5;
   dest.y = 0.5;
   const findPage = (element) => element == but.id;
   // currPage = but.id
   let pageID = topics.findIndex(findPage);
-    // currPage = pageID
+  currPage = pageID;
 
-  // but.style.color = "red";
-  if (but.id == 'sillyToggle') {
-    sensible = !sensible;
-    // el.style.color = 'rgba(80, 0, 80, 0.9)'
-    console.log(sensible)
-    var el = document.getElementById(pages[currPage]);
-    console.log(pages[currPage])
 
-    if (sensible) {
-      console.log(pages[currPage])
-      el.style.color = 'rgba(0, 0, 0, 1.0 )'
-    } else
-      el.style.color = 'rgba(0, 0, 0, 0.0 )'
 
-  }
-  var content = but.getElementsByTagName('p')[0];
-  let contentArray = document.getElementsByClassName('mainContentText')
-  for (i = 0; i < contentArray.length; i++) {
-      contentArray[i].style.display = 'none';
-  }
+   var content = but.getElementsByTagName('p')[0];
+    let contentArray = document.getElementsByClassName('mainContentText')
+    for (i = 0; i < contentArray.length; i++) {
+        contentArray[i].style.display = 'none';
+    }
 
-  document.getElementById(pages[currPage]).style.display = 'block'
-  // console.log(but)
-  updateCanvas(ctx, but.id, content.textContent);
+    contentArray[currPage].style.display = 'inline';
+    console.log(contentArray[currPage].innerText)
+
+  updateCanvas(ctx, contentArray[currPage].innerText, contentArray[currPage].innerText);
   texture.needsUpdate = true;
-
+  
   // console.log(dest)
 
 }
-// function updateCanvas(ctx, textA, textB){
 
-//   ctx.canvas.width = viewPortX;
-//   ctx.canvas.height = viewPortY;
-
-//   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-//   ctx.fillStyle = '#CEC';
-
-//   ctx.fillRect(0, 0, ctx.canvas.width , ctx.canvas.height);
-//   // ctx.fillStyle = '#CCF';
-
-//   // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
-//   // ctx.fillStyle = '#DDF';
-//   ctx.fillStyle = '#fB9';
-
-//   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
-//   // ctx.fillStyle = '#EEF';
-//   ctx.fillStyle = '#FFF';
-
-//   ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
-
-//   ctx.fillStyle = '#fB9';
-//   ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.2, ctx.canvas.width * 0.6, ctx.canvas.height * 0.6);
-//  viewPortX
-
-//   console.log( "fs :" + viewPortX * 0.022)
-//   ctx.font = viewPortX * 0.009+"em Arial";
-//   // ctx.font = viewPortX * 0.022+"vw Arial";
-//   ctx.fillStyle = '#FFF';
-
-//   ctx.fillText(textA, ctx.canvas.width * 0.22, ctx.canvas.height * 0.45);
-//   ctx.fillText(textB, ctx.canvas.width * 0.22, ctx.canvas.height * 0.7);
-
-
-// }
-// document.onmousedown = function(){updateCanvas(ctx, 'Odmund', 'Eetgen')}
 document.ontouchmove = e => {
   dest.x = 0.5 + (((e.changedTouches[0].screenX / window.innerWidth) * 0.2) - 0.1);
   dest.y = 0.5 + (((e.changedTouches[0].screenY / window.innerHeight) * 0.2) - 0.1);
@@ -371,7 +324,6 @@ function updateCanvas(ctx, textA, textB) {
   // ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.1, ctx.canvas.width * 0.6, ctx.canvas.height * 0.8);
   //  viewPortX
 
-  console.log("fs :" + viewPortX * 0.02)
   ctx.font = viewPortX * 0.01 + "em Arial";
   document.body.style["fontSize"] = viewPortX * 0.01 + "em Arial";
 
