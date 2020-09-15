@@ -19,13 +19,13 @@ button {
 }
 .tog {
     background: rgba(80, 0, 80, 1.0);
-border: rgba(80, 80, 80, 0.4) solid;
+    border: rgba(80, 80, 80, 0.4) solid;
+ 
     position: absolute;
-    width: 200%;
-    height: 125px;
     /* left: 50%; */
-  
-    border-radius: 64px
+	/* margin: auto;     */
+    width: 15vw;
+    height: 15vh;
 }
 p {
    
@@ -45,47 +45,47 @@ img {
 }
 
 
-/* #circle{  width: 100%; height: 100%; border-radius: 64px; border: 4px solid white;   position: absolute; }
-#innercircle{ background: rgba(255, 255, 0, 1);; width: 100%; height: 100%; border-radius: 64px; border: 0px solid;   position: absolute; } */
-
-
-/* #circle{  width: 100%; height: 100%;  border: 4px solid white;   position: absolute; } */
-
-#innercircle {
-    /* background: rgba(80, 80, 80, 1); */
-    border: rgba(80, 80, 80, 1) solid; 
-
-    width: 100%;
-    height: 100%;
-    /* border-top: 5px solid;
-    border-bottom: 5px solid; */
-    position: absolute;
-}
 
 .but {
     background: rgba(80, 80, 80, 1.0);
 border: rgba(80, 80, 80, 0.4) solid;
     position: absolute;
-    width: 200%;
-    height: 125px;
-    /* left: 50%; */
-  
-    border-radius: 64px
+   
+    color: rgba(80, 80, 80, 0.0);
+    background-color: #468 ;
+	position: absolute;
+    border: rgba(80, 80, 80, 0.9) solid;
+    width: 15vw;
+    height: 15vh;
+    border: 0px;
 }
 #infoButton{
 
-    top: 25%;
+    top:80%;
+    left: 15%;
 }
 #sillyToggle{
 
     top: 12.5%;
 }
 #homeButton{
+left: 50%;
+    top: 82%;
+}
+#instaButton{
 
-    top: 50%;
+    top: 80%;
+    left: 70%;
+
+}
+#emailButton{
+
+    top: 82%;
+    left: 34%;
+
 }
 .icon{
-    width: 80%;
+    height: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -171,6 +171,22 @@ border: rgba(80, 80, 80, 0.4) solid;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+
+#testFloat{
+    color: rgba(80, 80, 80, 0.0);
+    background-color: #468 ;
+	position: absolute;
+	top:78%;
+	bottom: 0;
+	left: 10%;
+	right: 0;
+  	border: rgba(80, 80, 80, 0.9) solid;
+	/* margin: auto;     */
+    width: 15vw;
+    height: 15vh;
+    border: 0px;
+
 }
 /* ::selection {
     background: #ffb7b7; /* WebKit/Blink Browsers */

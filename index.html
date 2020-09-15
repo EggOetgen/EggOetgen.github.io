@@ -7,62 +7,40 @@
 <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="js/src/stats.min.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/src/stats.min.js"></script>
 
 </head>
 
 <body>
 
-    <div id='navL' class="nav">
-        <div class='but' id='infoButton'>
-            <div id="circle"></div>
+  <!-- <div id='navL' class="nav"> -->
 
-            <!-- <div id="innercircle"></div> -->
-            <p class = "navText"> ?</p>
-        </div>
-        <div class='tog' id='sillyToggle'>
-          <div id="circle"></div>
+  <!-- <img src="assets/glyph-logo_May2016.png">  -->
+  </div>
+  </div>
 
-          <!-- <div id="innercircle"></div> -->
-          <p class = "navText"> Silly</p>
-      </div>
-      <div class='but' id='homeButton'>
-        <div id="circle"></div>
-
-        <!-- <div id="innercircle"></div> -->
-        <p class = "navText"> home</p>
-    </div>
-    </div>
-  
-    <div id='navT' class="vertBar">
-        <!-- <div class='but' id='info'>
+  <div id='navT' class="vertBar">
+    <!-- <div class='but' id='info'>
             <div id="circle"></div>
 
             <div id="innercircle"></div>
             <p class = "navText"> hello</p>
         </div> -->
-    </div>
+  </div>
 
-   
-    <div id='navR' class="nav">
-        <div class='but' id = 'contact'>
-            <a href="https://instagram.com/odmundeetgen" target="_blank"><span></span></a>
-            <div id="circle"></div>
-            <div id="innercircle">         
-                   <img src="assets/glyph-logo_May2016.png" class = "icon"> </p>
-            </div>
-            <!-- <img src="assets/glyph-logo_May2016.png">  -->
-        </div>
-        
-    </div>
-    <div id='navB' class="vertBar">
-      <!-- <div class='but' id='info'>
+
+  <div id='navR' class="nav">
+
+
+  </div>
+  <div id='navB' class="vertBar">
+    <!-- <div class='but' id='info'>
           <div id="circle"></div>
 
           <div id="innercircle"></div>
@@ -70,20 +48,37 @@
       </div> -->
   </div>
 
-    <div id ="mainContent">
-      <p class ="mainContentText" id = 'home'>odmund eetgen</p>
-     
-      
-      <p class ="mainContentText" id = 'info'>hello everyone</p>
+  <div id="mainContent">
+    <p class="mainContentText" id='home'>odmund eetgen</p>
 
+
+    <p class="mainContentText" id='info'>I am a creative coder, experienced with tools such </p>
+
+  </div>
+ 
+  <div class='but' id='infoButton'>
+    <p class="navText"> ?</p>
+  </div>
+  <div class='tog' id='sillyToggle'>
+    <p class="navText"> Silly</p>
+  </div>
+
+  <div class='but' id='homeButton'>
+    <p class="navText"> home</p>
+   </div>
+   <div class='but' id='emailButton'>
+    <p class="navText"> email</p>
+   </div>
+    <div class='but' id='instaButton'>
+      <a href="https://instagram.com/odmundeetgen" target="_blank"><span></span></a>
+        <img src="assets/glyph-logo_May2016.png" class="icon"> </p>
     </div>
-    <script src="js/src/three.js"></script>
-    <script src="./js/app.js" async defer></script>
+        <script src="js/src/three.js"></script>
+      <script src="./js/app.js" async defer></script>
 
-    <!-- <canvas id = 'bannerCanvasStatic' ></canvas> -->
 
-    <canvas id='bannerCanvas'></canvas>
-    <button onclick="doThing()">press me</button>
+      <canvas id='bannerCanvas'></canvas>
+      <button onclick="doThing()">press me</button>
     <script id="vertexShader" type="notjs">
         const float TWO_PI = 6.2831855;
         varying vec2 vUv;
@@ -157,6 +152,14 @@
                 
 
                 col = texture2D(texture1, st);
+              //  if(texture2D(texture1, vUv) == vec4(1.0,0.0,0.0,1.0)){
+
+              //    st.y = vUv.y + notRand(vUv.yx) * MY;
+              //  st.x=vUv.x+ notRand(vUv.yx) *MX;
+                
+               // }
+                col = texture2D(texture1, st);
+
                // col.x +=  (dist(st, vUvStraight) )  > 0. ? (dist(st, vUvStraight) * 1.2) : 0.  ;
                 //}
                 if(col != vec4(1.0)){

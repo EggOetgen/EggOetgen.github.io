@@ -213,12 +213,12 @@ function resizeRendererToDisplaySize() {
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
-var topics = ['infoButton', 'homeButton'];
+var buttons = ['infoButton', 'homeButton'];
 var pages = ['home',  'info']
 
-for (i = 0; i < topics.length; i++) {
+for (i = 0; i < buttons.length; i++) {
   // var but = document.getElementById('info');
-  let butt = document.getElementById(topics[i]);
+  let butt = document.getElementById(buttons[i]);
 
   butt.addEventListener('mousedown', () => { centreCanvas(butt); });
 }
@@ -227,6 +227,8 @@ let tog = document.getElementById('sillyToggle');
 tog.addEventListener('mousedown', toggleSilliness );
 
 function toggleSilliness(){
+  dest.x = 0.5;
+  dest.y = 0.5;
   sensible = !sensible;
  
   var el = document.getElementById('mainContent');
@@ -251,7 +253,7 @@ function centreCanvas(but) {
   dest.y = 0.5;
   const findPage = (element) => element == but.id;
   // currPage = but.id
-  let pageID = topics.findIndex(findPage);
+  let pageID = buttons.findIndex(findPage);
   currPage = pageID;
 
 
@@ -319,13 +321,22 @@ function updateCanvas(ctx, textA, textB) {
 
   ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
   // ctx.fillStyle = '#468';
+  // for(let i = 0 ; i < 6; i++){
+  // ctx.strokeRect(Math.random()*ctx.canvas.width,Math.random()* ctx.canvas.height , ctx.canvas.width * 0.2, ctx.canvas.height * 0.2);
+  // }
+  ctx.strokeRect(ctx.canvas.width * 0.1499 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
+  ctx.strokeRect(ctx.canvas.width * 0.3899 , ctx.canvas.height * 0.819, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
+  ctx.strokeRect(ctx.canvas.width * 0.6999 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
+
   // ctx.fillStyle = '#fB9';
 
-  // ctx.fillRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.1, ctx.canvas.width * 0.6, ctx.canvas.height * 0.8);
+  // ctx.strokeRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.1, ctx.canvas.width * 0.6, ctx.canvas.height * 0.8);
   //  viewPortX
 
   ctx.font = viewPortX * 0.01 + "em Arial";
   document.body.style["fontSize"] = viewPortX * 0.01 + "em Arial";
+  ctx.fillStyle = '#F00';
+
 
   // ctx.font = viewPortX * 0.022+"vw Arial";
   if (!sensible) {
@@ -334,7 +345,7 @@ function updateCanvas(ctx, textA, textB) {
     // ctx.fillStyle = '#fca';
 
     ctx.fillText(textA, ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);
-    ctx.fillText(textB, ctx.canvas.width * 0.2, ctx.canvas.height * 0.7);
+    ctx.fillText(textB, ctx.canvas  .width * 0.2, ctx.canvas.height * 0.7);
   }
 
 }
