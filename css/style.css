@@ -3,6 +3,9 @@ body {
     color: white;
     /* background-color: rgb(177, 103, 103); */
     font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    text-overflow: clip;
+  
 }
 
 canvas {
