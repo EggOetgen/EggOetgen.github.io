@@ -6,21 +6,23 @@ body {
 }
 
 canvas {
-    display: block;
+    /* display: block; */
+    /* position: relative; */
+    
 }
+#gameCanvas{
+    position: relative;
 
+}
 #bannerCanvas {
     display: none;
 }
 
-button {
-    margin-left: 100px;
-    display: none;
-}
+
 .tog {
-    background: rgba(80, 0, 80, 1.0);
     border: rgba(80, 80, 80, 0.4) solid;
- 
+    /* display: inline-block;
+    position: relative; */
     position: absolute;
     /* left: 50%; */
 	/* margin: auto;     */
@@ -32,56 +34,69 @@ p {
 }
 .navText {
     /* -webkit-transform: rotate(-90deg); */
-    color: pink;
+    color: black;
     margin: 0;
-    position: absolute;
-    top: 50%;
+    font-size: 2em;
+    /* position: absolute; */
+    /* top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%) */
 }
 img {
    
 }
 
+.buttonContent{
+width: 90%;
+height: 90%;
+    background-color: #468 ;
+    margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%; 
+transform: translate(-50%, -50%)
 
+}
 
 .but {
-    background: rgba(80, 80, 80, 1.0);
-border: rgba(80, 80, 80, 0.4) solid;
+    /* background: rgba(80, 80, 80, 1.0); */
+    border: rgba(80, 80, 80, 0.9) solid;
     position: absolute;
-   
+       /* background-color: #468 ; */
+/* display: inline-block;
+position: relative; */
     color: rgba(80, 80, 80, 0.0);
-    background-color: #468 ;
-	position: absolute;
+    /* background-color: #468 ; */
+	/* position: absolute  ; */
     border: rgba(80, 80, 80, 0.9) solid;
     width: 15vw;
-    height: 15vh;
-    border: 0px;
+    height: 5vh;
+    /* border: 0px; */
+    /* padding: 20px; */
+
 }
 #infoButton{
 
-    top:80%;
-    left: 15%;
+    top:75%;
+    left: 12%;
 }
-#sillyToggle{
 
-    top: 12.5%;
-}
 #homeButton{
-left: 50%;
+left: 15%;
     top: 82%;
 }
 #instaButton{
 
-    top: 80%;
-    left: 70%;
+    top: 75%;
+    left: 73%;
 
 }
 #emailButton{
 
-    top: 82%;
-    left: 34%;
+        top: 82%;
+        left: 70%;
 
 }
 .icon{
@@ -94,7 +109,7 @@ left: 50%;
 }
 
 /* p{position: absolute; left: 50%;} */
-.nav{
+/* .nav{
     position: absolute;
     width: 5vw;
     height: 100%;
@@ -102,43 +117,9 @@ left: 50%;
     border-bottom: 0px dotted #f00;
     /* background-color: rgba(53, 228, 175, 0.6); */
 
-}
-.vertBar{
-    /* background-color: rgba(53, 228, 175, 0.6); */
-
-    position: absolute;
-    height: 5vw;
-    width: 100%;
-    border-top: 0px solid;
-    border-bottom: 0px dotted #f00;
-
-}
+/* } */ 
 
 
-#navL {
-   
-    /* border-right: rgba(80, 80, 80, 0.9) solid; */
-    border-left: 0px solid #09f;
-}
-
-#navT {
-    height: 5vh;
-
-    /* border-bottom: rgba(80, 80, 80, 0.9) solid; */
-    border-top: 0px solid #09f;
-}
-#navR {
-    left: 95vw;
-  
-    /* border-left: rgba(80, 80, 80, 0.9) solid; */
-    border-right: 0px solid #09f;
-}
-#navB {
-    height: 5vh;
-   top: 95vh;
-    /* border-top: rgba(80, 80, 80, 0.9) solid; */
-    border-bottom: 0px solid #09f;
-}
 #mainContent{
     /* opacity: 0.0; */
     color: rgba(80, 80, 80, 0.0);
@@ -160,8 +141,19 @@ left: 50%;
 }
 #info  {
     display:    none;
+    font-size: 7em;
     /* color: rgba(0, 0, 0, 1.0); */
 } 
+#insta{
+    font-size: 7em;
+
+    display: none;
+}
+#email{
+    font-size: 7em;
+
+    display: none;
+}
 
 .mainContentText{
     font-size: 15vw; 
@@ -173,21 +165,7 @@ left: 50%;
     transform: translate(-50%, -50%)
 }
 
-#testFloat{
-    color: rgba(80, 80, 80, 0.0);
-    background-color: #468 ;
-	position: absolute;
-	top:78%;
-	bottom: 0;
-	left: 10%;
-	right: 0;
-  	border: rgba(80, 80, 80, 0.9) solid;
-	/* margin: auto;     */
-    width: 15vw;
-    height: 15vh;
-    border: 0px;
 
-}
 /* ::selection {
     background: #ffb7b7; /* WebKit/Blink Browsers */
   /* }  */
@@ -209,4 +187,75 @@ span{
   ::selection{
     background-color:indigo !important;
     color:#fff !important;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    /* display: inline-block; */
+    width: 60px;
+    height: 3vh;
+    left: 20.5vw;
+    top: 10.5vh;
+    border: rgba(80, 80, 80, 0.9) solid;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 80%;
+    width: 26px;
+    left: 4px;
+    bottom: 10%;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    /* margin-top: auto; */
+  }
+  
+  input:checked + .slider {
+    /* background-color: #2196F3; */
+  }
+  
+  input:focus + .slider {
+    /* box-shadow: 0 0 1px #2196F3; */
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  #egg {
+    width: 2.5vh;
+    height: 4vh;
+    /* background: #ffc000; */
+    position: absolute;
+    border: rgba(80, 80, 80, 0.9) solid 2px;
+    right: 20.5vw;
+    top: 10.5vh;
+    /* display: block; */
+    -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }

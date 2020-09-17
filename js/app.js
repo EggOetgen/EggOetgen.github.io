@@ -28,6 +28,7 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 0);
 document.body.appendChild(renderer.domElement);
+// document.querySelector('#gameCanvas').appendChild(renderer.domElement);
 
 var bannerSize = window.innerWidth / 20;
 
@@ -213,8 +214,8 @@ function resizeRendererToDisplaySize() {
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
-var buttons = ['infoButton', 'homeButton'];
-var pages = ['home',  'info']
+var buttons = ['infoButton', 'homeButton','instaButton', 'emailButton'];
+// var pages = ['home',  'info']
 
 for (i = 0; i < buttons.length; i++) {
   // var but = document.getElementById('info');
@@ -222,10 +223,12 @@ for (i = 0; i < buttons.length; i++) {
 
   butt.addEventListener('mousedown', () => { centreCanvas(butt); });
 }
-let tog = document.getElementById('sillyToggle');
+// let tog = document.getElementById('sillyToggle');
 
-tog.addEventListener('mousedown', toggleSilliness );
+// tog.addEventListener('mousedown', toggleSilliness );
+let tog = document.getElementById('silTog');
 
+tog.addEventListener('change', toggleSilliness );
 function toggleSilliness(){
   dest.x = 0.5;
   dest.y = 0.5;
@@ -267,7 +270,7 @@ function centreCanvas(but) {
     contentArray[currPage].style.display = 'inline';
     console.log(contentArray[currPage].innerText)
 
-  updateCanvas(ctx, contentArray[currPage].innerText, contentArray[currPage].innerText);
+  updateCanvas(ctx, content.innerText, contentArray[currPage].innerText);
   texture.needsUpdate = true;
   
   // console.log(dest)
@@ -324,9 +327,9 @@ function updateCanvas(ctx, textA, textB) {
   // for(let i = 0 ; i < 6; i++){
   // ctx.strokeRect(Math.random()*ctx.canvas.width,Math.random()* ctx.canvas.height , ctx.canvas.width * 0.2, ctx.canvas.height * 0.2);
   // }
-  ctx.strokeRect(ctx.canvas.width * 0.1499 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
-  ctx.strokeRect(ctx.canvas.width * 0.3899 , ctx.canvas.height * 0.819, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
-  ctx.strokeRect(ctx.canvas.width * 0.6999 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
+  // ctx.strokeRect(ctx.canvas.width * 0.1499 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
+  // ctx.strokeRect(ctx.canvas.width * 0.3899 , ctx.canvas.height * 0.819, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
+  // ctx.strokeRect(ctx.canvas.width * 0.6999 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
 
   // ctx.fillStyle = '#fB9';
 

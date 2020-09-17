@@ -25,60 +25,82 @@
   </div>
   </div>
 
-  <div id='navT' class="vertBar">
-    <!-- <div class='but' id='info'>
+  <!-- <div id='navT' class="vertBar">
+    <div class='but' id='info'>
             <div id="circle"></div>
 
             <div id="innercircle"></div>
             <p class = "navText"> hello</p>
         </div> -->
-  </div>
+  <!-- </div>
 
 
-  <div id='navR' class="nav">
+  <div id='navR' class="nav"> -->
 
 
-  </div>
-  <div id='navB' class="vertBar">
+  <!-- </div>
+  <div id='navB' class="vertBar"> --> 
     <!-- <div class='but' id='info'>
           <div id="circle"></div>
 
           <div id="innercircle"></div>
           <p class = "navText"> hello</p>
       </div> -->
+  <!-- </div> -->
+  <div id='gameCanvas'>
   </div>
-
   <div id="mainContent">
     <p class="mainContentText" id='home'>odmund eetgen</p>
 
 
     <p class="mainContentText" id='info'>I am a creative coder, experienced with tools such </p>
+    <p class="mainContentText" id='insta'>Find me on the gram</p>
+    <p class="mainContentText" id='email'>E-mail me if you think we'd be a good fit :) </p>
 
   </div>
- 
+  <label class="switch">
+    <input id = 'silTog' type="checkbox">
+    <span class="slider"></span>
+  </label>
+  <div id="egg"></div>
   <div class='but' id='infoButton'>
-    <p class="navText"> ?</p>
+    <div class = 'buttonContent'>
+      <p class="navText"> ?</p>
+    </div>
   </div>
-  <div class='tog' id='sillyToggle'>
-    <p class="navText"> Silly</p>
-  </div>
+  <!-- <div class='tog' id='sillyToggle'>
+    <div class = 'buttonContent'>
+      <p class="navText"> Silly</p>
+  </div> -->
+</div>
 
   <div class='but' id='homeButton'>
+    <div class = 'buttonContent'>
+
     <p class="navText"> home</p>
    </div>
+  </div>
+
    <div class='but' id='emailButton'>
+    <div class = 'buttonContent'>
+
     <p class="navText"> email</p>
    </div>
+  </div>
+
     <div class='but' id='instaButton'>
+      <div class = 'buttonContent'>
+
       <a href="https://instagram.com/odmundeetgen" target="_blank"><span></span></a>
         <img src="assets/glyph-logo_May2016.png" class="icon"> </p>
     </div>
+  </div>
+
         <script src="js/src/three.js"></script>
       <script src="./js/app.js" async defer></script>
 
 
       <canvas id='bannerCanvas'></canvas>
-      <button onclick="doThing()">press me</button>
     <script id="vertexShader" type="notjs">
         const float TWO_PI = 6.2831855;
         varying vec2 vUv;
