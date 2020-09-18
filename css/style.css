@@ -3,8 +3,7 @@ body {
     color: white;
     /* background-color: rgb(177, 103, 103); */
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-    text-overflow: clip;
+   
   
 }
 
@@ -40,11 +39,11 @@ p {
     color: black;
     margin: 0;
     font-size: 2em;
-    /* position: absolute; */
-    /* top: 50%;
+    position: absolute;
+    top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) */
+    transform: translate(-50%, -50%) 
 }
 img {
    
@@ -139,23 +138,25 @@ left: 15%;
     /* //rgba(80, 80, 80, 0.9); */
 }
 #home  {
-    display:    inline;
+    /* display:    inline; */
+    font-size: 7em;
+
     /* color: rgba(0, 0, 0, 1.0); */
 }
 #info  {
-    display:    none;
-    font-size: 7em;
+    /* display:    none; */
+    font-size: 5em;
     /* color: rgba(0, 0, 0, 1.0); */
 } 
 #insta{
-    font-size: 7em;
+    font-size: 5em;
 
-    display: none;
+    /* display: none; */
 }
 #email{
-    font-size: 7em;
+    font-size: 5em;
 
-    display: none;
+    /* display: none; */
 }
 
 .mainContentText{
@@ -166,6 +167,7 @@ left: 15%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+/* overflow:hidden;    */
 }
 
 

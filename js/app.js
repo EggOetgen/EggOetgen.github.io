@@ -5,19 +5,22 @@ var dest = { x: 0.5, y: 0.5 };
 
 var vel = { x: 0.0, y: 0.0 };
 
-var moving = false;
-var mousePos = { x: 0, y: 0 };
-var prevPos = { x: 0, y: 0 };
-var sensible = false;
+let moving = false;
+let mousePos = { x: 0, y: 0 };
+let prevPos = { x: 0, y: 0 };
+let sensible = false;
 
-var viewPortX = window.innerWidth;
-var viewPortY = window.innerHeight;
+let viewPortX = window.innerWidth;
+let viewPortY = window.innerHeight;
+let currPage = document.getElementById('home');
 
 
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
+ctx.canvas.width = viewPortX;
+ctx.canvas.height = viewPortY;
 
-updateCanvas(ctx, 'odmund', 'eetgen');
+updateCanvas(ctx,    currPage.innerText, currPage.innerText);
 
 const texture = new THREE.CanvasTexture(ctx.canvas);
 
@@ -33,7 +36,6 @@ document.body.appendChild(renderer.domElement);
 var bannerSize = window.innerWidth / 20;
 
 var bannerTexture = new THREE.Texture(ctx.cavas);
-var currPage = 0;
 
 var uniforms = {
   texture1: { type: "t", value: texture },
@@ -83,7 +85,6 @@ scene.add(plane);
 
 var boundingBox = new THREE.Box3().setFromObject(plane)
 var size = boundingBox.getSize()
-// console.log(size)
 // camera.position.z = size.y/1.9;
 
 var delta = 0.;
@@ -112,7 +113,6 @@ function animate() {
   shaderMaterial.uniforms.my.value = pos.y;
   // shaderMaterial.uniforms.u_time.value =delta;
 
-  // console.log(dest)
 
   requestAnimationFrame(animate);
 
@@ -180,37 +180,17 @@ function resizeRendererToDisplaySize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  // console.log('hi')
-  // if()
-  //   if(window.innerWidth >window.innerHeight){
-  //   bannerSize = window.innerWidth / 20;
-  // shaderMaterial.uniforms.u_resolution.value =[bannerSize, bannerSize * (window.innerHeight / window.innerWidth)];
 
-  // plane.scale.x = bannerSize;
-  // plane.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
-  // line.scale.x = bannerSize;
-  // line.scale.y = bannerSize * (window.innerHeight / window.innerWidth);
-  //   }else{
-  //     bannerSize =window.innerHeight / 20;
-  //     shaderMaterial.uniforms.u_resolution.value =[bannerSize * (window.innerWidth / window.innerHeight),bannerSize];
-
-  //     plane.scale.y = bannerSize;
-  //     plane.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
-  //     // line.scale.y = bannerSize;
-  //     // line.scale.x = bannerSize * (window.innerWidth / window.innerHeight);
-  // }
   updatePlane();
-  updateCanvas(ctx, 'odmund', 'eetgen');
+  ctx.canvas.width = viewPortX;
+  ctx.canvas.height = viewPortY;
+  updateCanvas(ctx,    currPage.innerText, currPage.innerText);
   texture.needsUpdate = true;
   boundingBox = new THREE.Box3().setFromObject(plane)
   var size = boundingBox.getSize()
-  console.log(size)
-  // camera.position.z = size.y/2;
 
   var buttonSize = window.innerWidth * 0.1;
-  console.log(buttonSize)
-  // butt.style.width  = buttonSize + 'px';
-  // butt.style.height = buttonSize + 'px';
+  
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
@@ -240,13 +220,11 @@ function toggleSilliness(){
   if (sensible) {
     el.style.color = 'rgba(0, 0, 0, 1.0 )'
   } else{
-    console.log('dis')
 
     el.style.color  = 'rgba(0, 0, 0, 0.0 )'
 }
-  console.log(el.getElementsByTagName('p')[currPage].innerText)
 
-updateCanvas(ctx,    el.getElementsByTagName('p')[currPage].innerText, el.textContent);
+updateCanvas(ctx,    currPage.innerText, currPage.innerText);
 
     texture.needsUpdate = true;
 
@@ -257,30 +235,30 @@ function centreCanvas(but) {
   const findPage = (element) => element == but.id;
   // currPage = but.id
   let pageID = buttons.findIndex(findPage);
-  currPage = pageID;
+  // currPage = pageID;
 
 
 
-   var content = but.getElementsByTagName('p')[0];
+  //  var content = but.getElementsByTagName('p')[0];
     let contentArray = document.getElementsByClassName('mainContentText')
     for (i = 0; i < contentArray.length; i++) {
         contentArray[i].style.display = 'none';
     }
 
-    contentArray[currPage].style.display = 'inline';
-    console.log(contentArray[currPage].innerText)
+    currPage = document.getElementById(but.id.replace('Button', ''));
 
-  updateCanvas(ctx, content.innerText, contentArray[currPage].innerText);
-  texture.needsUpdate = true;
+    var content =  currPage.innerText;
+    currPage.style.display = 'inline';
+    texture.needsUpdate = true;
+
+  updateCanvas(ctx, content, content);
   
-  // console.log(dest)
 
 }
 
 document.ontouchmove = e => {
   dest.x = 0.5 + (((e.changedTouches[0].screenX / window.innerWidth) * 0.2) - 0.1);
   dest.y = 0.5 + (((e.changedTouches[0].screenY / window.innerHeight) * 0.2) - 0.1);
-  // console.log(e.changedTouches[0].screenX)
   // dest.x = 0.5 + (((e.x / window.innerWidth) * 1.0) - 0.5);
   // dest.y = 0.5 + (((e.y / window.innerHeight) * 1.0) - 0.5);
 
@@ -300,9 +278,12 @@ window.addEventListener('mousemove', e => {
 
 function updateCanvas(ctx, textA, textB) {
 
-  ctx.canvas.width = viewPortX;
-  ctx.canvas.height = viewPortY;
 
+
+ctx.font =window.getComputedStyle(currPage).getPropertyValue('font-size') + " Arial";// currPage.style['fontSize']  + " Arial";
+let lines = getLines(ctx, textA, ctx.canvas.width * 0.55);
+
+console.log(ctx)
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.fillStyle = '#FFF';
 
@@ -336,8 +317,13 @@ function updateCanvas(ctx, textA, textB) {
   // ctx.strokeRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.1, ctx.canvas.width * 0.6, ctx.canvas.height * 0.8);
   //  viewPortX
 
-  ctx.font = viewPortX * 0.01 + "em Arial";
-  document.body.style["fontSize"] = viewPortX * 0.01 + "em Arial";
+  // ctx.font = viewPortX * 0.01 + "em Arial";
+  // currPage.style['fontSize'] = '50em';
+
+  console.log(ctx.font);
+
+
+  // document.body.style["fontSize"] = viewPortX * 0.01 + "em Arial";
   ctx.fillStyle = '#F00';
 
 
@@ -346,9 +332,15 @@ function updateCanvas(ctx, textA, textB) {
 
     ctx.fillStyle = '#000';
     // ctx.fillStyle = '#fca';
+    let textX = ctx.canvas.width * 0.2;
+    let textY = ctx.canvas.height * (0.5 - (lines.length *0.05) );
 
-    ctx.fillText(textA, ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);
-    ctx.fillText(textB, ctx.canvas  .width * 0.2, ctx.canvas.height * 0.7);
+for(i = 0; i < lines.length; i++){
+      ctx.fillText(lines[i], textX, textY + (i * 100));
+
+}
+    // ctx.fillText(lines[0], ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);
+    // ctx.fillText(textB, ctx.canvas  .width * 0.2, ctx.canvas.height * 0.7);
   }
 
 }
@@ -365,4 +357,24 @@ function updatePlane() {
 
   plane.scale.x = planeWidthAtDistance;
 
+}
+
+function getLines(ctx, text, maxWidth) {
+  //https://stackoverflow.com/questions/2936112/text-wrap-in-a-canvas-element
+  var words = text.split(" ");
+  var lines = [];
+  var currentLine = words[0];
+
+  for (var i = 1; i < words.length; i++) {
+      var word = words[i];
+      var width = ctx.measureText(currentLine + " " + word).width;
+      if (width < maxWidth) {
+          currentLine += " " + word;
+      } else {
+          lines.push(currentLine);
+          currentLine = word;
+      }
+  }
+  lines.push(currentLine);
+  return lines;
 }
