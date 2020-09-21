@@ -1,7 +1,7 @@
 
 var pos = { x: 0.45, y: 0.55 };
 var dest = { x: 0.5 + ((Math.random() * 0.2) - 0.1), y: 0.5 + ((Math.random() * 0.2) - 0.1) };
-var dest = { x: 0.5, y: 0.5 };
+// var dest = { x: 0.5, y: 0.5 };
 
 var vel = { x: 0.0, y: 0.0 };
 
@@ -278,6 +278,7 @@ window.addEventListener('mousemove', e => {
 
 function updateCanvas(ctx, textA, textB) {
 
+  ctx.textAlign = "center";
 
 
 ctx.font =window.getComputedStyle(currPage).getPropertyValue('font-size') + " Arial";// currPage.style['fontSize']  + " Arial";
@@ -332,11 +333,11 @@ console.log(ctx)
 
     ctx.fillStyle = '#000';
     // ctx.fillStyle = '#fca';
-    let textX = ctx.canvas.width * 0.2;
-    let textY = ctx.canvas.height * (0.5 - (lines.length *0.05) );
-
+    const textX = ctx.canvas.width * 0.5;
+    const textY = ctx.canvas.height * (0.5 - (lines.length *0.01) );
+    const lineSpace = ctx.canvas.height * 0.1;
 for(i = 0; i < lines.length; i++){
-      ctx.fillText(lines[i], textX, textY + (i * 100));
+      ctx.fillText(lines[i], textX, textY + (i * lineSpace));
 
 }
     // ctx.fillText(lines[0], ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);

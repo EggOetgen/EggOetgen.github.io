@@ -139,35 +139,38 @@ left: 15%;
 }
 #home  {
     /* display:    inline; */
-    font-size: 7em;
+    /* font-size: 7em; */
+    font-size: 7vw;
 
     /* color: rgba(0, 0, 0, 1.0); */
 }
 #info  {
-    /* display:    none; */
-    font-size: 5em;
+    display:    none;
+    font-size: 5vw;
+
     /* color: rgba(0, 0, 0, 1.0); */
 } 
 #insta{
-    font-size: 5em;
+    font-size: 5vw;
 
-    /* display: none; */
+    display: none;
 }
 #email{
-    font-size: 5em;
+    font-size: 5vw;
 
-    /* display: none; */
+    display: none;
 }
 
 .mainContentText{
     font-size: 15vw; 
     margin: 0;
     position: absolute;
+    text-align: center;
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
-/* overflow:hidden;    */
+    transform: translate(-50%, -50%) 
+/* overflow:hidden;   */
 }
 
 
