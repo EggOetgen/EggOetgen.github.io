@@ -198,7 +198,7 @@ span{
 }
 
 /* The switch - the box around the slider */
-.switch {
+#switch {
     position: absolute;
     /* display: inline-block; */
     width: 60px;
@@ -209,7 +209,7 @@ span{
   }
   
   /* Hide default HTML checkbox */
-  .switch input {
+  #switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -295,10 +295,10 @@ span{
         left: 52vw;
     }
     
-    #egg , .switch{
+    #egg , #switch{
       
        
-        top: 5.5vh;
+        top: 6vh;
     
     }
 
@@ -334,11 +334,11 @@ span{
     #instaButton{
         left: 75vw;
     }
-        #egg , .switch{
+        #egg , #switch{
         
       
        
-        top: 5.5vh;
+        top: 5.25vh;
     
     }
 
