@@ -132,7 +132,7 @@ left: 15%;
 	right: 0;
   	border: rgba(80, 80, 80, 0.9) solid;
 	margin: auto;
-    width: 60vw;
+    width: 80vw;
     height: 80vh;
     /* background-color: #fB9; */
     /* //rgba(80, 80, 80, 0.9); */
@@ -203,7 +203,7 @@ span{
     /* display: inline-block; */
     width: 60px;
     height: 3vh;
-    left: 20.5vw;
+    left: 10.5vw;
     top: 10.5vh;
     border: rgba(80, 80, 80, 0.9) solid;
   }
@@ -261,7 +261,7 @@ span{
     /* background: #ffc000; */
     position: absolute;
     border: rgba(80, 80, 80, 0.9) solid 2px;
-    right: 20.5vw;
+    right: 10.5vw;
     top: 10.5vh;
     /* display: block; */
     -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
