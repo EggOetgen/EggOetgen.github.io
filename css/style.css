@@ -304,7 +304,7 @@ span{
 
 }
 
-@media screen and (min-width:320px) and (max-width:767px) and (orientation:landscape) {
+@media screen and (max-height:767px) {
 
     .but {
         /* background: rgba(80, 80, 80, 1.0); */
@@ -317,7 +317,7 @@ span{
         /* background-color: #468 ; */
         /* position: absolute  ; */
         border: rgba(80, 80, 80, 0.9) solid;
-        width: 12vw;
+        width: 17vw;
         height: 8vh;
         /* border: 0px; */
         /* padding: 20px; */
@@ -325,14 +325,26 @@ span{
     }
 
  
-    #infoButton, #instaButton{
-        top: 68vh;
-    }
-    #homeButton, #emailButton{
+    #infoButton, #instaButton, #homeButton, #emailButton{
         top: 80vh;
     }
+    #infoButton{
+
+        left: 11vw;
+    }
+    
+    #homeButton{
+        left: 31vw;
+    }
     #instaButton{
-        left: 75vw;
+    
+        left: 51vw;
+    
+    }
+    #emailButton{
+    
+            left: 71vw;
+    
     }
         #egg , #switch{
         
