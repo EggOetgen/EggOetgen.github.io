@@ -218,7 +218,7 @@ function toggleSilliness(){
 
   
   if (sensible) {
-    el.style.color = 'rgba(0, 0, 0, 1.0 )'
+    el.style.color = 'rgba(35, 0, 7, 1.0 )'
   } else{
 
     el.style.color  = 'rgba(0, 0, 0, 0.0 )'
@@ -286,7 +286,7 @@ let lines = getLines(ctx, textA, ctx.canvas.width * 0.55);
 
 console.log(ctx)
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.fillStyle = '#FFF';
+  ctx.fillStyle = '#f6fffc';
 
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   // ctx.fillStyle = '#CCF';
@@ -297,14 +297,19 @@ console.log(ctx)
 
   //   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
   //   // ctx.fillStyle = '#EEF';
-  ctx.fillStyle = '#FFF';
+  ctx.fillStyle = '#EFFDFC';
 
   // ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
 
-  ctx.fillStyle = '#fB9';
+  // ctx.fillStyle = '#fB9';
   // ctx.fillStyle = '#468';
+  ctx.lineWidth = 2;
 
-  ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
+  ctx.strokeRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
+  ctx.fillStyle = '#f6fffc';
+
+  ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.804, ctx.canvas.height * 0.805);
+
   // ctx.fillStyle = '#468';
   // for(let i = 0 ; i < 6; i++){
   // ctx.strokeRect(Math.random()*ctx.canvas.width,Math.random()* ctx.canvas.height , ctx.canvas.width * 0.2, ctx.canvas.height * 0.2);

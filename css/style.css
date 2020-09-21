@@ -22,7 +22,7 @@ canvas {
 
 
 .tog {
-    border: rgba(80, 80, 80, 0.4) solid;
+    border: rgba(35, 0, 7, 0.4) solid;
     /* display: inline-block;
     position: relative; */
     position: absolute;
@@ -36,7 +36,7 @@ p {
 }
 .navText {
     /* -webkit-transform: rotate(-90deg); */
-    color: black;
+    color: rgba(35, 0, 7, 1.0);
     margin: 0;
     font-size: 2em;
     position: absolute;
@@ -51,8 +51,8 @@ img {
 
 .buttonContent{
 width: 90%;
-height: 90%;
-    background-color: #468 ;
+height: 85%;
+    background-color: #CC92C2;
     margin: 0;
 position: absolute;
 top: 50%;
@@ -63,16 +63,16 @@ transform: translate(-50%, -50%)
 }
 
 .but {
-    /* background: rgba(80, 80, 80, 1.0); */
-    border: rgba(80, 80, 80, 0.9) solid;
+    /* background: rgba(35, 0, 7, 1.0); */
+    border: rgba(35, 0, 7, 0.9) solid;
     position: absolute;
        /* background-color: #468 ; */
 /* display: inline-block;
 position: relative; */
-    color: rgba(80, 80, 80, 0.0);
+    color: rgba(35, 0, 7, 0.0);
     /* background-color: #468 ; */
 	/* position: absolute  ; */
-    border: rgba(80, 80, 80, 0.9) solid;
+    border: rgba(35, 0, 7, 0.9) solid;
     width: 15vw;
     height: 5vh;
     /* border: 0px; */
@@ -124,18 +124,18 @@ left: 15%;
 
 #mainContent{
     /* opacity: 0.0; */
-    color: rgba(80, 80, 80, 0.0);
+    color: rgba(35, 0, 7, 0.0);
 	position: absolute;
 	top:0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-  	border: rgba(80, 80, 80, 0.9) solid;
+  	border: rgba(35, 0, 7, 0.9) solid;
 	margin: 10vh 10vw 10vh 10vw;
     width: 80vw;
     height: 80vh;
     /* background-color: #fB9; */
-    /* //rgba(80, 80, 80, 0.9); */
+    /* //rgba(35, 0, 7, 0.9); */
 }
 #home  {
     /* display:    inline; */
@@ -174,10 +174,6 @@ left: 15%;
 }
 
 
-/* ::selection {
-    background: #ffb7b7; /* WebKit/Blink Browsers */
-  /* }  */
-
 span{
     position:absolute; 
     width:100%;
@@ -193,7 +189,7 @@ span{
   }  
 
   ::selection{
-    background-color:indigo !important;
+    background-color:#CC92C2 !important;
     color:#fff !important;
 }
 
@@ -203,9 +199,9 @@ span{
     /* display: inline-block; */
     width: 60px;
     height: 3vh;
-    left: 10.5vw;
-    top: 10.5vh;
-    border: rgba(80, 80, 80, 0.9) solid;
+    left: 11vw;
+    top: 12vh;
+    border: rgba(35, 0, 7, 0.9) solid;
   }
   
   /* Hide default HTML checkbox */
@@ -258,11 +254,11 @@ span{
   #egg {
     width: 2.5vh;
     height: 4vh;
-    /* background: #ffc000; */
+    background: #f6faed;
     position: absolute;
-    border: rgba(80, 80, 80, 0.9) solid 2px;
-    right: 10.5vw;
-    top: 10.5vh;
+    border: rgba(35, 0, 7, 0.9) solid 2px;
+    right: 11vw;
+    top: 12vh;
     /* display: block; */
     -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
@@ -271,16 +267,16 @@ span{
 @media only screen and (max-width: 768px) {
 
     .but {
-        /* background: rgba(80, 80, 80, 1.0); */
-        border: rgba(80, 80, 80, 0.9) solid;
+        /* background: rgba(35, 0, 7, 1.0); */
+        border: rgba(35, 0, 7, 0.9) solid;
         /* position: absolute; */
            /* background-color: #468 ; */
     /* display: inline-block;
     position: relative; */
-        color: rgba(80, 80, 80, 0.0);
+        color: rgba(35, 0, 7, 0.0);
         /* background-color: #468 ; */
         /* position: absolute  ; */
-        border: rgba(80, 80, 80, 0.9) solid;
+        border: rgba(35, 0, 7, 0.9) solid;
         width: 35vw;
         height: 5vh;
         /* border: 0px; */
@@ -307,16 +303,16 @@ span{
 @media screen and (max-height: 768px)and (orientation:landscape) {
 
     .but {
-        /* background: rgba(80, 80, 80, 1.0); */
-        border: rgba(80, 80, 80, 0.9) solid;
+        /* background: rgba(35, 0, 7, 1.0); */
+        border: rgba(35, 0, 7, 0.9) solid;
         /* position: absolute; */
            /* background-color: #468 ; */
     /* display: inline-block;
     position: relative; */
-        color: rgba(80, 80, 80, 1.0);
+        color: rgba(35, 0, 7, 1.0);
         /* background-color: #468 ; */
         /* position: absolute  ; */
-        border: rgba(80, 80, 80, 0.9) solid;
+        border: rgba(35, 0, 7, 0.9) solid;
         width: 17vw;
         height: 8vh;
         /* border: 0px; */

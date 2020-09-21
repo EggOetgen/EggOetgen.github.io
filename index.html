@@ -186,10 +186,10 @@
 
                // col.x +=  (dist(st, vUvStraight) )  > 0. ? (dist(st, vUvStraight) * 1.2) : 0.  ;
                 //}
-                if(col != vec4(1.0)){
-              col*=((st.x * 0.25)+0.9) ;
-                pow(col,vec4(MX));
-              }
+              //  if(col != vec4(1.0)){
+              //col*=((st.x * 0.25)+0.9) ;
+             //   pow(col,vec4(MX));
+             // }
               if(col == vec4(1.0)) col.w = 0.;
                 gl_FragColor = col;
                 //gl_FragColor = vec4(st.x,  st.x, st.x,1.0); // A
