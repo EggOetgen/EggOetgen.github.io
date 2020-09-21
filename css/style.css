@@ -295,16 +295,16 @@ span{
         left: 52vw;
     }
     
-    #egg {
+    #egg , .switch{
       
        
-        top: 5.25vh;
+        top: 5.5vh;
     
     }
 
 }
 
-@media only screen and (max-height: 375px) {
+@media screen and (min-width:320px) and (max-width:767px) and (orientation:landscape) {
 
     .but {
         /* background: rgba(80, 80, 80, 1.0); */
@@ -334,6 +334,12 @@ span{
     #instaButton{
         left: 75vw;
     }
-
+        #egg , .switch{
+        
+      
+       
+        top: 5.5vh;
+    
+    }
 
 }
