@@ -1,4 +1,6 @@
 
+window.onload=function(){ setTimeout(function(){ 		window.scrollTo(0, 1); 	}, 0);  console.log('consider yourself scrolled');}
+
 var pos = { x: 0.45, y: 0.55 };
 var dest = { x: 0.5 + ((Math.random() * 0.2) - 0.1), y: 0.5 + ((Math.random() * 0.2) - 0.1) };
 // var dest = { x: 0.5, y: 0.5 };
