@@ -288,7 +288,7 @@ let lines = getLines(ctx, textA, ctx.canvas.width * 0.55);
 
 console.log(ctx)
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.fillStyle = '#f6fffc';
+  ctx.fillStyle = '#F5F5F5';
 
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   // ctx.fillStyle = '#CCF';
@@ -308,7 +308,7 @@ console.log(ctx)
   ctx.lineWidth = 2;
 
   ctx.strokeRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
-  ctx.fillStyle = '#f6fffc';
+  // ctx.fillStyle = '#EBFAFA';
 
   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.804, ctx.canvas.height * 0.805);
 
@@ -342,7 +342,14 @@ console.log(ctx)
     // ctx.fillStyle = '#fca';
     const textX = ctx.canvas.width * 0.5;
     const textY = ctx.canvas.height * (0.5 - (lines.length *0.01) );
-    const lineSpace = ctx.canvas.height * 0.1;
+    
+    let lineSpace; 
+    if(ctx.canvas.width  > ctx.canvas.height){
+    lineSpace = ctx.canvas.height * 0.1;
+    }else{
+      lineSpace = ctx.canvas.width * 0.1;
+
+    }
 for(i = 0; i < lines.length; i++){
       ctx.fillText(lines[i], textX, textY + (i * lineSpace));
 

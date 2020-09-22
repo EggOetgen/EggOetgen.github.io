@@ -38,7 +38,7 @@ p {
     /* -webkit-transform: rotate(-90deg); */
     color: rgba(35, 0, 7, 1.0);
     margin: 0;
-    font-size: 2em;
+    font-size: 2vmax;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -48,11 +48,10 @@ p {
 img {
    
 }
-
 .buttonContent{
 width: 90%;
 height: 85%;
-    background-color: #CC92C2;
+    background-color: #6C81AB;
     margin: 0;
 position: absolute;
 top: 50%;
@@ -140,29 +139,29 @@ left: 15%;
 #home  {
     /* display:    inline; */
     /* font-size: 7em; */
-    font-size: 7vw;
+    font-size: 7vmax;
 
     /* color: rgba(0, 0, 0, 1.0); */
 }
 #info  {
     display:    none;
-    font-size: 4vw;
+    font-size: 4vmax;
 
     /* color: rgba(0, 0, 0, 1.0); */
 } 
 #insta{
-    font-size: 5vw;
+    font-size: 5vmax;
 
     display: none;
 }
 #email{
-    font-size: 5vw;
+    font-size: 5vmax;
 
     display: none;
 }
 
 .mainContentText{
-    font-size: 15vw; 
+    font-size: 15vmax; 
     margin: 0;
     position: absolute;
     text-align: center;
@@ -189,7 +188,7 @@ span{
   }  
 
   ::selection{
-    background-color:#CC92C2 !important;
+    background-color:#6C81AB !important;
     color:#fff !important;
 }
 
@@ -199,7 +198,7 @@ span{
     /* display: inline-block; */
     width: 60px;
     height: 3vh;
-    left: 11vw;
+    left: 12vw;
     top: 12vh;
     border: rgba(35, 0, 7, 0.9) solid;
   }
@@ -219,7 +218,7 @@ span{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color:rgba(35, 0, 7, 0.0);
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -231,7 +230,7 @@ span{
     width: 26px;
     left: 4px;
     bottom: 10%;
-    background-color: white;
+    background-color: #6C81AB;
     -webkit-transition: .4s;
     transition: .4s;
     /* margin-top: auto; */
