@@ -280,31 +280,21 @@ window.addEventListener('mousemove', e => {
 
 function updateCanvas(ctx, textA, textB) {
 
-  ctx.textAlign = "center";
+  // ctx.textAlign = "center";
 
 
 ctx.font =window.getComputedStyle(currPage).getPropertyValue('font-size') + " Arial";// currPage.style['fontSize']  + " Arial";
 let lines = getLines(ctx, textA, ctx.canvas.width * 0.55);
 
-console.log(ctx)
+// console.log(ctx)
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.fillStyle = '#F5F5F5';
 
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  // ctx.fillStyle = '#CCF';
-
-  // ctx.fillRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
-  // ctx.fillStyle = '#DDF';
-  //   ctx.fillStyle = '#fB9';
-
-  //   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.8, ctx.canvas.height * 0.8);
-  //   // ctx.fillStyle = '#EEF';
+  
   ctx.fillStyle = '#EFFDFC';
 
-  // ctx.fillRect(ctx.canvas.width * 0.15, ctx.canvas.height * 0.15, ctx.canvas.width * 0.7, ctx.canvas.height * 0.7);
-
-  // ctx.fillStyle = '#fB9';
-  // ctx.fillStyle = '#468';
+  
   ctx.lineWidth = 2;
 
   ctx.strokeRect(ctx.canvas.width * 0.05, ctx.canvas.height * 0.05, ctx.canvas.width * 0.9, ctx.canvas.height * 0.9);
@@ -312,21 +302,7 @@ console.log(ctx)
 
   ctx.fillRect(ctx.canvas.width * 0.1, ctx.canvas.height * 0.1, ctx.canvas.width * 0.804, ctx.canvas.height * 0.805);
 
-  // ctx.fillStyle = '#468';
-  // for(let i = 0 ; i < 6; i++){
-  // ctx.strokeRect(Math.random()*ctx.canvas.width,Math.random()* ctx.canvas.height , ctx.canvas.width * 0.2, ctx.canvas.height * 0.2);
-  // }
-  // ctx.strokeRect(ctx.canvas.width * 0.1499 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
-  // ctx.strokeRect(ctx.canvas.width * 0.3899 , ctx.canvas.height * 0.819, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
-  // ctx.strokeRect(ctx.canvas.width * 0.6999 , ctx.canvas.height * 0.799, ctx.canvas.width * 0.151, ctx.canvas.height * 0.151);
 
-  // ctx.fillStyle = '#fB9';
-
-  // ctx.strokeRect(ctx.canvas.width * 0.2, ctx.canvas.height * 0.1, ctx.canvas.width * 0.6, ctx.canvas.height * 0.8);
-  //  viewPortX
-
-  // ctx.font = viewPortX * 0.01 + "em Arial";
-  // currPage.style['fontSize'] = '50em';
 
   console.log(ctx.font);
 
@@ -340,7 +316,7 @@ console.log(ctx)
 
     ctx.fillStyle = '#000';
     // ctx.fillStyle = '#fca';
-    const textX = ctx.canvas.width * 0.5;
+    const textX = ctx.canvas.width * 0.2;
     const numLines = lines.length;
     
     let lineSpace; 
@@ -355,7 +331,15 @@ console.log(ctx)
     
    
 for(i = 0; i < lines.length; i++){
+
+  if(window.innerWidth < 768){
+    console.log('big')
+
       ctx.fillText(lines[i], textX, textY + (i * lineSpace/2));
+   } else{
+     console.log('smol')
+   ctx.fillText(lines[i], textX, textY + (i * lineSpace));
+   }
 
 }
     // ctx.fillText(lines[0], ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);
