@@ -296,7 +296,17 @@ span{
         top: 6vh;
     
     } */
-
+    @supports ( -moz-appearance:none ){
+        #mainContent{
+          /* opacity: 0.0; */
+       
+          margin: 10% ;
+          width: 80%;
+          height: 80%;
+          /* background-color: #fB9; */
+          /* //rgba(35, 0, 7, 0.9); */
+      }
+    }
 }
 
 @media screen and (max-height: 768px)and (orientation:landscape) {
