@@ -331,8 +331,9 @@ let lines = getLines(ctx, textA, ctx.canvas.width * 0.55);
     
    
 for(i = 0; i < lines.length; i++){
+  console.log(window.innerWidth )
 
-  if(window.innerWidth < 768){
+  if(window.innerWidth > 768){
     console.log('big')
 
       ctx.fillText(lines[i], textX, textY + (i * lineSpace/2));
