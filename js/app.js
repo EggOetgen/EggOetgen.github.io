@@ -341,17 +341,21 @@ console.log(ctx)
     ctx.fillStyle = '#000';
     // ctx.fillStyle = '#fca';
     const textX = ctx.canvas.width * 0.5;
-    const textY = ctx.canvas.height * (0.5 - (lines.length *0.01) );
+    const numLines = lines.length;
     
     let lineSpace; 
     if(ctx.canvas.width  > ctx.canvas.height){
-    lineSpace = ctx.canvas.height * 0.1;
+    lineSpace = ctx.canvas.height/numLines;
     }else{
-      lineSpace = ctx.canvas.width * 0.1;
+      lineSpace = ctx.canvas.width/numLines;;
 
     }
+    console.log(0.5 / lineSpace)
+    const textY =( ctx.canvas.height *( 0.2 + (0.25 / (numLines ))));
+    
+   
 for(i = 0; i < lines.length; i++){
-      ctx.fillText(lines[i], textX, textY + (i * lineSpace));
+      ctx.fillText(lines[i], textX, textY + (i * lineSpace/2));
 
 }
     // ctx.fillText(lines[0], ctx.canvas.width * 0.2, ctx.canvas.height * 0.45);

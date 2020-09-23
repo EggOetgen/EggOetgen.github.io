@@ -237,7 +237,6 @@ span{
   }
   
   input:checked + .slider {
-    /* background-color: #2196F3; */
   }
   
   input:focus + .slider {
@@ -283,13 +282,10 @@ span{
 
     @supports ( -moz-appearance:none ){
         #mainContent{
-          /* opacity: 0.0; */
        
-          /* margin: 10% ; */
           width: 80%;
           height: 80%;
-          /* background-color: #fB9; */
-          /* //rgba(35, 0, 7, 0.9); */
+          
       }
       .but {
    
@@ -312,20 +308,14 @@ span{
 @media screen and (max-height: 768px)and (orientation:landscape) {
 
     .but {
-        /* background: rgba(35, 0, 7, 1.0); */
         border: rgba(35, 0, 7, 0.9) solid;
-        /* position: absolute; */
-           /* background-color: #468 ; */
-    /* display: inline-block;
-    position: relative; */
+       
         color: rgba(35, 0, 7, 1.0);
-        /* background-color: #468 ; */
-        /* position: absolute  ; */
+       
         border: rgba(35, 0, 7, 0.9) solid;
         width: 17vw;
         height: 8vh;
-        /* border: 0px; */
-        /* padding: 20px; */
+        
     
     }
 
@@ -353,13 +343,10 @@ span{
     }
     @supports ( -moz-appearance:none ){
         #mainContent{
-          /* opacity: 0.0; */
-       
-          /* margin: 10% ; */
+         
           width: 80%;
           height: 80%;
-          /* background-color: #fB9; */
-          /* //rgba(35, 0, 7, 0.9); */
+          
       }
 
       .but {
