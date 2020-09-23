@@ -266,7 +266,7 @@ span{
     .but {
    
         width: 35vw;
-        height: 5vh;
+        height: 6vh;
       
     
     }
@@ -277,16 +277,17 @@ span{
     #instaButton, #emailButton{
         left: 52vw;
     }
-    
+    #homeButton, #emailButton{
+        top: 82vh;
+    }
+    #infoButton, #instaButton{
+        top: 74vh;
+    }
     #info{
         font-size: 4vmin;
 
     }
-    #mainContentText{
-       
-       
-        
-    }
+
     @supports ( -moz-appearance:none ){
         #mainContent{
        
@@ -296,8 +297,8 @@ span{
       }
       .but {
    
-        width: 35%;
-        height: 5%;
+        width: 36%;
+        height: 6%;
       
     
     }
@@ -308,7 +309,12 @@ span{
     #instaButton, #emailButton{
         left: 52%;
     }
-    
+    #homeButton, #emailButton{
+        top: 82%;
+    }
+    #infoButton, #instaButton{
+        top: 74%;
+    }
     }
 }
 
