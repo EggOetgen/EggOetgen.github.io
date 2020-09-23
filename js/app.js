@@ -107,7 +107,7 @@ function animate() {
   force.y *= (-1 * 0.03 * length);
   acc = add(acc, force);
   vel = add(vel, acc);
-  vel = mult(vel, 0.92);
+  vel = mult(vel, 0.94);
   pos = add(pos, vel);
   // texture.needsUpdate = true;
 

@@ -132,6 +132,8 @@ left: 15%;
 	margin: 10vh 10vw 10vh 10vw;
     width: 80vw;
     height: 80vh;
+   
+
     /* background-color: #fB9; */
     /* //rgba(35, 0, 7, 0.9); */
 }
@@ -143,6 +145,7 @@ left: 15%;
     /* color: rgba(0, 0, 0, 1.0); */
 }
 #info  {
+    margin-top: 5%;
     display:    none;
     font-size: 3vmax;
 
@@ -163,12 +166,13 @@ left: 15%;
     font-size: 15vmax; 
     margin: 10%;
     position: absolute;
+max-height: 70%;
     /* text-align: center; */
     /* top: 50%;
     left: 50%; */
     /* margin-right: -50%; */
     /* transform: translate(-50%, -50%)  */
-/* overflow:hidden;   */
+overflow:scroll;  
 }
 
 
@@ -396,3 +400,18 @@ span{
         
 
 }
+/* @media only screen and (min-width: 1000px) {
+    #mainContent{
+        /opacity: 0.0; 
+        color: rgba(35, 0, 7, 0.0);
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+          border: rgba(35, 0, 7, 0.9) solid;
+        margin: 10vh 20vw 10vh 20vw;
+        width: 60vw;
+        height: 80vh;
+       
+} */
