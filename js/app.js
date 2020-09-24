@@ -15,7 +15,7 @@ let sensible = false;
 let viewPortX = window.innerWidth;
 let viewPortY = window.innerHeight;
 let currPage = document.getElementById('home');
-
+let useGyro = true;
 
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
@@ -208,9 +208,13 @@ for (i = 0; i < buttons.length; i++) {
 // let tog = document.getElementById('sillyToggle');
 
 // tog.addEventListener('mousedown', toggleSilliness );
-let tog = document.getElementById('silTog');
+let silTog = document.getElementById('silTog');
+let gyroTog = document.getElementById('gyroTog');
 
-tog.addEventListener('change', toggleSilliness );
+
+silTog.addEventListener('change', toggleSilliness );
+gyroTog.addEventListener('change', toggleGyro);
+
 function toggleSilliness(){
   dest.x = 0.5;
   dest.y = 0.5;
@@ -224,6 +228,10 @@ function toggleSilliness(){
   } else{
 
     el.style.color  = 'rgba(0, 0, 0, 0.0 )'
+}
+function toggleGryo(){
+
+  useGyro = !useGyro;
 }
 
 updateCanvas(ctx,    currPage.innerText, currPage.innerText);
@@ -392,10 +400,9 @@ function handleOrientation(event) {
   var beta     = event.beta;
   var gamma    = event.gamma;
 
-  console.log(gamma);
+  if(useGyro){
   // currPage.style['backgroundColor'] = 'pink';
   dest.y = 0.5 + (((beta/ 180) * 0.4));
   dest.x = 0.5 + (((gamma / 90) * 0.4));
-  // dest.x =(alpha / 360);
-  // dest.y = (beta / 360) ;
+  }
 }

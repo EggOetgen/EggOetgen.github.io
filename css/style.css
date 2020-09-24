@@ -204,8 +204,8 @@ span{
     color:#fff !important;
 }
 
-/* The switch - the box around the slider */
-#switch {
+/* The switchSensibleSensible - the box around the slider */
+#switchSensible {
     position: absolute;
     /* display: inline-block; */
     width: 60px;
@@ -216,12 +216,28 @@ span{
   }
   
   /* Hide default HTML checkbox */
-  #switch input {
+  #switchSensible input {
     opacity: 0;
     width: 0;
     height: 0;
   }
+  #switchGyro {
+    position: absolute;
+    /* display: inline-block; */
+    width: 60px;
+    height: 3vh;
+    left: 12vw;
+    top: 16vh;
+    border: rgba(35, 0, 7, 0.9) solid;
+    display:none;
+  }
   
+  /* Hide default HTML checkbox */
+  #switchGyro input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
   /* The slider */
   .slider {
     position: absolute;
@@ -279,6 +295,9 @@ span{
 
 }
 @media only screen and (max-width: 768px) {
+  #switchGyro {
+      display: inline;
+  }
 
     .but {
    
@@ -340,7 +359,10 @@ span{
 }
 
 @media screen and (max-height: 768px)and (orientation:landscape) {
-
+ #switchGyro {
+      display: inline;
+      top: 17%;
+  }
     .but {
         border: rgba(35, 0, 7, 0.9) solid;
        
