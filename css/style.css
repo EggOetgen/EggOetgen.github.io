@@ -137,10 +137,19 @@ left: 15%;
     /* background-color: #fB9; */
     /* //rgba(35, 0, 7, 0.9); */
 }
+#home  {
+    /* display:    inline; */
+    /* font-size: 7em; */
+    font-size: 9vmax;
+
+    /* color: rgba(0, 0, 0, 1.0); */
+}
 #soundcloud  {
     /* display:    inline; */
     /* font-size: 7em; */
     font-size: 9vmax;
+        display:    none;
+
 
     /* color: rgba(0, 0, 0, 1.0); */
 }
