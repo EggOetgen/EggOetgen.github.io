@@ -196,7 +196,7 @@ function resizeRendererToDisplaySize() {
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
-var buttons = ['infoButton', 'homeButton','instaButton', 'emailButton'];
+var buttons = ['infoButton', 'homeButton','instaButton', 'emailButton', 'soundcloudButton'];
 // var pages = ['home',  'info']
 
 for (i = 0; i < buttons.length; i++) {

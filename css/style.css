@@ -93,7 +93,7 @@ left: 15%;
     left: 73%;
 
 }
-#homeButton{
+#soundcloudButton{
 
         top: 82%;
         left: 70%;
@@ -137,7 +137,7 @@ left: 15%;
     /* background-color: #fB9; */
     /* //rgba(35, 0, 7, 0.9); */
 }
-#home  {
+#soundcloud  {
     /* display:    inline; */
     /* font-size: 7em; */
     font-size: 9vmax;
@@ -252,7 +252,7 @@ span{
     transform: translateX(26px);
   }
   
-  #egg {
+  .egg {
     width: 2.5vh;
     height: 4vh;
     background: #f6faed;
@@ -278,10 +278,10 @@ span{
     #infoButton, #emailButton{
         left: 12vw;
     }
-    #instaButton, #homeButton{
+    #instaButton, #soundcloudButton{
         left: 52vw;
     }
-    #homeButton, #emailButton{
+    #soundcloudButton, #emailButton{
         top: 82vh;
     }
     #infoButton, #instaButton{
@@ -314,10 +314,10 @@ span{
     #infoButton, #emailButton{
         left: 12%;
     }
-    #instaButton, #homeButton{
+    #instaButton, #soundcloudButton{
         left: 52%;
     }
-    #homeButton, #emailButton{
+    #soundcloudButton, #emailButton{
         top: 82%;
     }
     #infoButton, #instaButton{
@@ -341,7 +341,7 @@ span{
     }
 
    
-    #infoButton, #instaButton, #homeButton, #emailButton{
+    #infoButton, #instaButton, #soundcloudButton, #emailButton{
         top: 80vh;
     }
     #infoButton{
@@ -357,10 +357,14 @@ span{
         left: 51vw;
     
     }
-    #homeButton{
+    #soundcloudButton{
     
             left: 71vw;
     
+    }
+     .mainContentText{
+                  margin-top: 10%;
+
     }
     @supports ( -moz-appearance:none ){
         #mainContent{
@@ -379,7 +383,7 @@ span{
     }
 
    
-    #infoButton, #instaButton, #homeButton, #emailButton{
+    #infoButton, #instaButton, #soundcloudButton, #emailButton{
         top: 80%;
     }
     #infoButton{
@@ -395,7 +399,7 @@ span{
         left: 51%;
     
     }
-    #homeButton{
+    #soundcloudButton{
     
             left: 71%;
     
