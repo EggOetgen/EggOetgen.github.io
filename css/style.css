@@ -83,7 +83,7 @@ position: relative; */
     left: 12%;
 }
 
-#homeButton{
+#emailButton{
 left: 15%;
     top: 82%;
 }
@@ -93,7 +93,7 @@ left: 15%;
     left: 73%;
 
 }
-#emailButton{
+#homeButton{
 
         top: 82%;
         left: 70%;
@@ -145,7 +145,7 @@ left: 15%;
     /* color: rgba(0, 0, 0, 1.0); */
 }
 #info  {
-    margin-top: 5%;
+    /* margin-top: 5%; */
     display:    none;
     font-size: 3vmax;
 
@@ -166,7 +166,7 @@ left: 15%;
     font-size: 15vmax; 
     margin: 10%;
     position: absolute;
-max-height: 70%;
+    max-height: 70%;
     /* text-align: center; */
     /* top: 50%;
     left: 50%; */
@@ -275,10 +275,10 @@ span{
     
     }
 
-    #infoButton, #homeButton{
+    #infoButton, #emailButton{
         left: 12vw;
     }
-    #instaButton, #emailButton{
+    #instaButton, #homeButton{
         left: 52vw;
     }
     #homeButton, #emailButton{
@@ -292,6 +292,10 @@ span{
 
     }
 
+    .mainContentText{
+                  margin-top: 20%;
+
+    }
     @supports ( -moz-appearance:none ){
         #mainContent{
        
@@ -307,10 +311,10 @@ span{
     
     }
 
-    #infoButton, #homeButton{
+    #infoButton, #emailButton{
         left: 12%;
     }
-    #instaButton, #emailButton{
+    #instaButton, #homeButton{
         left: 52%;
     }
     #homeButton, #emailButton{
@@ -345,7 +349,7 @@ span{
         left: 11vw;
     }
     
-    #homeButton{
+    #emailButton{
         left: 31vw;
     }
     #instaButton{
@@ -353,7 +357,7 @@ span{
         left: 51vw;
     
     }
-    #emailButton{
+    #homeButton{
     
             left: 71vw;
     
@@ -383,7 +387,7 @@ span{
         left: 11%;
     }
     
-    #homeButton{
+    #emailButton{
         left: 31%;
     }
     #instaButton{
@@ -391,7 +395,7 @@ span{
         left: 51%;
     
     }
-    #emailButton{
+    #homeButton{
     
             left: 71%;
     
