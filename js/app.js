@@ -394,8 +394,8 @@ function handleOrientation(event) {
 
   console.log(gamma);
   // currPage.style['backgroundColor'] = 'pink';
-  dest.x = 0.5 + (((beta/ 180) * 0.4));
-  dest.y = 0.5 + (((gamma / 90) * 0.4));
+  dest.y = 0.5 + (((beta/ 180) * 0.4));
+  dest.x = 0.5 + (((gamma / 90) * 0.4));
   // dest.x =(alpha / 360);
   // dest.y = (beta / 360) ;
 }
