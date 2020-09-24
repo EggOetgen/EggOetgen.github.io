@@ -402,7 +402,14 @@ function handleOrientation(event) {
 
   if(useGyro){
   // currPage.style['backgroundColor'] = 'pink';
-  dest.y = 0.5 + (((beta/ 180) * 0.4));
+   if(ctx.canvas.width  > ctx.canvas.height){
+    dest.x = 0.5 + (((beta/ 180) * 0.4));
+  dest.y = 0.5 + (((gamma / 90) * 0.4));
+    }else{
+     dest.y = 0.5 + (((beta/ 180) * 0.4));
   dest.x = 0.5 + (((gamma / 90) * 0.4));
+
+    }
+  
   }
 }
