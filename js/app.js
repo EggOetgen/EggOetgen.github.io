@@ -229,6 +229,7 @@ function toggleSilliness(){
 
     el.style.color  = 'rgba(0, 0, 0, 0.0 )'
 }
+}
 function toggleGyro(){
 
   useGyro = !useGyro;
