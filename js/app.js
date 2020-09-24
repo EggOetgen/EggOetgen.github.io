@@ -229,16 +229,17 @@ function toggleSilliness(){
 
     el.style.color  = 'rgba(0, 0, 0, 0.0 )'
 }
-}
-function toggleGyro(){
 
-  useGyro = !useGyro;
-}
+
 
 updateCanvas(ctx,    currPage.innerText, currPage.innerText);
 
     texture.needsUpdate = true;
 
+}
+function toggleGyro(){
+
+  useGyro = !useGyro;
 }
 function centreCanvas(but) {
   dest.x = 0.5;
