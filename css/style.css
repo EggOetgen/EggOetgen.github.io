@@ -222,13 +222,7 @@ span{
     height: 0;
   }
   #switchGyro {
-    position: absolute;
-    /* display: inline-block; */
-    width: 60px;
-    height: 3vh;
-    left: 12vw;
-    top: 16vh;
-    border: rgba(35, 0, 7, 0.9) solid;
+   
     display:none;
   }
   
@@ -296,6 +290,14 @@ span{
 }
 @media only screen and (max-width: 768px) {
   #switchGyro {
+
+       position: absolute;
+    /* display: inline-block; */
+    width: 60px;
+    height: 3vh;
+    left: 30vw;
+    top: 12vh;
+    border: rgba(35, 0, 7, 0.9) solid;
       display: inline;
   }
 
@@ -360,9 +362,18 @@ span{
 
 @media screen and (max-height: 768px)and (orientation:landscape) {
  #switchGyro {
+      
+
+       position: absolute;
+    /* display: inline-block; */
+    width: 60px;
+    height: 3vh;
+    left: 22vw;
+    top: 12vh;
+    border: rgba(35, 0, 7, 0.9) solid;
       display: inline;
-      top: 17%;
   }
+  
     .but {
         border: rgba(35, 0, 7, 0.9) solid;
        
