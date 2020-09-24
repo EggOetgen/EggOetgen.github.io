@@ -384,3 +384,14 @@ function getLines(ctx, text, maxWidth) {
   lines.push(currentLine);
   return lines;
 }
+
+window.addEventListener("deviceorientation", handleOrientation, true);
+function handleOrientation(event) {
+  var absolute = event.absolute;
+  var alpha    = event.alpha;
+  var beta     = event.beta;
+  var gamma    = event.gamma;
+
+  console.log(gamma);
+  currPage.style['backgroundColor'] = 'pink';
+}
