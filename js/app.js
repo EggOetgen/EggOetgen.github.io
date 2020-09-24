@@ -320,8 +320,10 @@ let lines = getLines(ctx, textA, ctx.canvas.width * 0.55);
     const numLines = lines.length;
     
     let lineSpace; 
+    let landscape = false;
     if(ctx.canvas.width  > ctx.canvas.height){
     lineSpace = ctx.canvas.height/numLines;
+    landscape = true;
     }else{
       lineSpace = ctx.canvas.width/numLines;;
 
@@ -333,13 +335,13 @@ let lines = getLines(ctx, textA, ctx.canvas.width * 0.55);
 for(i = 0; i < lines.length; i++){
   console.log(window.innerWidth )
 
-  if(window.innerWidth > 768){
+  if(window.innerWidth > 768 || landscape){
     console.log('big')
 
       ctx.fillText(lines[i], textX, textY + (i * lineSpace/2));
    } else{
      console.log('smol')
-   ctx.fillText(lines[i], textX, textY + (i * lineSpace));
+   ctx.fillText(lines[i], textX, textY + (i * lineSpace/1.2));
    }
 
 }
