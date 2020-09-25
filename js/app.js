@@ -401,7 +401,7 @@ function handleOrientation(event) {
   var alpha    = event.alpha;
   var beta     = event.beta;
   var gamma    = event.gamma;
-
+  beta += 90;
   if(useGyro){
   // currPage.style['backgroundColor'] = 'pink';
    if(ctx.canvas.width  > ctx.canvas.height){
