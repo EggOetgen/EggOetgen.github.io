@@ -293,14 +293,21 @@ span{
 
        position: absolute;
     /* display: inline-block; */
-    width: 5vw;
-    height: 3vh;
-    left: 18vw;
+    width: 5vh;
+    height: 3vw;
+    left: 20vw;
     top: 12vh;
     border: rgba(35, 0, 7, 0.9) 1px  solid;
       /* display: inline; */
   }
-
+#switchSensible {
+    position: absolute;
+    /* display: inline-block; */
+    width: 5vh;
+    height: 3vw;
+    left: 12vw;
+    top: 12vh;
+  }
     .but {
    
         width: 35vw;
