@@ -22,7 +22,7 @@ canvas {
 
 
 .tog {
-    border: rgba(35, 0, 7, 0.4) solid;
+    border: rgba(35, 0, 7, 0.4) 1px solid;
     /* display: inline-block;
     position: relative; */
     position: absolute;
@@ -63,14 +63,14 @@ transform: translate(-50%, -50%)
 
 .but {
     /* background: rgba(35, 0, 7, 1.0); */
-    border: rgba(35, 0, 7, 0.9) solid;
+    border: rgba(35, 0, 7, 0.9) 1px  solid;
     position: absolute;
        /* background-color: #468 ; */
 /* display: inline-block;
 position: relative; */
     /* background-color: #468 ; */
 	/* position: absolute  ; */
-    border: rgba(35, 0, 7, 0.9) solid;
+    border: rgba(35, 0, 7, 0.9) 1px solid;
     width: 15vw;
     height: 5vh;
     /* border: 0px; */
@@ -128,7 +128,7 @@ left: 15%;
 	bottom: 0;
 	left: 0;
 	right: 0;
-  	border: rgba(35, 0, 7, 0.9) solid;
+  	border: rgba(35, 0, 7, 0.9) 1px  solid;
 	margin: 10vh 10vw 10vh 10vw;
     width: 80vw;
     height: 80vh;
@@ -208,11 +208,11 @@ span{
 #switchSensible {
     position: absolute;
     /* display: inline-block; */
-    width: 60px;
+    width: 5vw;
     height: 3vh;
     left: 12vw;
     top: 12vh;
-    border: rgba(35, 0, 7, 0.9) solid;
+    border: rgba(35, 0, 7, 0.9) 1px  solid;
   }
   
   /* Hide default HTML checkbox */
@@ -249,8 +249,8 @@ span{
     position: absolute;
     content: "";
     height: 80%;
-    width: 26px;
-    left: 4px;
+    width: 50%;
+    left: 4%;
     bottom: 10%;
     background-color: #6C81AB;
     -webkit-transition: .4s;
@@ -266,9 +266,9 @@ span{
   }
   
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(85%);
+    -ms-transform: translateX(85%);
+    transform: translateX(85%);
   }
   
   .egg {
@@ -293,12 +293,12 @@ span{
 
        position: absolute;
     /* display: inline-block; */
-    width: 60px;
+    width: 5vw;
     height: 3vh;
-    left: 30vw;
+    left: 18vw;
     top: 12vh;
-    border: rgba(35, 0, 7, 0.9) solid;
-      display: inline;
+    border: rgba(35, 0, 7, 0.9) 1px  solid;
+      /* display: inline; */
   }
 
     .but {
@@ -366,20 +366,20 @@ span{
 
        position: absolute;
     /* display: inline-block; */
-    width: 60px;
+   width: 5vw;
     height: 3vh;
-    left: 22vw;
+    left: 18vw;
     top: 12vh;
-    border: rgba(35, 0, 7, 0.9) solid;
-      display: inline;
+    border: rgba(35, 0, 7, 0.9) 1px solid;
+      /* display: inline; */
   }
   
     .but {
-        border: rgba(35, 0, 7, 0.9) solid;
+        border: rgba(35, 0, 7, 0.9)1px  solid;
        
         color: rgba(35, 0, 7, 1.0);
        
-        border: rgba(35, 0, 7, 0.9) solid;
+        border: rgba(35, 0, 7, 0.9)1px  solid;
         width: 17vw;
         height: 8vh;
         
