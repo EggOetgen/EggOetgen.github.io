@@ -186,13 +186,13 @@ function resizeRendererToDisplaySize() {
   updatePlane();
   ctx.canvas.width = viewPortX;
   ctx.canvas.height = viewPortY;
-  updateCanvas(ctx,    currPage.innerText, currPage.innerText);
   texture.needsUpdate = true;
   boundingBox = new THREE.Box3().setFromObject(plane)
   var size = boundingBox.getSize()
 
   var buttonSize = window.innerWidth * 0.1;
-  
+    updateCanvas(ctx,    currPage.innerText, currPage.innerText);
+
 }
 
 window.addEventListener('resize', resizeRendererToDisplaySize);
