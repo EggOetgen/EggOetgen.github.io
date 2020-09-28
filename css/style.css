@@ -6,7 +6,17 @@ body {
    
   
 }
-
+.togText{
+    color: rgba(35, 0, 7, 1.0);
+   margin: 0;
+    font-size: 1vmax;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+    z-index: 1;
+  }
 canvas {
     /* display: block; */
     /* position: relative; */
@@ -206,17 +216,25 @@ span{
     color:#fff !important;
 }
 
+.switch{
+    background:#F5F5F5;
+     width: 5vw;
+    height: 3vh;
+    position: absolute;
+        position: absolute;
+
+
+}
 /* The switchSensibleSensible - the box around the slider */
 #switchSensible {
-    position: absolute;
     /* display: inline-block; */
-    width: 5vw;
-    height: 3vh;
+   
     left: 12vw;
     top: 12vh;
     border: rgba(35, 0, 7, 0.9) 1px  solid;
   }
   
+
   /* Hide default HTML checkbox */
   #switchSensible input {
     opacity: 0;
@@ -224,10 +242,8 @@ span{
     height: 0;
   }
   #switchCam {
-    position: absolute;
     /* display: inline-block; */
-    width: 5vw;
-    height: 3vh;
+   
     left: 18vw;
     top: 12vh;
     border: rgba(35, 0, 7, 0.9) 1px  solid;
