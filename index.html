@@ -39,6 +39,7 @@
     <p class="mainContentText" id='insta'> See what I'm up to and examples of my work on Instagram</p>
     <p class="mainContentText" id='email'>Please feel free to email me if you'd like to work together, or fancy a chat </p>
     <p class="mainContentText" id='soundcloud'>Listen to my bleeps and bloops </p>
+            <video id="video" muted></video>
 
   </div>
   <label id="switchSensible">
@@ -48,6 +49,10 @@
  
   <label id="switchGyro">
     <input id = 'gyroTog' type="checkbox">
+    <span class="slider"></span>
+  </label>
+   <label id="switchCam">
+    <input id = 'camTog' type="checkbox">
     <span class="slider"></span>
   </label>
   <div class="egg" id = "homeButton"></div>
@@ -96,6 +101,7 @@
         const float TWO_PI = 6.2831855;
         varying vec2 vUv;
         varying vec2 vUvStraight;
+            uniform float cam;
 
         uniform float u_test;
       // uniform float u_time;
@@ -131,8 +137,11 @@
             const float TWO_PI = 6.2831855;
 
             uniform sampler2D texture1;
+            uniform sampler2D texture2;
+
             uniform float u_test;
             uniform float u_time;
+            uniform float cam;
             varying vec2 vUv;
             varying vec2 vUvStraight;
            
@@ -155,33 +164,29 @@
                 float MY = my - 0.5;
                 float borderWidth = u_resolution.x * 0.1;
                 vec2 st = vUv;
+                
                 vec4 col;
                // if(( (  vUvStraight.x > 0.2 && vUvStraight.x < 0.21 ) || (vUvStraight.x > 0.79 && vUvStraight.x < 0.8)) && (vUvStraight.y > 0.2 && vUvStraight.y <0.8)
                // || ( (  vUvStraight.y > 0.2 && vUvStraight.y < 0.21 ) || (vUvStraight.y > 0.79 && vUvStraight.y < 0.8)) && (vUvStraight.x > 0.2 && vUvStraight.x <0.8) ){
               //      col = vec4(1.0);
               //  }else{
+                
                 st.x += notRand(vUv) * MX;
                 st.y+= notRand(vUv) *MY;
                 
 
                 col = texture2D(texture1, st);
-              //  if(texture2D(texture1, vUv) == vec4(1.0,0.0,0.0,1.0)){
+             
+             if(cam == 1.0) {
+              if(st.x >0.1 && st.x < 0.9 && st.y > 0.1 && st.y < 0.9){
+               // st*=1.1111111;
+                              col = texture2D(texture2, st);
+             }
+                  }
+             
 
-              //    st.y = vUv.y + notRand(vUv.yx) * MY;
-              //  st.x=vUv.x+ notRand(vUv.yx) *MX;
-                
-               // }
-                col = texture2D(texture1, st);
-
-               // col.x +=  (dist(st, vUvStraight) )  > 0. ? (dist(st, vUvStraight) * 1.2) : 0.  ;
-                //}
-              //  if(col != vec4(1.0)){
-              //col*=((st.x * 0.25)+0.9) ;
-             //   pow(col,vec4(MX));
-             // }
               if(col == vec4(1.0)) col.w = 0.;
                 gl_FragColor = col;
-                //gl_FragColor = vec4(st.x,  st.x, st.x,1.0); // A
               }
            </script>
 </body>

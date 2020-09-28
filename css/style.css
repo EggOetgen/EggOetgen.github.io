@@ -20,7 +20,9 @@ canvas {
     display: none;
 }
 
-
+#video{
+    display:none;
+}
 .tog {
     border: rgba(35, 0, 7, 0.4) 1px solid;
     /* display: inline-block;
@@ -221,6 +223,22 @@ span{
     width: 0;
     height: 0;
   }
+  #switchCam {
+    position: absolute;
+    /* display: inline-block; */
+    width: 5vw;
+    height: 3vh;
+    left: 12vw;
+    top: 12vh;
+    border: rgba(35, 0, 7, 0.9) 1px  solid;
+  }
+  
+  /* Hide default HTML checkbox */
+  #switchCam input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
   #switchGyro {
    
     display:none;
@@ -295,7 +313,7 @@ span{
     /* display: inline-block; */
     width: 5vh;
     height: 3vw;
-    left: 20vw;
+    left: 28vw;
     top: 12vh;
     border: rgba(35, 0, 7, 0.9) 1px  solid;
       /* display: inline; */
@@ -308,6 +326,16 @@ span{
     left: 12vw;
     top: 12vh;
   }
+    #switchCam {
+    position: absolute;
+    /* display: inline-block; */
+    width: 5vh;
+    height: 3vw;
+    left: 20vw;
+    top: 12vh;
+    border: rgba(35, 0, 7, 0.9) 1px  solid;
+  }
+  
     .but {
    
         width: 35vw;
@@ -369,6 +397,18 @@ span{
 
 @media screen and (max-height: 768px)and (orientation:landscape) {
  #switchGyro {
+      
+
+       position: absolute;
+    /* display: inline-block; */
+   width: 5vw;
+    height: 3vh;
+    left: 24vw;
+    top: 12vh;
+    border: rgba(35, 0, 7, 0.9) 1px solid;
+      /* display: inline; */
+  }
+   #switchCam {
       
 
        position: absolute;

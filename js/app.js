@@ -1,5 +1,6 @@
 
-window.onload=function(){ setTimeout(function(){ 		window.scrollTo(0, 1); 	}, 0);  console.log('consider yourself scrolled');}
+// window.onload=function(){ setTimeout(function(){ 		window.scrollTo(0, 1); 	}, 0);  console.log('consider yourself scrolled');}
+
 
 var pos = { x: 0.45, y: 0.55 };
 var dest = { x: 0.5 + ((Math.random() * 0.2) - 0.1), y: 0.5 + ((Math.random() * 0.2) - 0.1) };
@@ -22,15 +23,50 @@ let viewPortX = window.innerWidth;
 let viewPortY = window.innerHeight;
 let currPage = document.getElementById('home');
 let useGyro = true;
+let useCam = false;
 
 var bannerCanvas = document.getElementById('bannerCanvas');
 var ctx = bannerCanvas.getContext("2d");
 ctx.canvas.width = viewPortX;
 ctx.canvas.height = viewPortY;
+const videoEl = document.getElementById('video');
+const constraints = {
+    video: true,
+    audio: false
+};
+function getWebcam() {
+    return navigator.mediaDevices.getUserMedia(constraints)
+        .then(stream => {
+            videoEl.srcObject = stream;
+           
+            mediaRecorder = new MediaRecorder(stream);
 
+
+            // mediaRecorder.onstop = onStop;
+
+            // mediaRecorder.ondataavailable = function(e) {
+            //     chunks.push(e.data);
+            //   }
+            
+            return new Promise((resolve, reject) => {
+                videoEl.onloadedmetadata = (e) => {
+                    videoEl.style.width =viewPortX;// `${videoEl.clientWidth}px`;
+                    videoEl.style.height = viewPortY;//`${videoEl.clientHeight}px`;
+                    videoEl.width = viewPortX;//videoEl.clientWidth;
+                    videoEl.height = viewPortY;//videoEl.clientHeight;
+                
+                    videoEl.play();
+
+                    resolve(videoEl);
+                };
+            });
+        });
+}
 updateCanvas(ctx,    currPage.innerText, currPage.innerText);
 
 const texture = new THREE.CanvasTexture(ctx.canvas);
+const textureCam = new THREE.VideoTexture(videoEl);
+console.log(texture)
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -38,20 +74,23 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 0);
+renderer.setPixelRatio( window.devicePixelRatio );
+
 document.body.appendChild(renderer.domElement);
 // document.querySelector('#gameCanvas').appendChild(renderer.domElement);
 
 var bannerSize = window.innerWidth / 20;
 
-var bannerTexture = new THREE.Texture(ctx.cavas);
 
 var uniforms = {
   texture1: { type: "t", value: texture },
+    texture2: { type: "t", value: textureCam},
   u_test: { value: 0 },
   u_time: { value: 0.0 },
   u_resolution: { value: new THREE.Vector2(bannerSize, bannerSize * (window.innerHeight / window.innerWidth)) },
   mx: { value: pos.x },
-  my: { value: pos.y }
+  my: { value: pos.y },
+  cam: {value: 0.0 }
 };
 
 var shaderMaterial =
@@ -218,6 +257,9 @@ for (i = 0; i < buttons.length; i++) {
 
 // tog.addEventListener('mousedown', toggleSilliness );
 let silTog = document.getElementById('silTog');
+let camTog = document.getElementById('camTog');
+
+
 var isMobile = false; //initiate as false
 
 if(onPhone){
@@ -235,7 +277,19 @@ function toggleGyro(){
 
 
 silTog.addEventListener('change', toggleSilliness );
+camTog.addEventListener('change', toggleCamera );
 
+function toggleCamera(){
+  if(useCam){
+  shaderMaterial.uniforms.cam.value = 0;
+videoEl.srcObject.getTracks()[0].stop();
+  }else{
+    shaderMaterial.uniforms.cam.value = 1;
+    getWebcam(); 
+     }
+     useCam = !useCam;
+
+}
 function toggleSilliness(){
   dest.x = 0.5;
   dest.y = 0.5;
@@ -434,3 +488,7 @@ function handleOrientation(event) {
   }
 }
 
+// Promise.all([
+//     getWebcam(),
+//     // loadModel()
+// ]);
