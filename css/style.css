@@ -329,7 +329,7 @@ span{
     /* display: inline-block; */
     width: 5vh;
     height: 3vw;
-    left: 28vw;
+    left: 32vw;
     top: 12vh;
     border: rgba(35, 0, 7, 0.9) 1px  solid;
       /* display: inline; */
@@ -347,7 +347,7 @@ span{
     /* display: inline-block; */
     width: 5vh;
     height: 3vw;
-    left: 20vw;
+    left: 22vw;
     top: 12vh;
     border: rgba(35, 0, 7, 0.9) 1px  solid;
   }
@@ -412,6 +412,12 @@ span{
 }
 
 @media screen and (max-height: 768px)and (orientation:landscape) {
+    #switchSensible{
+           position: absolute;
+    /* display: inline-block; */
+   width: 5vw;
+    height: 3vh;
+    }
  #switchGyro {
       
 
@@ -476,6 +482,7 @@ span{
 
     }
     @supports ( -moz-appearance:none ){
+        
         #mainContent{
          
           width: 80%;
