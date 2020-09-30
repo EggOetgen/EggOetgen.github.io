@@ -9,6 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name = "viewport" content = "width=device-width ,initial-scale=1.0>
   <title>Edmund Oetgen</title>
   <meta name="Edmund Oetgen" content="">
   <link rel="icon" 
@@ -22,90 +23,66 @@
 
 <body>
 
-  <!-- <div id='navL' class="nav"> -->
 
-  <!-- <img src="assets/glyph-logo_May2016.png">  -->
-  </div>
-  </div>
-
-
-  <div id='gameCanvas'>
-  </div>
   <div id="mainContent">
     <p class="mainContentText" id='home'>edmund  oetgen</p>
-
-
     <p class="mainContentText" id='info'>I am a creative coder based in London. Usually working with OpenFrameworks, Javascript or Processing. I am interested in projects involving generative art, interactive installations, sound and machine learning in 2 and 3 dimensions. Can currently be found at the Creative Technology Lab at London College of Communication</p>
     <p class="mainContentText" id='insta'> See what I'm up to and examples of my work on Instagram</p>
     <p class="mainContentText" id='email'>Please feel free to email me if you'd like to work together, or fancy a chat </p>
     <p class="mainContentText" id='soundcloud'>Listen to my bleeps and bloops </p>
-            <video id="video" muted></video>
-
+    <video id="video" muted></video>
   </div>
+ 
   <label id="switchSensible" class = 'switch'>
     <input id = 'silTog' type="checkbox">
     <span class="slider"></span>
-      <p class ='togText'> Sensibility</p>
-
+    <p class ='togText'> Sensibility</p>
   </label>
- 
   <label id="switchGyro" class = 'switch'>
-
     <input id = 'gyroTog' type="checkbox">
     <span class="slider"></span>
-        <p class ='togText'> Axis</p>
-
+    <p class ='togText'> Axis</p>
   </label>
-   <label id="switchCam" class = 'switch'>
-
+  <label id="switchCam" class = 'switch'>
     <input id = 'camTog' type="checkbox">
     <span class="slider"></span>
-         <p class ='togText'> Camera</p>
-
+    <p class ='togText'> Camera</p>
   </label>
+  
   <div class="egg" id = "homeButton"></div>
-  
-  
-  <div class='but' id='infoButton'>
-    <div class = 'buttonContent'>
-      <p class="navText"> ?</p>
+    <div class='but' id='infoButton'>
+      <div class = 'buttonContent'>
+       <p class="navText"> ?</p>
+      </div>
     </div>
   </div>
-  <!-- <div class='tog' id='sillyToggle'>
-    <div class = 'buttonContent'>
-      <p class="navText"> Silly</p>
-  </div> -->
+ <div class='but' id='emailButton'>
+  <div class = 'buttonContent'>
+    <a href="mailto:e.s.oetgen@gmail.com" target="_blank"><span></span></a>
+    <p class="navText"> email</p>
+  </div>
+</div>
+<div class='but' id='instaButton'>
+  <div class = 'buttonContent'>
+    <a href="https://instagram.com/odmundeetgen" target="_blank"><span></span></a>
+    <img src="assets/glyph-logo_May2016.png" class="icon"> </p>
+  </div>
+</div>
+<div class='but' id='soundcloudButton'>
+  <div class = 'buttonContent'>
+    <a href="https://soundcloud.com/oetgen" target="_blank"><span></span></a>
+    <img src="assets/soundcloud.png" class="icon"> </p>
+  </div>
 </div>
 
-  
 
-   <div class='but' id='emailButton'>
-    <div class = 'buttonContent'>
-      <a href="mailto:e.s.oetgen@gmail.com" target="_blank"><span></span></a>
-    <p class="navText"> email</p>
-   </div>
-  </div>
+<canvas id='bannerCanvas'></canvas>
 
-    <div class='but' id='instaButton'>
-      <div class = 'buttonContent'>
-
-      <a href="https://instagram.com/odmundeetgen" target="_blank"><span></span></a>
-        <img src="assets/glyph-logo_May2016.png" class="icon"> </p>
-    </div>
-  </div>
-<div class='but' id='soundcloudButton'>
-    <div class = 'buttonContent'>
-
-      <a href="https://soundcloud.com/oetgen" target="_blank"><span></span></a>
-        <img src="assets/soundcloud.png" class="icon"> </p>
-   </div>
-  </div>
-        <script src="js/src/three.js"></script>
-      <script src="./js/app.js" async defer></script>
+<script src="js/src/three.js"></script>
+<script src="./js/app.js" async defer></script>
 
 
-      <canvas id='bannerCanvas'></canvas>
-    <script id="vertexShader" type="notjs">
+ <script id="vertexShader" type="notjs">
         const float TWO_PI = 6.2831855;
         varying vec2 vUv;
         varying vec2 vUvStraight;
