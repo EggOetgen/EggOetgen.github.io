@@ -625,6 +625,28 @@ input:checked+.slider:before {
             height: 80%;
         }
         .but {
+            width: 35%;
+            height: 4%;
+            left: 12%;
+        }
+         #infoButton, #portfolioButton, #instaButton {
+            left: 12%;
+        }
+        #infoButton, #emailButton{
+            top: 75%;
+        }
+        #soundcloudButton,#emailButton{
+    
+            left: 52%;
+        }
+        #instaButton, #soundcloudButton{
+            top: 80%;
+        }
+        #portfolioButton{
+            top: 85%;
+            width: 75%;
+        }
+        /* .but {
             width: 36%;
             height: 6%;
         }
@@ -639,7 +661,7 @@ input:checked+.slider:before {
         }
         #infoButton, #instaButton , #portfolioButton{
             top: 74%;
-        }
+        } */
     }
 }
 
