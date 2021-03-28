@@ -4,6 +4,22 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+h2{
+width: 100%;
+    display: block;
+}
+
+#projNav{
+    top: 65%;
+    left: 7%;
+    bottom: 7%;
+    width: 90%;
+    height: 30%;
+    position: absolute;
+    /* background-color: #6C81AB; */
+
+}
 .togText {
     color: rgba(35, 0, 7, 1.0);
     margin: 0;
@@ -15,7 +31,98 @@ body {
     transform: translate(-50%, -50%);
     z-index: 1;
 }
+.projDescriptionText, .projHead{
+    width: 100%;
+    text-align: right    ;
+    padding-right: 10px;
+    color: rgba(35, 0, 7, 1.0);
 
+}
+.projDescription{
+    height: 70%;
+    width: 100%;
+    display: inline-block;
+    overflow: auto;
+
+}
+.mainContentContent{
+    /* position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 80vw;
+    height: 80vh; */
+    display: none;
+}
+
+
+.typefade{
+    height: 100%;
+    /* margin-top: 3%; */
+
+}
+.wcImg{
+display: inline;
+    max-width:816px;
+    max-height:614px;
+    /* width: auto;
+  height: auto; */
+     width: 100%;
+    height: 100%; 
+
+}
+/* #dwain{
+    max-width:816px;
+    max-height:614px;
+  
+     width: 100%;
+    height: 70vh; } */
+.wshpImg{
+        max-width:828;
+        max-height:604;   
+      /* margin-left: 10%; */
+      padding: 5%;
+         width: 100%;
+        height: 100%; 
+    }
+    .dwainImg{
+       max-height:700; 
+        max-width:450;    
+        object-fit: cover;
+
+      margin-left: 20%;
+         width: 60%;
+        height: 100%; 
+    }
+.slideImg{
+    display: inline;
+    max-width:816px;
+    max-height:614px;
+    /* width: auto;
+  height: auto; */
+     width: 100%;
+    height: 100%; 
+}
+
+#leftCol{
+    /* display: inline-block; */
+    float: left;
+    width: 30%;
+height: 100%;
+background-color: #EFFDFC;
+color: red;
+position: relative;
+border-right:  rgba(35, 0, 7, 0.9) 0.05vw solid;
+
+}
+.projImage{
+    display: inline-block;
+
+    width: 70%;
+    height: 100%;
+    }
 #bannerCanvas {
     display: none;
 }
@@ -41,6 +148,16 @@ body {
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
+.navText{
+   
+    font-size: 2vmax;
+   
+}
+.projText{
+ 
+    font-size: 1vmax;
+  
+}
 
 .buttonContent {
     width: 90%;
@@ -54,18 +171,78 @@ body {
     transform: translate(-50%, -50%)
 }
 
+
 .but {
     border: rgba(35, 0, 7, 0.9) 1px solid;
     position: absolute;
     border: rgba(35, 0, 7, 0.9) 1px solid;
-    width: 15vw;
+    width: 12vw;
     height: 5vh;
 }
 
-#infoButton {
+.projBut{
+    /* position: absolute; */
+    border: rgba(35, 0, 7, 0.9) 1px solid;
+    display: inline-block;
+    width:45%;
+    height: 30%;  
+    margin: 0.5%;
+    position: relative;
+    background: #f6faed;
+
+       /* background-color: #6C81AB; */
+
+}
+.projButtonContent {
+  
+   /* background-color: #6C81AB; */
+   margin: 0; 
+   position: absolute; 
+    top: 50%;
+   left: 50%; 
+   margin-right: -50%;
+   transform: translate(-50%, -50%) ;
+}
+.projText{
+    color: rgba(35, 0, 7, 1.0);
+    margin: 0;
+    font-size: 1vmax;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) */
+}
+#infoButton  {
     top: 75%;
     left: 12%;
 }
+/* #wcButton {
+    left: 10%;
+    top: 55vh
+}
+#acidButton{
+    left: 10vw;
+    top: 60vh
+}
+#vaseButton{
+    left: 10vw;
+    top: 65vh;
+}
+
+#dwainButton{
+    left: 10%;
+    top: 70vh
+}
+#typeButton{
+    left: 10%;
+    top: 75vh
+}
+#teachButton{
+    left: 10%;
+    top: 80vh
+} */
+
 
 #emailButton {
     left: 15%;
@@ -81,7 +258,10 @@ body {
     top: 82%;
     left: 70%;
 }
-
+ #portfolioButton{
+    top: 82%;
+    left:44%;
+ }
 .icon {
     height: 80%;
     position: absolute;
@@ -243,7 +423,113 @@ input:checked+.slider:before {
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
+/* Slideshow container */
+.slideshow-container {
+    /* max-width: 1000px; */
+    /* position: inli; */
+    /* margin: auto; */
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+  
+    width: 4%;
+    padding-top: 25%;
+    padding-left: 1%;
+    color: rgba(35, 0, 7, 1.0);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev {
+      left: 30%;
+      border-radius: 3px 0 0 3px;
+    }
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+    /* width:100%; */
+    height: 100%;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
 @media only screen and (max-width: 700px) {}
+@media only screen and (min-width: 768px) {.wcfade, .acidfade, .vasefade{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}}
 
 @media only screen and (max-width: 768px) {
     #switchGyro {
@@ -253,6 +539,32 @@ input:checked+.slider:before {
         left: 32vw;
         top: 12vh;
         border: rgba(35, 0, 7, 0.9) 1px solid;
+    }
+    #leftCol{
+        position: absolute;
+        top:40%;
+        width: 100%;
+        height: 60%;
+    }
+    .projImage{
+        width: 100%;
+        height: 40%;
+    }
+    .prev, .next{
+        height: 40%;
+    }
+    .prev{
+    left: 0;
+    }
+    .typefade{
+        height: 100%;
+    }
+    .wcfade, .acidfade, .vasefade{
+        /* margin-top: 7%;  */
+        position: relative;
+    }
+    .projDescription{
+       height:  62%;
     }
     #switchSensible {
         position: absolute;
@@ -271,20 +583,36 @@ input:checked+.slider:before {
     }
     .but {
         width: 35vw;
-        height: 6vh;
-    }
-    #infoButton, #emailButton {
+        height: 4vh;
         left: 12vw;
     }
-    #instaButton, #soundcloudButton {
+     #infoButton, #portfolioButton, #instaButton {
+        left: 12vw;
+    }
+    #infoButton, #emailButton{
+        top: 75vh;
+    }
+    #soundcloudButton,#emailButton{
+
+        left: 52vw;
+    }
+    #instaButton, #soundcloudButton{
+        top: 80vh;
+    }
+    #portfolioButton{
+        top: 85vh;
+        width: 75vw;
+    }
+    
+    /*#instaButton, #soundcloudButton {
         left: 52vw;
     }
     #soundcloudButton, #emailButton {
         top: 82vh;
     }
-    #infoButton, #instaButton {
+    #infoButton, #instaButton , #portfolioButton{
         top: 74vh;
-    }
+    } */
     #info {
         font-size: 4vmin;
     }
@@ -309,7 +637,7 @@ input:checked+.slider:before {
         #soundcloudButton, #emailButton {
             top: 82%;
         }
-        #infoButton, #instaButton {
+        #infoButton, #instaButton , #portfolioButton{
             top: 74%;
         }
     }
@@ -321,6 +649,24 @@ input:checked+.slider:before {
         width: 5vw;
         height: 3vh;
     }
+
+    #leftCol{
+        /* display: inline-block; */
+        top: 0;
+        float: left;
+        width: 30%;
+    height: 100%;
+    background-color: #EFFDFC;
+    color: red;
+    position: relative;
+    border-right:  rgba(35, 0, 7, 0.9) 0.05vw solid;
+    }
+    .projImage{
+        display: inline-block;
+    
+        width: 70%;
+        height: 100%;
+        }
     #switchGyro {
         position: absolute;
         width: 5vw;
@@ -341,23 +687,26 @@ input:checked+.slider:before {
         border: rgba(35, 0, 7, 0.9)1px solid;
         color: rgba(35, 0, 7, 1.0);
         border: rgba(35, 0, 7, 0.9)1px solid;
-        width: 17vw;
+        width: 14vw;
         height: 8vh;
     }
-    #infoButton, #instaButton, #soundcloudButton, #emailButton {
+    #infoButton, #instaButton, #soundcloudButton, #emailButton, #portfolioButton {
         top: 80vh;
     }
     #infoButton {
         left: 11vw;
     }
-    #emailButton {
-        left: 31vw;
+    #emailButton{
+        left: 27vw;
+    }
+    #portfolioButton {
+        left: 43vw;
     }
     #instaButton {
-        left: 51vw;
+        left: 59vw;
     }
     #soundcloudButton {
-        left: 71vw;
+        left: 75vw;
     }
     .mainContentText {
         margin-top: 10%;
@@ -368,7 +717,7 @@ input:checked+.slider:before {
             height: 80%;
         }
         .but {
-            width: 17%;
+            width: 14%;
             height: 8%;
         }
         #infoButton, #instaButton, #soundcloudButton, #emailButton {
@@ -378,13 +727,16 @@ input:checked+.slider:before {
             left: 11%;
         }
         #emailButton {
-            left: 31%;
+            left: 27%;
+        }
+        #portfolioButton {
+            left: 43%;
         }
         #instaButton {
-            left: 51%;
+            left: 59%;
         }
         #soundcloudButton {
-            left: 71%;
+            left: 75%;
         }
     }
 }
@@ -411,3 +763,6 @@ input:checked+.slider:before {
         height: 80vh;
        
 } */
+
+
+* {box-sizing:border-box}

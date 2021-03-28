@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name = "viewport" content = "width=device-width ,initial-scale=1.0">
+  <title>Edmund Oetgen</title>
+  <meta name="Edmund Oetgen" content="">
+  <link rel="icon" 
+      type="image/png" 
+      href="assets/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/src/stats.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <div id="mainContent">
+    <p class="mainContentText" id="home" style="display: none;" >edmund  oetgen</p>
+  <div id="leftCol">
+    <div class= "projDescription">
+      <h2 class="mainContentContent projHead" id='wcHead'> Pigments  </h2>
+      <p class="mainContentContent projDescriptionText" id='wcInfo'>A study in recreating the texture of analog materials such as inc and water colours. 
+        <br>
+        <br>
+        Technologies used: OpenFrameworks, OpenGl shaders.</p>
+     
+      <h2 class="mainContentContent projHead" id='teachHead'> Teaching </h2>
+      <p class="mainContentContent projDescriptionText" id= 'teachInfo'> 
+        I have taught Creative Technology to art and design students, at both University of the Arts London and Goldsmiths, University of London.
+        <br> <br> Working with postgraduate  and undergraduate  students from all skill levels, I have taught workshops on a wide range of topics, including creative coding, physical computing and pose detection.
+        <br>  <br>I also have extensive experience working in a one-to-one capacity, teaching the technical skills needed to complete design briefs.  </p>
+    
+      <h2 class="mainContentContent projHead" id='vaseHead'> Growing Vases  </h2>
+      <p class="mainContentContent projDescriptionText" id='vaseInfo' >Generative Vase Forms<br>        Several hundred generations of a  <a href='https://medium.com/@jason.webb/2d-differential-growth-in-js-1843fd51b0ce'> differential growth algorithm </a>are layered on top of each other. The resulting layers areas are modulated, then connected to form a single mesh.
+        <br>
+        <br>
+        Technologies used OpenFrameworks, OpenGL.</p>
+     
+      <h2 class="mainContentContent projHead" id='acidHead'> Acid Trip  </h2>
+      <p class="mainContentContent projDescriptionText" id='acidInfo'>A series of parametric posters, celebrating the psychedelic. 
+        <br>
+        <br>
+        Technologies used: OpenFrameworks, OpenGl shaders.
+        </p>
+     
+      <h2 class="mainContentContent projHead" id='dwainHead'> D.W.A.I.N. </h2>
+
+      <p class="mainContentContent projDescriptionText" id='dwainInfo'>[Drummer With Artificially Intelligent Noise]
+        <br>
+        A novel digital drum synthesiser and sequencer using machine learning. Running on the Bela audio processing platform, neural networks are used to create arbitrary mappings between knobs and various synthesis parameters. D.W.A.I.N. explores the collaboration between musician and instrument, and how the physical interaction between the two can influence the user experience.
+        <br>
+        <br>
+        Sound Demos <a href="https://soundcloud.com/oetgen/sets/dwain-demos">here</a>
+        Detailed Explanation <a href="https://www.dropbox.com/s/xpg62sa4eh26eot/D.W.A.I.N..pdf?dl=0"> here </a>
+        <br>
+        <br>
+        Technologies used: Bela, C++, Maximilian Audio Library.</p>
+      
+      <h2 class="mainContentContent projHead" id='typeHead'> Type Experiments  </h2>
+      <p class="mainContentContent projDescriptionText" id='typeInfo'> Experiments in type and motion.
+        <br>
+        Real time systems for generating kinetic, reactive typography.
+        <br>
+        <br>
+        Technologies Used: OpenFrameworks, P5.js, OpenGl
+        
+        
+         </p>
+      <video id="video" muted></video>
+     
+
+      <div id = 'projNav'>
+
+       
+        <div class='projBut' id='wcButton'onclick="plusSlides(0, 0, 5)">
+         <div class = 'projButtonContent'>
+           <!-- <a href="" target="_blank"><span></span></a> -->
+           <p class="projText"> Pigments</p>
+         </div>
+       </div>
+       <div class='projBut' id='typeButton'onclick="plusSlides(0, 14, 10   )">
+        <div class = 'projButtonContent'>
+          <p class="projText"> Type Experiments</p>
+        </div>
+      </div>
+       <div class='projBut' id='acidButton' onclick="plusSlides(0, 11, 3)">
+         <div class = 'projButtonContent'>
+           <!-- <a href="" target="_blank"><span></span></a> -->
+           <p class="projText"> Acid Trip</p>
+         </div>
+       </div>
+       <div class='projBut' id='vaseButton' onclick="plusSlides(0, 5, 6)">
+         <div class = 'projButtonContent'>
+           <!-- <a href="" ><span></span></a> -->
+           <p class="projText"> Growing Vases</p>
+         </div>
+       </div>
+       <div class='projBut' id='dwainButton' >
+         <div class = 'projButtonContent'>
+           <p class="projText"> D.W.A.I.N</p>
+         </div>
+       </div>
+    
+       <div class='projBut' id='teachButton'>
+        <div class = 'projButtonContent'>
+         <p class="projText"> Teaching</p>
+        </div>
+      </div>
+     </div>
+    </div>
+    </div>
+
+    <div class ="projImage"> 
+      <img  class="mainContentContent wshpImg" id='teach' src="assets/teach/pnWSHP.png"  ></img>
+     
+      <div class="slideshow-container mainContentContent  " id = 'wc' >
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade wcfade">
+          <!-- <div class="numbertext">1 / 3</div> -->
+          <img class = "slideImg"  src="assets/wc/dissolve0.279625.png" >
+          <!-- <div class="text">Caption Text</div> -->
+        </div>
+      
+        <div class="mySlides fade wcfade">
+          <!-- <div class="numbertext">2 / 3</div> -->
+          <img class = "slideImg" src="assets/wc/dissolve0.514634.png" >
+          <!-- <div class="text">Caption Two</div> -->
+        </div>
+      
+        <div class="mySlides fade wcfade">
+          <!-- <div class="numbertext">3 / </div> -->
+          <img class = "slideImg"src="assets/wc/sea.png" >
+          <!-- <div class="text">Caption Three</div> -->
+        </div>
+        <!-- <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <video class = "slideImg" width="320" height="240" autoplay muted>
+            <source src="assets/wc/2020-04-22 15-14-52.mp4" type="video/mp4">
+            </video>
+          </div> -->
+
+            <div class="mySlides fade wcfade">
+              <!-- <div class="numbertext">3 / 3</div> -->
+              <video class = "slideImg" width="320" height="240" autoplay muted>
+                <source src="assets/wc/outputbw.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="mySlides fade wcfade">
+                <!-- <div class="numbertext">3 / 3</div> -->
+                <video class = "slideImg" width="320" height="240" autoplay muted>
+                  <source src="assets/wc/outputrgb.mp4" type="video/mp4">
+                  </video>
+                </div>
+          <!-- <div class="text">Caption Three</div> -->
+           <!-- Next and previous buttons -->
+        <a class="next" onclick="plusSlides(1,0, 5)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1,0, 5)">&#10094;</a>
+
+      </div>
+      <div class="slideshow-container mainContentContent " id = 'vase' >
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade vasefade">
+          <div class="numbertext">1 / 3</div>
+          <img class = "slideImg"  src="assets/vases/sin.png" >
+          <!-- <div class="text">Caption Text</div> -->
+        </div>
+      
+        <div class="mySlides fade vasefade">
+          <!-- <div class="numbertext">2 / 3</div> -->
+          <img class = "slideImg" src="assets/vases/sinScal.png" >
+          <!-- <div class="text">Caption Two</div> -->
+        </div>
+      
+        <div class="mySlides fade vasefade">
+          <!-- <div class="numbertext">3 / </div> -->
+          <img class = "slideImg"src="assets/vases/gourd.png" >
+          <!-- <div class="text">Caption Three</div> -->
+        </div>
+        <div class="mySlides fade vasefade">
+          <!-- <div class="numbertext">3 / </div> -->
+          <img class = "slideImg" src="assets/vases/spout.png" >
+        </div>
+        <div class="mySlides fade vasefade">
+          <!-- <div class="numbertext">3 / </div> -->
+          <img class = "slideImg" src="assets/vases/sinScal2.png" >
+        </div>
+        <div class="mySlides fade vasefade">
+          <!-- <div class="numbertext">3 / </div> -->
+          <img class = "slideImg" src="assets/vases/tubular.png" >
+        </div>
+          <!-- <div class="text">Caption Three</div> -->
+           <!-- Next and previous buttons -->
+        <a class="next" onclick="plusSlides(1, 5,6)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1, 5, 6)">&#10094;</a>
+
+    </div>
+    <div class="slideshow-container mainContentContent " id = 'acid' >
+
+     
+
+          <div class="mySlides fade acidfade">
+            <div class="numbertext">3 / 3</div>
+            <video class = "slideImg" width="320" height="240" autoplay muted>
+              <source src="assets/acid/acid1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="mySlides fade acidfade">
+              <div class="numbertext">3 / 3</div>
+              <video class = "slideImg" width="320" height="240" autoplay muted>
+                <source src="assets/acid/acid2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="mySlides fade acidfade">
+                <div class="numbertext">3 / 3</div>
+                <video class = "slideImg" width="320" height="240" autoplay muted>
+                  <source src="assets/acid/acid3.mp4" type="video/mp4">
+                  </video>
+                </div>
+        <!-- <div class="text">Caption Three</div> -->
+         <!-- Next and previous buttons -->
+      <a class="next" onclick="plusSlides(1,11, 3)">&#10095;</a>
+      <a class="prev" onclick="plusSlides(-1,11,3)">&#10094;</a>
+
+    </div>
+    <img  class="mainContentContent dwainImg" id='dwain' src="assets/dwain/Screenshot 2021-03-27 at 15.23.52.png"  ></img>
+    <div class="slideshow-container mainContentContent" id = 'type' >
+
+     
+
+      <div class="mySlides fade typefade">
+        <!-- <div class="numbertext">3 / 3</div> -->
+        <video class = "slideImg" width="320" height="240" autoplay muted>
+          <source src="assets/type/dayvid.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="mySlides fade typefade">
+          <!-- <div class="numbertext">1 / 3</div> -->
+          <img class = "slideImg"  src="assets/type/day.jpg" >
+        </div>
+        <div class="mySlides fade typefade">
+          <!-- <div class="numbertext">1 / 3</div> -->
+          <img class = "slideImg"  src="assets/type/day2.jpg" >
+        </div>
+      
+        <div class="mySlides fade typefade">
+          <!-- <div class="numbertext">3 / 3</div> -->
+          <video class = "slideImg" width="320" height="240" autoplay muted>
+            <source src="assets/type/blob.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="mySlides fade typefade">
+            <!-- <div class="numbertext">3 / 3</div> -->
+            <video class = "slideImg" width="320" height="240" autoplay muted>
+              <source src="assets/type/rubber.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="mySlides fade typefade">
+              <!-- <div class="numbertext">3 / 3</div> -->
+              <video class = "slideImg" width="320" height="240" autoplay muted>
+                <source src="assets/type/jit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="mySlides fade typefade">
+                <!-- <div class="numbertext">3 / 3</div> -->
+                <video class = "slideImg" width="320" height="240" autoplay muted>
+                  <source src="assets/type/morph.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="mySlides fade typefade">
+                  <!-- <div class="numbertext">3 / 3</div> -->
+                  <video class = "slideImg" width="320" height="240" autoplay muted>
+                    <source src="assets/type/dub.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="mySlides fade typefade">
+                    <!-- <div class="numbertext">3 / 3</div> -->
+                    <video class = "slideImg" width="320" height="240" autoplay muted>
+                      <source src="assets/type/gas.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="mySlides fade typefade">
+                      <!-- <div class="numbertext">3 / 3</div> -->
+                      <video class = "slideImg" width="320" height="240" autoplay muted>
+                        <source src="assets/type/pig.mp4" type="video/mp4">
+                        </video>
+                      </div>
+    <!-- <div class="text">Caption Three</div> -->
+     <!-- Next and previous buttons -->
+  <a class="next" onclick="plusSlides(1,14, 10)">&#10095;</a>
+  <a class="prev" onclick="plusSlides(-1,14,10)">&#10094;</a>
+
+</div>
+      </div>
+ 
+    </div> 
+
+   
+    
+    </div>
+
+      
+      
+    </div>
+  
+  
+  
+  <a    href="./index.html"><div class="egg" id = "homeButton"></div></a>
+ 
+<canvas id='bannerCanvas'></canvas>
+
+<script src="js/src/three.js"></script>
+<script src="./js/info.js" async defer></script>
+
+
+ <script id="vertexShader" type="notjs">
+        const float TWO_PI = 6.2831855;
+        varying vec2 vUv;
+        varying vec2 vUvStraight;
+            uniform float cam;
+
+        uniform float u_test;
+      // uniform float u_time;
+        uniform float mx;
+        uniform float my;
+
+        uniform vec2 u_resolution;
+
+
+        void main() {
+            float u_time = 0.;
+            vUv = uv;
+            vUvStraight = uv;
+
+            vec2 texcoord = uv * u_resolution;
+   float mixX =  mx*2.0;
+   float mixY =my*5.0;
+    
+
+            float spoint =((((sin(u_time ))* 0.17*uv.x)  + (sin(uv.y *1.2 * TWO_PI +u_time ) * 0.2))+ 0.4 );
+          //  <!-- vUv = vec2(spoint+(sin(uv.x * u_time * 3.  ) * 5. )); -->
+            vUv = vec2(mix(spoint+(sin(uv.x * u_time * 3.  ) * 5.  ),uv.x, mixX) , uv.y);//mix(texcoord.y+(cos(uv.y * u_time * 2.  ) * 5. ),uv.y, mixY) );
+            vec3 pos = position;
+          //  <!-- pos.y = position.y * 1.0 -(u_test * (sin(uv.x * TWO_PI))); -->
+            gl_Position = projectionMatrix *
+                           modelViewMatrix *
+                           vec4(pos,1.0);
+           }
+           
+           </script>
+
+  <script id="fragmentShader" type="notjs">
+            const float TWO_PI = 6.2831855;
+
+            uniform sampler2D texture1;
+            uniform sampler2D texture2;
+
+            uniform float u_test;
+            uniform float u_time;
+            uniform float cam;
+            varying vec2 vUv;
+            varying vec2 vUvStraight;
+           
+            uniform vec2 u_resolution;
+
+            uniform float mx;
+        uniform float my;
+
+            float notRand(vec2 co)
+            {
+             return (dot(sin(co.x * TWO_PI + u_time  ), cos(TWO_PI * co.y + u_time)));
+            }
+
+            float dist (vec2 a, vec2 b){
+
+              return sqrt( ((a.x -b.x) * (a.x - b.x)) + ((a.y -b.y) * (a.x - b.y)) );
+            }
+            void main() {
+                float MX = mx - 0.5;
+                float MY = my - 0.5;
+                float borderWidth = u_resolution.x * 0.1;
+                vec2 st = vUv;
+                
+                vec4 col;
+               // if(( (  vUvStraight.x > 0.2 && vUvStraight.x < 0.21 ) || (vUvStraight.x > 0.79 && vUvStraight.x < 0.8)) && (vUvStraight.y > 0.2 && vUvStraight.y <0.8)
+               // || ( (  vUvStraight.y > 0.2 && vUvStraight.y < 0.21 ) || (vUvStraight.y > 0.79 && vUvStraight.y < 0.8)) && (vUvStraight.x > 0.2 && vUvStraight.x <0.8) ){
+              //      col = vec4(1.0);
+              //  }else{
+                
+                st.x += notRand(vUv) * MX;
+                st.y+= notRand(vUv) *MY;
+                
+
+                col = texture2D(texture1, st);
+             
+             if(cam == 1.0) {
+              if(st.x >0.1 && st.x < 0.9 && st.y > 0.1 && st.y < 0.9){
+               // st*=1.1111111;
+                              col = texture2D(texture2, st);
+             }
+                  }
+             
+
+              if(col == vec4(1.0)) col.w = 0.;
+                gl_FragColor = col;
+              }
+           </script>
+</body>
+
+</html>
+
+</body>
+
+</html>
